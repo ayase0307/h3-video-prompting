@@ -11,6 +11,8 @@
 | 節奏鬆、幻燈片感 | 沒切時間、shot 太長 | 拆成有時間戳的 shot | 每個 cut 帶新資訊 | 平均分秒數 |
 | timestamp 太密、動作沒完成 | shot < 2 s、對白塞不下 | 合併 shot 或拉長 | 砍台詞 | |
 | 慢動作抖動閃爍 | 背景高熵 | 簡化環境（雨→毛毛雨） | 慢動作獨立 shot | 再加形容詞 |
+| 整支片都是慢動作／飄浮感（非刻意慢動作 shot） | ①薄 prompt ＋ 長時長（一件事撐滿秒數，模型只好拉長）②降步數本地加速（Turbo/蒸餾 LoRA）本身就會飄 | 提高事件密度：5 秒 3 beats，每段用 `[0 to 1.5s]` 切時間戳，動作內加變化（推鏡／光移／有人入畫） | 仍不夠就換引擎：base 全步數，或改 PDD Acc 8-step LoRA（`MiniMax-H3-FL2VA/Ref2VA-Acc-8Step`） | 只寫「normal speed」；把 10 秒塞一件事 |
+| 皮膚蠟感／塑膠感（近景最明顯） | 高頻細節在低解析訓練 bucket 就丟了；商業打光詞與磨皮詞加成 | 加固定皮膚描述句（見 `skin-realism-block.md`）＋ medium/close shot 給模型更多臉部資訊 | 疊 fal `MiniMax-H3-Realism-People-LoRA`（prompt 以 `r34l1sm` 開頭，strength 0.65），或後期用 H3 Skin Finish 類節點（只動 mask 內膚色/油光） | 上 beauty filter 或無腦 upscaler（會把紋理一起磨掉） |
 | 加了音樂（寫了 N/A 仍有） | 約 20% 漏；文中有「氛圍音樂」字眼 | 全文移除任何音樂情緒詞 | 重抽 | |
 | 亂語 / 隨機台詞 | 沒安排動作、看鏡頭 | 正向寫「全程安靜、嘴閉合」+ 持續動作 | 改側臉/中遠景 | 用引號或台詞格式 |
 | 錯的人說話 | speaker 沒綁到畫面內角色 | 明寫 (S1) 是畫面內哪個角色 | 音頻參考與 speaker 分開標 | 把 S ID 給 Audio 資產 |
