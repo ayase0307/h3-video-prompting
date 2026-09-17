@@ -32,6 +32,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 鏡頭 20 種官方詞、景別鏡頭角度、轉場寫成事件：`references/camera-and-transitions.md`
 - 對白預算、speaker、聲音參考、配樂進出、不說話寫法、字幕：`references/audio-and-dialogue.md`
 - 素材分工、動作/運鏡/表演遷移、影片編輯、續接、首尾幀與循環：`references/references-and-editing.md`
+- **長片規劃（30–60 秒以上多段生成、路線選擇、接點載體、分鏡表模板）**：`references/long-form-planning.md`
 - 完整改寫範例：`references/example-fight-10s.md`
 
 ## 預算表（社群實測上限）
