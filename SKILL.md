@@ -69,6 +69,15 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 中文台詞不出聲：repo tokenizer + `<d>[Chinese] …</d>` + 檢查 shell 編碼。
 - 三張圖敘事：先 `<Subject 1>` 合併同一角色，Picture 只當關鍵幀；每次切鏡留一個可觀察的連續載體（動作、視線、道具接觸、動量、聲音）。
 - 時間點對齊實際有效時長（幀數 snap 後以實際為準）。
+- 8G 本地跑 Turbo/蒸餾 LoRA（低步數）＝**動作本來就會飄、偏慢**，這是引擎特性不是 prompt 錯；要真速度感改用 PDD Acc 8-step 或 base 全步數（兩者與 Turbo LoRA 互斥，不能同疊）。
+
+## 守富定版：三段式骨架與皮膚段
+
+守富的影片提示詞一律用：`【鏡頭——賣點】`（依場景改寫）→ `【光線——色調】`（依場景改寫）→ `【皮膚——通透白皙有真實肌理】`（**整段照抄**，只微調光色字眼）。完整原文與 H3 散文版：`references/skin-realism-block.md`。
+
+- H3 prompt 由 Qwen3-VL 解析，不是 CLIP：SD 風的 `(token:1.2)` 權重語法無效，要改寫成敘述句，詞彙照留。
+- 皮膚段搭配 fal `MiniMax-H3-Realism-People-LoRA` 時，`r34l1sm` 仍放 prompt 最開頭。
+- 15 秒＝362 幀、8 秒＝192 幀（只有 8 秒落在整秒），長度需符合 17k+5 幀網格。
 
 ## Red flags：看到就停下重寫
 
