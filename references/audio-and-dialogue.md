@@ -2,6 +2,20 @@
 
 來源：官方 base-en.txt 4.4/4.6/4.7；官方飛書手冊評論區回覆；ambienceai 對白預算實測；debutify 對白表演；audiencescience 三層時間軸；atlascloud lip-sync 實測；virse 聲音參考限制；AI-KSK dialogue-audio-recipes；aireiter 引用的 Reddit 回報。
 
+## 音訊規則索引（去哪找什麼）
+
+| 要解決的事 | 讀 |
+|---|---|
+| 一次生成聲畫、跨片段鎖角色音色、續接、換台詞對嘴 | `audio-pipeline.md` §A |
+| 情緒與表演：H3 內寫法 vs 外部 TTS 參數（四維配音法對照） | `audio-pipeline.md` §B、本檔 §4 |
+| 必須配音時避開口型（旁白、內心戲、背影、cutaway）、口型工具授權 | `audio-pipeline.md` §C、本檔 §6 |
+| 原生音效不可靠時改後製：Openverse、授權署名、ffmpeg 混音 | `audio-pipeline.md` §D、本檔 §8 |
+| 對白預算、speaker、`<d>`、配樂寫法 | 本檔 §1–3、§9 |
+| 聲音相關症狀（亂語、錯人說話、無預期配樂、字幕） | `failure-triage.md` |
+| 口型與表情動作（橡皮嘴、說完收嘴） | `motion-quality.md` |
+| 對白跨切點（J-cut / L-cut）、卡點 | `rhythm-and-pacing.md` §10 |
+| 長片的聲音接點 | `long-form-planning.md` |
+
 ## 1. 三層音軌各歸其位
 
 | 層 | 寫在哪 | 內容 |
@@ -44,7 +58,7 @@
 
 ## 5. 聲音參考（Ref2VA `<Audio N>`）
 
-- `<Audio 1>` 是音色/語氣參考時，台詞來自 prompt，**參考音檔要唸不同的句子**，否則模型會直接複製音軌。
+- `<Audio 1>` 是**音色/語氣參考**時，台詞來自 prompt，參考音檔要唸不同的句子，否則模型會直接複製音軌。要原音照搬是另一種任務（`audio reuse`），`<d>` 逐字照抄原話，見 `audio-pipeline.md` §A。
 - 明寫角色：`<Audio 1> is the voice-timbre reference for <Subject 1> (S1). Reference the timbre only; do not reuse its words.`
 - 聲音參考不是波形保留：語句會被重新合成；0.1 秒的時序差就可能掉字。對白必須逐字精確時，把原音當獨立資產後製。
 - 參考影片自帶音軌會滲入（女聲笑套到男角色）；換匹配的參考或在 Sound 句明寫。

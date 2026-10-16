@@ -83,3 +83,15 @@
 
 狀態：MiniMax-AI/MiniMax-H3 的 GitHub 到 2026-10-16 仍沒有有日期的 release，無法判斷規則是哪一版改的。
 規則：無授權或 AGPL 的來源只轉寫概念，不收任何原句。本批沒有一條是 H3 實測。
+
+## 音訊管線（audio-pipeline.md，2026-10-16）
+
+| 來源 | 授權 | 採用 | 可信度 |
+|---|---|---|---|
+| MiniMax-AI/MiniMax-H3 `ref-en.txt` / `base-en.txt` / README | 官方 | `<Audio N>` 用法、audio reuse / reference、L2VA 定義、輸出規格 | 官方 |
+| platform.minimax.io T2A v2 文件 | 官方 | speed / vol / pitch / emotion / `<#x#>` | 官方 |
+| docs.comfy.org H3 partner 文件 | 官方轉述 | 聲畫同一次 forward、音訊需配圖或影片 | 官方轉述 |
+| api.openverse.org、creativecommons.org 4.0 legalcode | 官方 | 端點、限額、授權與署名 | 官方＋實測 |
+| LatentSync / MuseTalk / Wav2Lip repo | 各自授權 | 口型工具授權比較 | 官方 repo |
+| virse.ai、Atlas Cloud、dev.to | 第三方 | 音色重新合成、voice crossover、文字描述聲線 | 社群單源 |
+| ComfyUI issue 15283 | — | 大聲場景爆音 | 社群單源 |
