@@ -62,3 +62,24 @@
 - 官方評論區回覆（用户5333）：關於不說話、音效時間、字幕、光照負向詞，是第一手官方建議。
 - 第三方平台文（reAPI / atlascloud / Kapwing 等）：多數與官方一致；限制數字（時長 5–10 vs 4–15、768p vs 2K）因平台而異，以你實際用的端點為準。
 - Hailuo 知識庫的 Temporal Prompting 寫給 Hailuo 舊版自然語言入口；「形容詞優於數字」在 H3 自然語言模式仍適用，但 H3 結構化格式本身就支援時間戳。
+
+## 2026-10 研究批次（四支抖音 + Seedance/漫劇 GitHub + 中文社群）
+
+| 來源 | 授權 | 用了什麼 | 可信度 |
+|---|---|---|---|
+| 抖音 1（7686479295782341938）電影感來自關係 | — | 關係、光線路徑、攝影機動機 | 方法主張；展示工具不是 H3；無 H3 實測 |
+| 抖音 2（7694988979074010404）分鏡表 | — | spec 卡欄位、角度慣例 | 方法主張；逐字稿逾時，只採影音摘要 |
+| 抖音 3（7696840221446393126）混合媒介 | — | C9b 分層 | 方法主張；展示 Seedream 類工具；無 H3 實測 |
+| 抖音 4（7686079109826465078）6 種運鏡 | — | camera §9 對照表（已 remap） | 方法主張；無 H3 實測 |
+| alchaincyf/seedance-skill | MIT | 跳景別 >30°、運動放後段、焦段壓縮 | 僅別模型（作者白模自測） |
+| zhouwei713/seedance-prompt | MIT | 設備缺陷、氛圍詞翻成現象 | 僅別模型，未附對照 |
+| LearnPrompt/awesome-seedance | MIT | 低機位前景掠過、恐怖逐鏡升級 | 僅別模型（人工驗證案例） |
+| songguoxs/seedance-prompt-skill | 無授權聲明 | 只借概念：前景遮擋 | 僅別模型 |
+| chillzhuang/Kinema | AGPL-3.0 | 只借概念：停–爆–停、逆轉點換角度、讀數鏡 | 純理論 |
+| MIKA6941/Comfy-H3-Director | 無授權 | 只借概念：match on action | 純理論（H3 專用，但無實測紀錄） |
+| djyy1031/ai-comic-drama-director-skills | MIT | 固定、運鏡、切鏡三選一，運鏡鏈 | 純理論 |
+| hailuoai.video 前景／背景深度文 | 第三方 | 金字塔細節 | 純理論 |
+| mindstudio、fal Kling 3 | 第三方 | 焦點轉移 | 僅別模型 |
+
+狀態：MiniMax-AI/MiniMax-H3 的 GitHub 到 2026-10-16 仍沒有有日期的 release，無法判斷規則是哪一版改的。
+規則：無授權或 AGPL 的來源只轉寫概念，不收任何原句。本批沒有一條是 H3 實測。

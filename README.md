@@ -1,51 +1,124 @@
-# h3-video-prompting
+<p align="center">
+  <img src="assets/hero.jpg" alt="A film strip unrolling across a director's desk, each frame a different shot size" width="100%">
+</p>
 
-MiniMax H3（Hailuo 3）影片生成 prompt 的 Agent Skill。整理官方指南、官方飛書手冊（含 MiniMax 官方在評論區的回覆）、社群 prompt 庫與實測文章，重點放在**人物動作品質、節奏卡點、各種情境的寫法、失敗分診**。
+<h1 align="center">h3-video-prompting</h1>
 
-An agent skill for writing MiniMax H3 / Hailuo 3 video prompts: motion quality, rhythm and beat-synced cuts, scenario playbooks (dialogue, UGC, MV, dance, fight, product, brand, UI, animals, anime, VFX, loops, editing…), and a symptom → fix triage table, compiled from the official guides, the official Feishu manual, community prompt libraries and creator reports.
+<p align="center">
+  <b>Agent Skill for writing MiniMax H3 / Hailuo 3 video prompts that actually get followed, and don't come out flat.</b>
+</p>
 
-## 安裝
+<p align="center">
+  <b>English</b> · <a href="README.zh-TW.md">繁體中文</a>
+</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="MIT" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+  <img alt="Agent Skill" src="https://img.shields.io/badge/agent-skill-8A2BE2">
+  <img alt="MiniMax H3" src="https://img.shields.io/badge/MiniMax-H3%20%2F%20Hailuo%203-ff5a36">
+  <img alt="Modes" src="https://img.shields.io/badge/modes-T2VA%20·%20I2VA%20·%20FL2VA%20·%20L2VA%20·%20Ref2VA-0a7">
+</p>
+
+---
+
+## Why this skill
+
+Most H3 clips fail for the same few reasons: the prompt describes a *picture* instead of a *timeline*, every shot looks like the one before it, or too much is packed into too few seconds. This skill gives your agent the rules, budgets and templates to avoid that.
+
+- **Motion first.** One main action and one camera move per shot, written as a trajectory with a landing point.
+- **Not monotonous.** Cross-shot rules (shot size, angle, move type and subject must change between neighbours), one depth layer and one light path per shot, a planned energy peak.
+- **Scenario playbooks.** Dialogue, UGC, MV, dance, fight, product, brand, anime, VFX, loops, editing…
+- **Failure triage.** 37 symptoms → cause → fix, plus an 8-question pre-send check.
+
+<p align="center">
+  <img src="assets/storyboard.jpg" alt="Four storyboard panels of one scene: wide through a window, high-angle close-up, eye-level medium, low-angle medium-wide" width="85%"><br>
+  <sub>Same scene, four shots. Every neighbouring pair differs in size, angle and subject.</sub>
+</p>
+
+## The workflow
+
+```mermaid
+flowchart LR
+    A[Brief] --> B[Beats<br/>state change per shot]
+    B --> C[Spec card<br/>size · angle · move · subject · light]
+    C --> D[Compress<br/>action > camera > light > media]
+    D --> E[Format<br/>h3-prompt-writing]
+    E --> F{{Self-check<br/>budgets + 4-axis variety}}
+    F -->|fail| D
+    F -->|pass| G[Generate]
+    G --> H[QC · A/B one change at a time]
+```
+
+The spec card is a **planning tool, not the prompt**. It is compressed into the prompt in priority order, so the word budget (300–700 English words for T2VA) never breaks.
+
+## Before / after
+
+**Flat** — adjectives, three camera moves, no state change:
+
+```text
+[Shot 1] A woman sits in a diner, cinematic, dynamic camera, epic lighting.
+[Shot 2] At 00:02.000 a close-up, zoom in, pan left, orbit, high quality.
+```
+
+**Staged** — a state change, one foreground layer, one light path, one camera move per shot:
+
+```text
+[Shot 1] Wide shot through a rain-streaked window, blurred drops in the foreground.
+First her phone lights up, then she reads it, as her thumb stops. Red neon through
+the wet glass lights only her left cheek. The camera pushes in with small amplitude
+at slow speed, ending at the window frame.
+
+[Shot 2] At 00:02.500, the shot cuts to a high-angle close-up of the untouched cup,
+her out-of-focus hand in the foreground … The camera holds a static shot.
+```
+
+Full walk-through from spec card to a finished three-field prompt: [`example-spec-to-prompt-10s.md`](references/example-spec-to-prompt-10s.md). Converting a Seedance time-coded prompt to H3 format: [`example-seedance-to-h3.md`](references/example-seedance-to-h3.md).
+
+## Install
 
 ```bash
-# 本 skill
+# this skill
 npx skills add ayase0307/h3-video-prompting
 
-# 必要的官方排版 skill（欄位名、<d> 標籤、Ref2VA 六段式）
+# required: the official formatting skill (field names, <d> tags, Ref2VA six-part layout)
 npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writing
 ```
 
-或手動：把整個資料夾放進 `~/.claude/skills/h3-video-prompting/`（Claude Code）或你的 agent 的 skills 目錄。
+Or copy the folder to `~/.claude/skills/h3-video-prompting/` (Claude Code) or your agent's skills directory.
 
-## 分工
+**Division of labour:** `h3-prompt-writing` (official) = final format. `h3-video-prompting` (this repo) = what to write, how to split it, which traps to avoid. Decide content here, format with the official skill.
 
-- `h3-prompt-writing`（官方）：最終格式。
-- `h3-video-prompting`（本 repo）：寫什麼、怎麼拆、哪些坑。先用本 skill 決定內容，再用官方 skill 排版。
+## What's inside
 
-## 內容
-
-| 檔案 | 內容 |
+| File | Covers |
 |---|---|
-| `SKILL.md` | 工作流程、情境索引、預算表、十條速查、本地 ComfyUI 注意事項、red flags |
-| `references/scenarios-people.md` | 對白短劇、UGC、唱歌 MV、舞蹈、打鬥、跑酷、喜劇、情感特寫、懸疑偽紀實、vlog、POV/FPS、旁白數位人、真人照片動畫 |
-| `references/scenarios-commercial.md` | 產品 hero、開箱示範、液體食物、品牌片、時尚美妝、logo 片頭、UI/遊戲選單、電商、工業機器人、建築旅遊 |
-| `references/scenarios-world-and-styles.md` | 空鏡、自然、動物、車輛追逐、手機偽紀實、2D anime、3D 卡通、黏土紙藝、手繪實拍融合、動態圖形、變身 VFX、循環、角色設定板、綠幕重打光、混剪 |
-| `references/motion-quality.md` | 動作弧線、重量動量、材質回應、手與物件、臉部表演、口型、舞蹈運動、慢動作、動畫風格規律、身份保持 |
-| `references/action-choreography.md` | 動作寫成軌跡、順序連接詞、打鬥一拍公式、一鏡到底 vs 切鏡、動作遷移、不說話寫法 |
-| `references/rhythm-and-pacing.md` | 時間軸、shot 最短長度、卡點觸發物、官方「律動」模板、唱歌節奏、速度形容詞、J/L-cut |
-| `references/camera-and-transitions.md` | 官方 20 種運鏡、景別鏡頭角度、各類型預設鏡頭、切鏡、轉場寫成事件、手持感 |
-| `references/audio-and-dialogue.md` | 三層音軌、對白預算、speaker 格式、表演方向、聲音參考、不說話、字幕、音效同步、配樂 |
-| `references/references-and-editing.md` | 素材分工、動作/運鏡/表演遷移、兩段式、影片編輯、續接、首尾幀與循環、真人照片 |
-| `references/prompt-formats.md` | 官方三欄 / 六段式 / 中文三段 / 社群區塊式，何時用哪種；平台參數地雷 |
-| `references/failure-triage.md` | 36 種症狀 → 原因 → 修法；送出前 8 問；成本策略 |
-| `references/example-fight-10s.md` | 一段完整的 10 秒打鬥改寫範例與決策說明 |
-| `references/community-sources.md` | 所有來源與可信度 |
+| `SKILL.md` | Workflow, scenario index, budget table, ten quick rules, local ComfyUI notes, red flags |
+| `references/shot-variety-and-staging.md` | **New.** 4-axis cross-shot rule, state change per shot, depth, light path, energy curve, pre-send self-check |
+| `references/example-spec-to-prompt-10s.md` | **New.** Spec card → 4-shot T2VA prompt, with the variety check worked out |
+| `references/example-seedance-to-h3.md` | **New.** Seedance prompt → H3 Ref2VA, every conversion explained |
+| `references/camera-and-transitions.md` | 20 official camera moves, shot size / lens / angle, camera motive, rack focus, transitions as events |
+| `references/long-form-planning.md` | 30–60 s multi-clip planning, seam carriers, spec card, storyboard template |
+| `references/scenarios-people.md` | Dialogue, UGC, MV, dance, fight, parkour, comedy, suspense, vlog, POV, digital human |
+| `references/scenarios-commercial.md` | Product, unboxing, food, brand film, fashion, logo sting, UI / game, e-commerce |
+| `references/scenarios-world-and-styles.md` | B-roll, nature, animals, vehicles, anime, 3D, clay / paper, mixed-media layers, VFX, loops |
+| `references/motion-quality.md` | Weight, momentum, materials, hands, faces, lip-sync, slow motion, identity |
+| `references/action-choreography.md` | Actions as trajectories, ordering words, one-beat fight formula |
+| `references/rhythm-and-pacing.md` | Timeline, minimum shot length, beat triggers, speed adjectives |
+| `references/audio-and-dialogue.md` | Three audio layers, dialogue budget, speaker format, music in / out |
+| `references/references-and-editing.md` | Reference roles, motion / camera transfer, video editing, continuation, first / last frame |
+| `references/prompt-formats.md` | Official 3-field / 6-part / Chinese 3-part / community block formats |
+| `references/failure-triage.md` | Symptom → cause → fix table, 8-question pre-send check |
+| `references/skin-realism-block.md` | Realistic-skin prompt block |
+| `references/example-fight-10s.md` | A full 10 s fight rewrite |
+| `references/community-sources.md` | Every source, licence and credibility level |
 
-## 來源
+## Honest limits
 
-官方：MiniMax-H3 GitHub / HF 指南、飛書使用手冊（45 個 goodcase + 官方回覆）、開放平台文件、Hailuo 知識庫。
-社群：AI-KSK 導演台 compiler、penposs 框架、stimQQ 與 BeatAPI 的 prompt 庫（222 例）、aireiter 引用的 Reddit/X 實測、Kapwing、reAPI、atlascloud、Runware、fal.ai、videoai.me、ambienceai、debutify、virse 等。完整清單見 `references/community-sources.md`。
+Budgets (shots per clip, one move per shot, word counts) come from official guides and community testing. The **cross-shot variety rules, spec card, light path, rack focus and mixed-media layering are method claims** adapted from other models' tutorials and prompt libraries. None has been verified on H3 itself. [`shot-variety-and-staging.md`](references/shot-variety-and-staging.md) §11 lists A/B tests to run on your own rig. Third-party prompts and articles remain the property of their authors; this repo records rules and rewrites, not copies.
 
-第三方 prompt 與文章的版權屬原作者；本 repo 只整理規則與寫法，範例為重寫。
+## Sources
+
+Official: MiniMax-H3 GitHub / HF guides, the Feishu manual, open-platform docs. Community: AI-KSK, penposs, stimQQ, BeatAPI, fal.ai, Kapwing, Runware, plus Seedance and AI-comic-drama skill repos and Chinese creator tutorials. Full list with licences: [`community-sources.md`](references/community-sources.md).
 
 ## License
 

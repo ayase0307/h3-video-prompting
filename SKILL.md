@@ -14,7 +14,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 1. **選格式**：本地 ComfyUI / 導演台 → 官方三欄或六段式；海螺 / Design / hosted 自然語言 → 中文三段或社群區塊式。決策表：`references/prompt-formats.md`。
 2. **選情境**：從下表找最接近的一到兩個，讀那一節的「優先順序 / 必寫 / 坑」。
 3. **先寫動作鏈，再寫鏡頭，再寫聲音，最後排版**（AI-KSK 口訣）。素材有的話先分工。
-4. **預算檢查**（下表），超標就砍動作或拆成多次生成。
+4. **預算檢查**（下表）＋跨 shot 變化自檢（`references/shot-variety-and-staging.md` §10），超標就砍動作或拆成多次生成。
 5. 送出前對照 `references/failure-triage.md` 的症狀表與 8 問。
 
 ## 情境索引
@@ -33,7 +33,8 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 對白預算、speaker、聲音參考、配樂進出、不說話寫法、字幕：`references/audio-and-dialogue.md`
 - 素材分工、動作/運鏡/表演遷移、影片編輯、續接、首尾幀與循環：`references/references-and-editing.md`
 - **長片規劃（30–60 秒以上多段生成、路線選擇、接點載體、分鏡表模板）**：`references/long-form-planning.md`
-- 完整改寫範例：`references/example-fight-10s.md`
+- **不單調：跨 shot 變化四軸規則、spec 卡壓縮優先序、能量曲線、送出前自檢**：`references/shot-variety-and-staging.md`（寫完 prompt 必跑 §10）
+- 完整改寫範例：`references/example-fight-10s.md`（打鬥）、`references/example-spec-to-prompt-10s.md`（spec 卡→三欄 prompt）、`references/example-seedance-to-h3.md`（Seedance 時間碼→H3 Ref2VA）
 
 ## 預算表（社群實測上限）
 
@@ -47,7 +48,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 | 重要角色 | ≤ 3 | 身份漂移、錯人說話 |
 | 慢動作 | 獨立 shot，背景動態元素減到最少 | 抖動、閃爍 |
 | 純文字 prompt | 300–700 英文字 | 太短 = 沒東西可參考 |
-| 有參考素材時 | 字數要縮，只寫新變化 | 文字跟圖片互搶，臉會變 |
+| 有參考素材時 | 字數要縮，只寫新變化；Ref2VA 的 `detailed_description` 為 350–500 英文字 | 文字跟圖片互搶，臉會變 |
 | 參考檔 | ≤9 圖 / ≤3 影片 / ≤3 音檔 / 總 ≤12；影片音檔各 2–15 s、總 ≤15 s；音檔不能單獨 | 被拒或被忽略 |
 
 ## 十條速查
@@ -61,7 +62,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 7. 聲音三層各歸其位；音效寫兩次；配樂寫進出時間；不要就 `non_diegetic_music: N/A` 且全文無音樂情緒詞。
 8. 不說話用正向句 + 持續動作；不寫「看鏡頭」；不要在 prompt 裡寫「不要字幕」。
 9. 要可讀的字逐字打出加引號；沒打的字會變噪音。
-10. 一鏡到底就沒有 `[Shot 2]`；切鏡每次帶新資訊；轉場寫成事件。
+10. 一鏡到底就沒有 `[Shot 2]`；切鏡每次帶新資訊，相鄰 shot 在 {景別, 角度, 運鏡類型, 主體/視線} 至少 2 項不同；轉場寫成事件。
 
 ## 本地 ComfyUI / 導演台
 
@@ -90,6 +91,8 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 同時要一鏡到底和切鏡；同時要配樂和不要 BGM
 - 台詞兩句塞一個 `<d>`；3 秒 shot 講一段話
 - 代名詞或場景跟照片不符（會中途換人）
+- 相鄰兩個 shot 只差一項，或只是換距離、微調角度就切鏡
+- 把「俯拍」當運鏡（寫成 tilts down），角度和運鏡不分
 - 「HUD elements」「some labels」沒逐字打出
 
 來源與可信度：`references/community-sources.md`。

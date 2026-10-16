@@ -35,12 +35,14 @@ Exactly two racers on two motorcycles along a wet coastal road at dusk, liveries
 甩尾（H3 Max 例）：`0-3s: tires screech as he yanks the handbrake into a 180-degree drift, sparks off the rear bumper against a pillar. 3-6s: the camera whips into a barrel-roll orbit around the spinning car. 6-9s: the car snaps straight and launches through the exit ramp, tires smoking.`
 空拍：`high-angle drone tracks the convertible along the coastal highway`；`drone skim into vertical launch`。
 坑：車輛數量不寫死會多車；「fast」沒有物理回饋；同一 shot 三個機位。
+追加：`The camera tracks the car at road level; grass and fence posts streak past the frame edges`（官方 truck 只有 left/right，不要寫 trucks forward）。AVOID 補：`no duplicated body panels, no distorted wheel geometry, no floating vehicle`。
 
 ## C5. 手機偽紀實 / 路人拍到
 
 優先：設備真實感 → 荒謬事件一本正經。
 必寫：`continuous single-take, authentic smartphone footage accidentally captured by a passerby, overcast daylight, subtle handheld shake, limited stabilization, occasional autofocus adjustment, realistic smartphone compression; filmed with a completely serious, unscripted documentary feeling`；分時寫事件升級。
 坑：加了電影光影；配樂。
+追加：`real-time movement with natural motion blur, no slow motion`。
 
 ## C6. 2D anime
 
@@ -70,6 +72,26 @@ Exactly two racers on two motorcycles along a wet coastal road at dusk, liveries
 優先：實拍層與手繪層的邊界 → 線條與實體表面互動 → 手機一手拍。
 必寫：實拍場景固定物件清單；手繪線材質（`apricot-orange glowing crayon-chalk line`）；連續變形鏈（車票→紙燕→毛毛蟲→箭頭→小帆船…）首尾相連；鏡頭慢半拍追、先拍空掌再匆忙右晃；每段末寫「反向」（不要立體 CG、不要恐怖化、不要新角色、不要切到別的場景）；聲音只有室內音、布料、杯子、電子音與小生物聲。
 坑：線條變成 3D；平穩廣告式構圖。
+
+## C9b. 混合媒介分層（寫實背景 × CG 主體 × 2D 特效）
+
+優先序：先分配各層的媒介，再寫三層共用的光與透視，最後才加質感層。
+必寫：
+1. 一句話分層：哪一層是實拍質感、哪一層是 CG、哪一層是 2D 手繪或水墨。
+2. 三層共享的條件：光從哪個方向來、色溫、主體落地的接觸陰影、遮擋順序（誰在誰前面）。
+3. 特效怎麼附著在主體上：跟著手、繞著身體，還是穿過畫面。
+4. 質感層（顆粒、漏光、輕微 VHS 雜訊）放最後，最多一個。
+
+範本片段：
+[Shot 1] A live-action misty bamboo forest at dawn forms the background; the swordsman is a stylized 3D CG character with matte painted textures; his sword trail is a 2D hand-drawn black ink brushstroke. All three layers share one warm low sun from frame-right, his feet cast soft contact shadows on the wet stones, and the ink stroke stays attached to the blade tip, passing in front of the bamboo but behind his sleeve. First he draws the sword, then the ink stroke follows the sweep of the blade and dries into flaking brush texture. The camera holds a static shot. A light film grain sits over the whole frame.
+
+坑：
+- 風格詞越疊越多，比如「國漫 + 賽璐璐 + 水墨 + 3D」寫在同一句，又沒有分層。
+- 2D 特效閃爍或漂離主體。逐 shot 檢查，失敗時縮短特效、減少特效數。
+- 角色受光方向和背景光源不一致。
+- 拿質感層去補構圖或表演的問題。
+
+可信度：方法主張（抖音第 3 支）。作者展示的是 Seedream 類工具，H3 是否服從三層分工未實測。
 
 ## C10. 動態圖形 / 拼貼片頭 / 大字幕
 
