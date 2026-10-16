@@ -25,12 +25,18 @@
 
 ## 決策紀錄
 
+- 2026-10-16：光影配色整合：新增 `references/lighting-and-color.md` 與 `scripts/color_qa.py`。HEX 色表不進主規則（H3 無證據），五層亮度與色卡標為自創；聲畫協同配對不採用；「300–700 英文字」降級為社群經驗值
+- 2026-10-16：日轉夜編輯範例出自 Runware 頁面，不在官方 GitHub；綠幕兩句引文出處待核（疑飛書手冊）
+
 - 2026-10-16：音訊研究整合：新增 `references/audio-pipeline.md`。流程為 5 位 Haiku 調研、Opus 審查補查。H3 無情緒控制欄位，所以四維配音法只在 H3 內當文字描述（有效性未驗證），細控併入外部 TTS（MiniMax T2A）；環境音不可靠時走 Openverse（`license=cc0,by`，不用 category 篩選）
 - 2026-10-16：H3 輸出為單軌混音，「靜音環境聲留對白」不可行；決策拆成三路（見 `audio-pipeline.md` §D）
 - 2026-10-16：L2VA ＝ FL2VA 的只給尾幀模式，不是音訊驅動口型；鎖音色只能走 Ref2VA
 
 - 2026-10-16：工作區 / 發布區用 `workspace/` 資料夾切開；草稿先進工作區，驗證後晉升（見 `agent.md` §3）
 - 2026-10-16：`workspace/` 不被 `SKILL.md` 引用；`npx skills add` 仍會帶入整個 repo，暫時接受
+
+- [ ] 跑 `workspace/experiments/lighting-ab-tests.md` 的 7 項 A/B（HEX vs 色名、色卡、重打光、重述）
+- [ ] 有飛書權限的 agent 核對綠幕兩句引文出處
 
 ## 已知坑
 
