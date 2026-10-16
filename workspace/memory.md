@@ -17,10 +17,17 @@
 
 ## 待辦
 
-- [ ] 音訊規則散在 10+ 份文件，考慮在 `audio-and-dialogue.md` 加一張「去哪找什麼」索引（尚未動工）
+- [x] 音訊規則索引已加在 `references/audio-and-dialogue.md` 開頭（2026-10-16）
+- [ ] 跑 `workspace/experiments/audio-ab-tests.md` 的 6 項 A/B，驗證後把 `audio-pipeline.md` 的 [推測] 升級
+- [ ] 飛書手冊需登入未取得；有權限的 agent 補查聲音／情緒／音色一致的說法
+- [ ] 用 `four-dimensional-voice-acting` 的 `voice_distiller.py` 產出 MiniMax T2A 參數的轉換腳本（目前只有對照表，在 `audio-pipeline.md` §B）
 - [ ] 跑 `shot-variety-and-staging.md` §11 的 A/B 測試並把結果記到 `workspace/experiments/`
 
 ## 決策紀錄
+
+- 2026-10-16：音訊研究整合：新增 `references/audio-pipeline.md`。流程為 5 位 Haiku 調研、Opus 審查補查。H3 無情緒控制欄位，所以四維配音法只在 H3 內當文字描述（有效性未驗證），細控併入外部 TTS（MiniMax T2A）；環境音不可靠時走 Openverse（`license=cc0,by`，不用 category 篩選）
+- 2026-10-16：H3 輸出為單軌混音，「靜音環境聲留對白」不可行；決策拆成三路（見 `audio-pipeline.md` §D）
+- 2026-10-16：L2VA ＝ FL2VA 的只給尾幀模式，不是音訊驅動口型；鎖音色只能走 Ref2VA
 
 - 2026-10-16：工作區 / 發布區用 `workspace/` 資料夾切開；草稿先進工作區，驗證後晉升（見 `agent.md` §3）
 - 2026-10-16：`workspace/` 不被 `SKILL.md` 引用；`npx skills add` 仍會帶入整個 repo，暫時接受
