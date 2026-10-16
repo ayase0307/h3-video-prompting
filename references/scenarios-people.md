@@ -73,6 +73,8 @@ AVOID: slow motion, static tripod shots.
 
 ## A9. 懸疑 / 恐怖 / 偽紀實
 
+逐鏡升級：每個 shot 只加一個可見變化，恐懼落在旁人的反應上，不要一鏡全爆。短刃打鬥用近景、長柄武器用全景，讓大弧線完整入鏡。
+
 優先：資訊保留與聲音舞台。
 必寫：負空間、慢速揭露、具體的畫外聲（`slow footsteps echo from inside the tunnel`）、手持一手拍的缺陷感（`delayed autofocus, exposure fluctuation, coarse noise in shadows`）；明說「不要」（`no giant eyes, split mouths, fangs, lunges, sudden black frames, jump scares`）如果要溫和版。
 坑：「scary atmosphere」沒有可見可聽線索；恐怖元素憑空出現。

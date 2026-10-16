@@ -85,3 +85,7 @@ sustained 808 note, then the full kit returns on the windmill and ends on one fi
 - 樂器 + 速度 + 進入/高潮/停止時間點；官方片頭範例：`first 2 s low frequencies and hi-hat; low drums at 3 s; jazz-bass at 6 s; sax riff at 10 s; freeze the last 2 s on a tense chord`。
 - 不模仿現有旋律：`do not imitate an existing melody`。
 - UGC / 對白戲預設無音樂；一有配樂就像廣告。
+
+## 補：soundscape 要隨時序變化
+
+`overall_soundscape` 依時序寫出聲音的變化，例如「雨打玻璃 → 門開雨聲變大 → 門關回到悶雨」，不要只寫一層固定的環境音。

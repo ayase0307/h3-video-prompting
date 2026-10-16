@@ -48,7 +48,8 @@ The camera holds a static shot as the runner exits the frame.
 | Extreme close-up | 材質、標籤；對白弱 |
 
 鏡頭：`35mm`（環境感、手持 UGC）、`50mm`（中性預設）、`85mm`（壓縮、淺景深、產品與人像）、`anamorphic`（廣告感橫向光暈）。
-角度：`eye level`（誠實）、`low angle`（主體變大）、`high angle`（主體變小、看清桌面）、`top down`（開箱、平拍）。
+角度：`eye level`（誠實、對峙）、`low angle`（主體變大、支配）、`high angle`（主體變小、審視）、`top down`（開箱、佈局）。這些是慣例不是公式，要看人物關係；**同一個 shot 只寫一個角度**；俯拍是角度不是運鏡（見 §9）。
+鏡頭壓縮感寫成拍攝距離，例如 `shot on an 85mm lens from far away, the background compressed into soft color blocks`，不寫公尺數。
 
 官方純文字模式建議分層：「大全景交代空間 + 中景承載動作 + 特寫強調細節」。
 
@@ -73,6 +74,8 @@ The camera holds a static shot as the runner exits the frame.
 - 官方切鏡動詞：`the camera cuts to`、`the shot cuts to`、`the shot transitions to`、`the shot changes to`、`the shot switches to`；cross-dissolve / fade / wipe 只在使用者要求時用。
 - 新資訊 = 主體、空間、狀態、視角、時間。只是換距離或微調角度 → 用運鏡不用切。
 - 切到什麼景別、哪個角色，寫清楚：`the shot cuts to a close-up of the woman in the navy blazer from Shot 1`。
+- **Match on action**：前一個 shot 收在動作中段，下一個 shot 從同一動作的後半開始，例如 `… ending as the sword reaches shoulder height.` → `[Shot 3] At 00:05.000, the shot cuts to a close-up as the blade completes its downward stroke …`
+- 相鄰 shot 怎麼差才不單調：見 `shot-variety-and-staging.md` §3。
 - 切鏡風格（官方手冊）：普通切、疊化、隨節奏卡點切、快切。預設會切鏡；要一鏡到底必須明說並全文不出現 `[Shot 2]`。
 
 ## 6. 轉場寫成「事件」，不寫效果名
@@ -102,3 +105,38 @@ UGC / vlog / 偽紀實要主動移除精緻感：
 - 鏡頭亂飄：多個運鏡競爭 → 只留一個，其餘改成構圖約束。
 - 全身被裁：`The camera pulls out with large amplitude at the same speed as the subject walks forward, maintaining a full-body composition.`
 - 想同一 clip 內換方向：切第二個 shot，各自一個運鏡。
+
+## 9. 運鏡動機：先決定「固定、運鏡、切鏡」
+
+第一步，先判斷這個 shot 要交付什麼：
+- 要讓觀眾看清表演或時序，用 static。
+- 要讓觀眾經歷接近、遠離或揭露，用一個運鏡。
+- 要交付新的主體、空間、狀態、視角或時間，用切鏡（見 §5）。
+
+運鏡寫成一條鏈：觸發 → 起點 → 路徑 → 新資訊 → 停點。
+When she sees the letter, the camera pushes in with small amplitude at slow speed toward her eyes, stopping on a close-up.
+
+敘事任務對照官方詞（抖音第 4 支 remap）：
+| 任務 | 官方寫法 | 要鎖定 |
+|---|---|---|
+| 聚焦、加壓 | pushes in | 起訖景別、落點 |
+| 退回環境、孤獨、揭示空間 | pulls out | 最後露出的環境資訊 |
+| 環繞、儀式感 | trucks left while panning right to keep <主體> centered（不寫環繞類詞） | 方向、幅度、主體是否固定 |
+| 升高、交代地形 | pedestals up | 起訖高度 |
+| 俯拍 | 這是角度，不是運鏡：在景別句寫 high-angle 或 top-down，運鏡另外選一個或用 static | 高度、人物在平面上的走位 |
+| 橫向觀察、跟拍 | 視點平移用 trucks left/right，原地轉頭用 pans，跟著移動主體用 tracks | 前景遮擋和視差 |
+
+視差要寫成結果，不要寫非官方詞：
+The camera trucks right with small amplitude at slow speed; the foreground leaves pass faster than the distant buildings.
+
+運動放在後段（選用，未實測）：
+The camera holds still at first, then pushes in with small amplitude toward …
+這仍然是一個運鏡。
+
+## 10. 焦點轉移（rack focus，H3 未實測）
+
+- 焦點轉移算該 shot 唯一的鏡頭事件，鏡身寫 holds a static shot，同一 shot 不能再加別的運鏡。
+- 起點和終點都要是畫面裡能指認的物件：then the focus shifts from her hand to the distant towers, as her hand softens into a blur。
+- 用途：取代反應切鏡，在同一鏡裡完成「看見 → 反應」。
+- 失敗時退回 static，改用切鏡交代。
+```
