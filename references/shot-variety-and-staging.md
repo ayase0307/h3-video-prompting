@@ -122,8 +122,10 @@
    - 沒有就補「起 → 觸發 → 結果」。
 8. **光線路徑**：每段都有一個光源名詞（sun / lamp / neon / window light / street light / sky light …）和一個受光面。
    - 0 個就補一句；2 句以上就刪到 1 句。
+   - **字數超標時此條降級**：只要求 Shot 1 和峰值 shot 有；其餘 shot 依 §2 壓縮優先序（動作 > 運鏡 > 光 > 媒介）可以省，不要為了補光句而超過字數上限。
 8b. **景深層次**：每段都要命中 `foreground|in front of|out-of-focus`。
    - 0 次就補一個前景物子句。
+   - **同 8，字數超標時降級**：只保留 Shot 1 和峰值 shot 的前景子句。15 s 6 shot、Ref2VA（350–500 字）幾乎一定要降級；先砍光與前景，絕不砍動作和運鏡。
 9. **角度不矛盾**：同一段不能同時出現 `eye-level` 和 `high-angle`、`low-angle`、`top-down` 其中任一個。
 10. **字數**：
     - T2VA：`wc -w` 只算 `integrated_multimodal_description`，要落在 300–700。
