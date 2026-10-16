@@ -95,3 +95,16 @@
 | LatentSync / MuseTalk / Wav2Lip repo | 各自授權 | 口型工具授權比較 | 官方 repo |
 | virse.ai、Atlas Cloud、dev.to | 第三方 | 音色重新合成、voice crossover、文字描述聲線 | 社群單源 |
 | ComfyUI issue 15283 | — | 大聲場景爆音 | 社群單源 |
+
+## 光影配色（lighting-and-color.md，2026-10-16）
+
+| 來源 | 授權 | 採用 | 可信度 |
+|---|---|---|---|
+| MiniMax-AI/MiniMax-H3 `ref-en.txt` / `base-en.txt` / README、platform.minimax.io video API | 官方 | 每鏡交代光線、風格句位置、參考上限 9/3/3/12、7000 字元、350–500 字 | 官方 |
+| runware.ai editing-video 指南（作者標 MiniMax） | 第三方鏡像 | 日轉夜編輯範例 | 官方，經鏡像 |
+| hailuoai.video lighting terms guide | 第三方 | 有效／避免光色詞 | 社群單源，內部經驗 |
+| higgsfield.ai H3 指南 | 第三方 | 每個 shot 顏色寫得一模一樣 | 社群單源 |
+| IC-Light、Qwen-Image-Edit Relight LoRA、FLUX Kontext 社群頁 | 各自授權 | 圖像端重打光寫法 | 社群單源，未實測 |
+| en.wikipedia.org/wiki/Zone_System | CC BY-SA | 11 分區、概念對照 | 業界標準（無百分比） |
+| lighting-color-palette-card（Seedance 教學影片蒸餾） | 自有 | 五層亮度、色卡錨點、重打光 | 自創方法，H3 未驗證 |
+| colour-science `JND_CIE1976` 文件 | BSD | ΔE76≈2.3 | 社群 |
