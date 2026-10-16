@@ -15,7 +15,7 @@ A/B 的完整規則在官方 skill `h3-prompt-writing` 的 `references/base-en.t
 
 - T2VA 沒有對齊句；I2VA：`For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.`；FL2VA/L2VA 用「How the reference pictures align with the target video — …」句，秒數兩位小數，對齊實際有效時長。
 - `[Shot 1]` 不帶時間戳並先寫風格（`Live-action, cinematic` / `2D-animated` / `3D CG` / `claymation` / `watercolor` / `vintage film`）；之後 `[Shot N] At MM:SS.mmm,` 嚴格遞增。
-- 純文字 300–700 英文字；有參考時縮短。
+- 純文字 300–700 英文字（社群經驗值，官方無此數字）；有參考時縮短。
 - 結尾兩欄不能省，沒有就 `N/A`。
 
 ## B. 六段式要點

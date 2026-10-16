@@ -122,7 +122,7 @@ Exactly two racers on two motorcycles along a wet coastal road at dusk, liveries
 
 ## C14. 綠幕 / 場景替換 / 重打光
 
-見 `references-and-editing.md` §5：`Remove the green-screen background of Video 1 and replace it with … Make every background element respond correctly to the subject's movement, and relight the subject so they blend naturally.`；日轉夜：`Change the lighting from daytime to night; keep geometry and camera the same; birdsong becomes crickets.`
+出處待核（疑出自飛書手冊；`references-and-editing.md` §5 並沒有這句）：`Remove the green-screen background of Video 1 and replace it with … Make every background element respond correctly to the subject's movement, and relight the subject so they blend naturally.`；日轉夜：`Change the lighting from daytime to night; keep geometry and camera the same; birdsong becomes crickets.`
 
 ## C15. 多素材電影混剪
 

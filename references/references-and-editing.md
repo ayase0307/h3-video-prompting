@@ -46,7 +46,7 @@
 
 ## 5. 影片編輯（Ref2VA 編輯源）
 
-prompt 是**指令**不是描述：指向來源、命名改動、明說保留。
+prompt 是**指令**不是描述：指向來源、命名改動、明說保留。下面的日轉夜範例出自 Runware editing-video 指南（頁面標作者 MiniMax，2026-07-30）；官方 GitHub repo 查無此範例。
 
 ```text
 In Video 1, change the lighting from bright day to night: a deep blue sky, a warm lamppost
@@ -57,7 +57,7 @@ camera drift exactly the same. Sound: soft night crickets.
 - 編輯靠「保留」運作：沒提到的都會保留，但重要的要點名進 keep 半句。
 - 換物件：`replace the cup with a glass of iced matcha; keep the woman, her exact motion and sip, the table, and the blurred background.`
 - 多項編輯：編號列出每項的對象、位置、最終狀態，結尾一句「其餘保持不變」。官方範例一次做 6 項（換報紙→綠皮書、椅子→紅沙發、拿掉墨鏡、拿掉燃燒特效、照片→黑筆記本、左側加一棵樹）。
-- 換背景 / 綠幕：`background elements must completely match the actions of the characters in Video 1; modify the lighting of the characters to match the background`。
+- 換背景 / 綠幕（出處待核，Runware 頁面與官方 repo 都查不到，疑出自飛書手冊）：`background elements must completely match the actions of the characters in Video 1; modify the lighting of the characters to match the background`。
 - 換台詞：`replace the woman's line "…" with the line from Audio 1: "…". Adjust the performance subtly to match the new dialogue.`
 - 加角色：`Add one person on the left wearing the same team uniform and moving in sync with the others.`
 - 加特效層：`Add orange-yellow hand-drawn marks like Image 1 around the two people in Video 1. As they move closer, the marks multiply … When they kiss, introduce pink brushstrokes.`

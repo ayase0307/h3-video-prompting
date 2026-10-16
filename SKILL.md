@@ -31,6 +31,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 節奏、卡點、時間軸、速度形容詞：`references/rhythm-and-pacing.md`
 - 鏡頭 20 種官方詞、景別鏡頭角度、轉場寫成事件：`references/camera-and-transitions.md`
 - 對白預算、speaker、聲音參考、配樂進出、不說話寫法、字幕（含音訊規則索引）：`references/audio-and-dialogue.md`
+- **光影配色、跨鏡頭色彩一致、角色重打光防貼紙、色卡參考圖（未驗證）、後期統一與色彩 QA（`scripts/color_qa.py`）**：`references/lighting-and-color.md`
 - **聲音一次到位、跨片段鎖音色、情緒表演 vs 外部 TTS、必須配音時避開口型、Openverse 後製音效與 ffmpeg 混音**：`references/audio-pipeline.md`
 - 素材分工、動作/運鏡/表演遷移、影片編輯、續接、首尾幀與循環：`references/references-and-editing.md`
 - **長片規劃（30–60 秒以上多段生成、路線選擇、接點載體、分鏡表模板）**：`references/long-form-planning.md`
@@ -48,7 +49,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 | 對白 | 15 s 約 20 英文字；每句約 10 字；一個 `<d>` 一句 | 語速趕、口型壞、亂語 |
 | 重要角色 | ≤ 3 | 身份漂移、錯人說話 |
 | 慢動作 | 獨立 shot，背景動態元素減到最少 | 抖動、閃爍 |
-| 純文字 prompt | 300–700 英文字 | 太短 = 沒東西可參考 |
+| 純文字 prompt | 300–700 英文字（社群經驗值，官方無此數字；hosted API 上限 7000 字元） | 太短 = 沒東西可參考 |
 | 有參考素材時 | 字數要縮，只寫新變化；Ref2VA 的 `detailed_description` 為 350–500 英文字 | 文字跟圖片互搶，臉會變 |
 | 參考檔 | ≤9 圖 / ≤3 影片 / ≤3 音檔 / 總 ≤12；影片音檔各 2–15 s、總 ≤15 s；音檔不能單獨 | 被拒或被忽略 |
 

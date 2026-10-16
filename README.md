@@ -105,6 +105,8 @@ Or copy the folder to `~/.claude/skills/h3-video-prompting/` (Claude Code) or yo
 | `references/action-choreography.md` | Actions as trajectories, ordering words, one-beat fight formula |
 | `references/rhythm-and-pacing.md` | Timeline, minimum shot length, beat triggers, speed adjectives |
 | `references/audio-and-dialogue.md` | Three audio layers, dialogue budget, speaker format, music in / out, audio rule index |
+| `references/lighting-and-color.md` | **New.** Lighting and colour wording, cross-shot colour consistency, character relighting, palette-card reference (unverified), post grading and colour QA |
+| `scripts/color_qa.py` | **New.** Measures colour difference and dominant colours between shots (stdlib + ffmpeg) |
 | `references/audio-pipeline.md` | **New.** One-pass sound + picture and voice-timbre locking, emotion in H3 vs external TTS, dubbing without lip-sync, Openverse SFX with licensing, ffmpeg mixing |
 | `references/references-and-editing.md` | Reference roles, motion / camera transfer, video editing, continuation, first / last frame |
 | `references/prompt-formats.md` | Official 3-field / 6-part / Chinese 3-part / community block formats |
