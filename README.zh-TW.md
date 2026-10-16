@@ -104,7 +104,8 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 | `references/motion-quality.md` | 重量、動量、材質、手、臉、口型、慢動作、身份保持 |
 | `references/action-choreography.md` | 動作寫成軌跡、順序連接詞、打鬥一拍公式 |
 | `references/rhythm-and-pacing.md` | 時間軸、shot 最短長度、卡點觸發物、速度形容詞 |
-| `references/audio-and-dialogue.md` | 三層音軌、對白預算、speaker 格式、配樂進出 |
+| `references/audio-and-dialogue.md` | 三層音軌、對白預算、speaker 格式、配樂進出、音訊規則索引 |
+| `references/audio-pipeline.md` | **新增。** 聲音一次到位與音色鎖定、情緒表演（H3 內 vs 外部 TTS）、無口型配音、Openverse 後製音效與授權、ffmpeg 混音 |
 | `references/references-and-editing.md` | 素材分工、動作／運鏡遷移、影片編輯、續接、首尾幀 |
 | `references/prompt-formats.md` | 官方三欄／六段式／中文三段／社群區塊式 |
 | `references/failure-triage.md` | 症狀 → 原因 → 修法、送出前 8 問 |
