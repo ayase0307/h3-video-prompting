@@ -88,5 +88,95 @@
   },
   "spec_seed": 1003,
   "sha256": "9e1b2ef62584e61b38f393a903fa89aa25244aca3206242d3d1a6f20bf2f4a7b"
+ },
+ "13f375": {
+  "job": "jdc3500f01ea8",
+  "status": "succeeded",
+  "seconds_wall": 419,
+  "geometry": {
+   "width": 960,
+   "height": 544,
+   "frames": 158,
+   "seconds": 6.583333333333333,
+   "fps": 24,
+   "latent_frames": 47
+  },
+  "spec_seed": 1006,
+  "sha256": "8ee5f24e10ba1cf283631f3daf45077adf569f9c8f408a5b488cf0a668408695"
+ },
+ "974832": {
+  "job": "jf982bff1f1fe",
+  "status": "succeeded",
+  "seconds_wall": 418,
+  "geometry": {
+   "width": 960,
+   "height": 544,
+   "frames": 158,
+   "seconds": 6.583333333333333,
+   "fps": 24,
+   "latent_frames": 47
+  },
+  "spec_seed": 1004,
+  "sha256": "b19b94112345447de1d6d4416d83c4842c89e5ebdf38abd8c68884b69bf1d420"
+ },
+ "b4564c": {
+  "job": "jd78209cadb5d",
+  "status": "succeeded",
+  "seconds_wall": 400,
+  "geometry": {
+   "width": 960,
+   "height": 544,
+   "frames": 158,
+   "seconds": 6.583333333333333,
+   "fps": 24,
+   "latent_frames": 47
+  },
+  "spec_seed": 1004,
+  "sha256": "5bfdb97e5bc744fc08144a8a9a9dabe1f6168c3a3a1e3d8433155e8223a211f0"
+ },
+ "cfcc83": {
+  "job": "jf94b48d1a280",
+  "status": "succeeded",
+  "seconds_wall": 405,
+  "geometry": {
+   "width": 960,
+   "height": 544,
+   "frames": 158,
+   "seconds": 6.583333333333333,
+   "fps": 24,
+   "latent_frames": 47
+  },
+  "spec_seed": 1005,
+  "sha256": "1e6c23d7bcd5e8a5beb1b99a71ffa8ead95358e66b7a7154266fb10fe804dacb"
+ },
+ "f4b177": {
+  "job": "j6f15368f7880",
+  "status": "succeeded",
+  "seconds_wall": 411,
+  "geometry": {
+   "width": 960,
+   "height": 544,
+   "frames": 158,
+   "seconds": 6.583333333333333,
+   "fps": 24,
+   "latent_frames": 47
+  },
+  "spec_seed": 1006,
+  "sha256": "b512ae3d5a1ab9ce77164aadcae3d693791831a2767eeb2cd618b902aaf8c39d"
+ },
+ "f5f385": {
+  "job": "jc19b67d518b4",
+  "status": "succeeded",
+  "seconds_wall": 404,
+  "geometry": {
+   "width": 960,
+   "height": 544,
+   "frames": 158,
+   "seconds": 6.583333333333333,
+   "fps": 24,
+   "latent_frames": 47
+  },
+  "spec_seed": 1005,
+  "sha256": "ab6604c8b91c569f56cad6fd7cc215f19271244557c6937c455d8c869474ed2d"
  }
 }
