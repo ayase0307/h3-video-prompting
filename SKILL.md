@@ -26,16 +26,16 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 | 空鏡 B-roll、自然天氣、動物、車輛追逐空拍、手機偽紀實、2D anime、3D 卡通、黏土紙藝、手繪實拍融合、動態圖形、變身 VFX、無縫循環、角色設定板、綠幕重打光、多素材混剪 | `references/scenarios-world-and-styles.md` |
 
 橫向主題：
-- 動作品質（重量、材質回應、手、表情、口型、慢動作、動畫風格規律、**運動質地、高難度動作預算、負向配正向、速度差用動作數比**）：`references/motion-quality.md`
-- 動作拆解、打鬥一拍公式、**動作鏈十要素、持續/動鏈/微動作三層、狀態機與因果閘、動作主題**：`references/action-choreography.md`
-- 節奏、卡點、時間軸、速度形容詞、**音樂節拍網格與段內局部時間**：`references/rhythm-and-pacing.md`
-- 鏡頭 20 種官方詞、景別鏡頭角度、轉場寫成事件、**攝影機幾何（寫實際機位）、連續 / 蒙太奇 / 兩態相機三選一**：`references/camera-and-transitions.md`
+- 動作品質（重量、材質回應、手、表情、口型、慢動作、動畫風格規律）：`references/motion-quality.md`
+- 動作拆解、打鬥一拍公式、動作鏈十要素（含自檢：拿掉鏡頭詞動作還成立嗎）：`references/action-choreography.md`
+- 節奏、卡點、時間軸、速度形容詞：`references/rhythm-and-pacing.md`
+- 鏡頭 20 種官方詞、景別鏡頭角度、轉場寫成事件：`references/camera-and-transitions.md`
 - 對白預算、speaker、聲音參考、配樂進出、不說話寫法、字幕（含音訊規則索引）：`references/audio-and-dialogue.md`
 - **光影配色、跨鏡頭色彩一致、角色重打光防貼紙、色卡參考圖（未驗證）、後期統一與色彩 QA（`scripts/color_qa.py`）**：`references/lighting-and-color.md`
 - **聲音一次到位、跨片段鎖音色、情緒表演 vs 外部 TTS、必須配音時避開口型、Openverse 後製音效與 ffmpeg 混音**：`references/audio-pipeline.md`
-- 素材分工、動作/運鏡/表演遷移、影片編輯、續接、首尾幀與循環、**參考圖視覺權限與「歌詞不授權實體」、道具狀態保護**：`references/references-and-editing.md`
-- **長片規劃（30–60 秒以上多段生成、路線選擇、接點載體、分鏡表模板、自含式分段 prompt 與 hand-off、機制輪換）**：`references/long-form-planning.md`
-- **長自含式 hosted prompt 與本 skill 規則的衝突對照（字數、時間窗、字幕句、格式）**：`references/prompt-formats.md` §E
+- 素材分工、動作/運鏡/表演遷移、影片編輯、續接、首尾幀與循環：`references/references-and-editing.md`
+- **長片規劃（30–60 秒以上多段生成、路線選擇、接點載體、分鏡表模板）**：`references/long-form-planning.md`
+- **長自含式 hosted prompt 與本 skill 規則的衝突對照（字數、時間窗、字幕句、格式）**：`references/prompt-formats.md`「附：長自含式…」
 - **不單調：跨 shot 變化四軸規則、spec 卡壓縮優先序、能量曲線、送出前自檢**：`references/shot-variety-and-staging.md`（寫完 prompt 必跑 §10）
 - 完整改寫範例：`references/example-fight-10s.md`（打鬥）、`references/example-spec-to-prompt-10s.md`（spec 卡→三欄 prompt）、`references/example-seedance-to-h3.md`（Seedance 時間碼→H3 Ref2VA）
 
@@ -56,7 +56,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 
 ## 十條速查
 
-1. 動作寫軌跡：起始狀態 → 哪隻手/哪個方向/多快 → 結束狀態。
+1. 動作寫軌跡：起始狀態 → 哪隻手/哪個方向/多快 → 結束狀態；人體動作補支撐、重心、慣性。
 2. `first / then / as / finally` 鎖順序；沒連接詞 H3 當同時發生。
 3. 每個素材一個職責，並寫它不負責什麼。
 4. 卡點寫觸發物（bass hit、刀刃接觸聲、落地），不寫 energetic。
@@ -66,7 +66,6 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 8. 不說話用正向句 + 持續動作；不寫「看鏡頭」；不要在 prompt 裡寫「不要字幕」。
 9. 要可讀的字逐字打出加引號；沒打的字會變噪音。
 10. 一鏡到底就沒有 `[Shot 2]`；切鏡每次帶新資訊，相鄰 shot 在 {景別, 角度, 運鏡類型, 主體/視線} 至少 2 項不同；轉場寫成事件。
-11. 動作要寫「人怎麼做出來」（受力 → 支撐 → 重心 → 峰值 → 慣性 → 回收），不只寫名稱；拿掉鏡頭詞仍像動作才算成立。負向句一律配正向替代；質地詞不堆疊當大綱。（方法主張，未對照實測）
 
 ## 本地 ComfyUI / 導演台
 
@@ -92,7 +91,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 慢動作 shot 裡有大雨、飛葉、群眾
 - 寫了 orbit / 環繞；一個 shot 兩個運鏡
 - 上傳素材沒寫職責；或每個 shot 重述參考圖外觀
-- 同時要一鏡到底和切鏡；同時要配樂和不要 BGM
+- 同時要一鏡到底和切鏡，或連續運鏡路徑和硬鎖；同時要配樂和不要 BGM
 - 台詞兩句塞一個 `<d>`；3 秒 shot 講一段話
 - 代名詞或場景跟照片不符（會中途換人）
 - 相鄰兩個 shot 只差一項，或只是換距離、微調角度就切鏡
@@ -100,7 +99,6 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 「HUD elements」「some labels」沒逐字打出
 - 只寫動作名稱（旋轉、揮劍、跳躍）沒有支撐/重心/慣性；每段高光都用同一種大動作
 - 質地詞（spiral、wave、counter-rotation）堆成段落大綱
-- 同一份 prompt 同時混寫連續環繞與硬鎖、或一鏡到底與硬切
 - 把歌詞/台詞意象直接寫成畫面實體（換裝、加道具、加人）
 
 來源與可信度：`references/community-sources.md`。

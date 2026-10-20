@@ -96,20 +96,20 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 | `references/shot-variety-and-staging.md` | **新增。** 跨 shot 四軸規則、每鏡狀態變化、景深、光線路徑、能量曲線、送出前自檢 |
 | `references/example-spec-to-prompt-10s.md` | **新增。** Spec 卡 → 4 shot T2VA prompt，含變化核對過程 |
 | `references/example-seedance-to-h3.md` | **新增。** Seedance prompt → H3 Ref2VA，逐項說明轉換 |
-| `references/camera-and-transitions.md` | 官方 20 種運鏡、景別／焦段／角度、運鏡動機、焦點轉移、轉場寫成事件 |
-| `references/long-form-planning.md` | 30–60 秒多段規劃、接點載體、spec 卡、分鏡表模板 |
+| `references/camera-and-transitions.md` | 官方 20 種運鏡、景別／焦段／角度、運鏡動機、焦點轉移、轉場寫成事件、**攝影機幾何、連續／蒙太奇／兩態相機** |
+| `references/long-form-planning.md` | 30–60 秒多段規劃、接點載體、spec 卡、分鏡表模板、**自含式分段 prompt、hand-off、機制輪換** |
 | `references/scenarios-people.md` | 對白、UGC、MV、舞蹈、打鬥、跑酷、喜劇、懸疑、vlog、POV、數位人 |
 | `references/scenarios-commercial.md` | 產品、開箱、食物、品牌片、時尚、logo 片頭、UI／遊戲、電商 |
 | `references/scenarios-world-and-styles.md` | 空鏡、自然、動物、車輛、動畫、3D、黏土紙藝、混合媒介分層、VFX、循環 |
 | `references/motion-quality.md` | 重量、動量、材質、手、臉、口型、慢動作、身份保持、**運動質地、高難度動作預算、負向配正向** |
 | `references/action-choreography.md` | 動作寫成軌跡、順序連接詞、打鬥一拍公式、**動作鏈十要素、三層結構、狀態機寫法、動作主題** |
-| `references/rhythm-and-pacing.md` | 時間軸、shot 最短長度、卡點觸發物、速度形容詞 |
+| `references/rhythm-and-pacing.md` | 時間軸、shot 最短長度、卡點觸發物、速度形容詞、**音樂節拍網格與段內局部時間** |
 | `references/audio-and-dialogue.md` | 三層音軌、對白預算、speaker 格式、配樂進出、音訊規則索引 |
 | `references/lighting-and-color.md` | **新增。** 光色寫法、跨鏡頭色彩一致、角色重打光與防貼紙、色卡參考圖（未驗證）、後期統一與色彩 QA |
 | `scripts/color_qa.py` | **新增。** 量兩個鏡頭的色差與主色（標準庫＋ffmpeg） |
 | `references/audio-pipeline.md` | **新增。** 聲音一次到位與音色鎖定、情緒表演（H3 內 vs 外部 TTS）、無口型配音、Openverse 後製音效與授權、ffmpeg 混音 |
-| `references/references-and-editing.md` | 素材分工、動作／運鏡遷移、影片編輯、續接、首尾幀 |
-| `references/prompt-formats.md` | 官方三欄／六段式／中文三段／社群區塊式 |
+| `references/references-and-editing.md` | 素材分工、動作／運鏡遷移、影片編輯、續接、首尾幀、**參考圖視覺權限、歌詞不授權實體** |
+| `references/prompt-formats.md` | 官方三欄／六段式／中文三段／社群區塊式、**長自含式 hosted prompt 與預算的衝突對照** |
 | `references/failure-triage.md` | 症狀 → 原因 → 修法、送出前 8 問、動作導演級 10 問 |
 | `references/skin-realism-block.md` | 真實皮膚質感段落 |
 | `references/example-fight-10s.md` | 完整 10 秒打鬥改寫範例 |

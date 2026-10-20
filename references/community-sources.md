@@ -117,17 +117,17 @@
 
 | 來源 | 授權 | 用了什麼 | 可信度 |
 |---|---|---|---|
-| LoveUolanda〈H3 古風舞蹈創作方法論〉X 長文，2026-10-19（x.com/LoveUolanda/status/2112373570055897528） | 作者貼文，未標授權；只轉寫概念 | 動作鏈十要素、三層結構、運動質地、攝影機幾何、負向配正向、導演自檢 | **有真實 H3 成片，無 A/B、無量化**；作者靠 RunningHub 腳本化生成與 ffmpeg 拼接 |
-| github.com/LoveRain1997/h3-prompt-journal（MIT） | MIT，可引用概念與短句 | 13 段武俠舞完整 prompt、sock-fan 狀態機、snap-lock 兩態相機、speed-contrast 動作數比、orbital 遮擋聯動 | prompt 完整公開；**repo 內沒有任何一個案例附「由該 prompt 生成的成片」**（mp4 多為來源樣片或連到外部 X 頁），A/B 案例（lamp 五章 p83/p84）README 未給比較結論 |
+| LoveUolanda〈H3 古風舞蹈創作方法論〉X 長文，2026-10-19（x.com/LoveUolanda/status/2112373570055897528） | 原文亦收錄於 MIT repo `case-studies/2026-10-classical-wuxia-dance-13-segment/methodology.md`（Copyright (c) 2026 LoveRain1997，MIT）；本 skill 為中文轉寫與泛化，非逐字複製 | 動作鏈十要素、三層結構、運動質地、攝影機幾何、負向配正向、導演自檢 | **作者自述有成片（貼文影片），無 A/B、無量化**；貼文自述長片以 RunningHub OpenAPI 腳本化生成、本地 ffmpeg 拼接 |
+| github.com/LoveRain1997/h3-prompt-journal（MIT） | MIT（Copyright (c) 2026 LoveRain1997；LICENSE 無排除文字條款） | 13 段武俠舞完整 prompt、sock-fan 狀態機、snap-lock 兩態相機、speed-contrast 動作數比、orbital 遮擋聯動 | prompt 完整公開；repo README 稱所有案例均實際生成、成片在作者 X 文章頁，但**成片未隨 repo 發布**（repo 內 mp4 多為來源樣片），我們沒看過成片；lamp 五章 p83/p84 README 未給比較結論，視為風格變奏而非對照 |
 
-journal 內部互相矛盾處（連續環繞 vs 離散硬鎖、有無時間碼、單段精簡 vs 重複冗餘）已整理成條件對照，見 `camera-and-transitions.md` §12、`prompt-formats.md` §E。
+journal 內部互相矛盾處（連續環繞 vs 離散硬鎖、有無時間碼、單段精簡 vs 重複冗餘）已整理成條件對照，見 `camera-and-transitions.md` §12、`prompt-formats.md`「附：長自含式…」。
 
 ### 英文社群（Reddit 為主，2026-09 下旬～10 月）
 
 全部是作者自述或留言建議，日期多為以貼文序號推算的近似值，**視為待測假說**：
 
 - 一個 shot 一個具名運鏡（type + amplitude + speed），疊加運鏡會讓畫面變形（suno.bi、photogptai、LinkedIn 文；與現行規則一致，佐證不新增）。
-- 連續長鏡/鏈式生成約第 3–4 次退化，30–45 秒為多數人工作流上限；用精確的最後一幀 PNG 接續（r/StableDiffusion 1wwh94x、1x43xyq、r/comfyui 1wqlv1u、1wyrp36）。
+- 連續長鏡/鏈式生成約第 3–4 次退化，一位作者把 30–45 秒當工作流上限、另一則留言稱約 45 秒後色彩衰退；用精確的最後一幀 PNG 接續（r/StableDiffusion 1wwh94x、1x43xyq、r/comfyui 1wqlv1u、1wyrp36）。
 - Blender 假人運鏡渲染當 Ref2VA 運鏡參考可行，但要檢查接縫與身份漂移（r/comfyui 1wqybjk）；遮罩式動作參考有作者自述的 A/B 改善（r/StableDiffusion 1wruoq1）。
 - 動漫來源影片會被加 3D 陰影、鏡頭漂移；留言建議用格線/十字覆蓋當固定錨（r/comfyui 1x8odqk，**未測**）。
 - 複雜場景拆成兩個短 prompt 較穩（r/StableDiffusion 1wrdhbr）。
@@ -141,4 +141,4 @@ journal 內部互相矛盾處（連續環繞 vs 離散硬鎖、有無時間碼�
 
 MiniMax-AI/MiniMax-H3 自 2026-10-16 起沒有新 commit、release 或 tag（最後一次 push 為 2026-08-15）；平台文件的素材與字元上限與既有規則一致。issue #95（獨立參考音訊會多出對白、重複句）、#17（Ref2VA/FL2VA 多角色 voice 互相滲漏）是使用者回報，官方未回應，不當規則。官方頁另提文字生影片可在關鍵描述後加 `[pan]`、`[zoom]`、`[static]` 相機指令，效果未驗證，未收錄。
 
-規則：無授權來源只轉寫概念，不收原句；本批沒有一條新規則通過 H3 對照實測。
+規則：無授權來源只轉寫概念；MIT 來源附授權聲明。本批沒有一條新規則通過 H3 對照實測。

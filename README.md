@@ -97,18 +97,18 @@ Or copy the folder to `~/.claude/skills/h3-video-prompting/` (Claude Code) or yo
 | `references/example-spec-to-prompt-10s.md` | **New.** Spec card → 4-shot T2VA prompt, with the variety check worked out |
 | `references/example-seedance-to-h3.md` | **New.** Seedance prompt → H3 Ref2VA, every conversion explained |
 | `references/camera-and-transitions.md` | 20 official camera moves, shot size / lens / angle, camera motive, rack focus, transitions as events, **camera geometry, continuous vs montage vs two-state camera** |
-| `references/long-form-planning.md` | 30–60 s multi-clip planning, seam carriers, spec card, storyboard template |
+| `references/long-form-planning.md` | 30–60 s multi-clip planning, seam carriers, spec card, storyboard template, **self-contained segment prompts, hand-off state, mechanism rotation** |
 | `references/scenarios-people.md` | Dialogue, UGC, MV, dance, fight, parkour, comedy, suspense, vlog, POV, digital human |
 | `references/scenarios-commercial.md` | Product, unboxing, food, brand film, fashion, logo sting, UI / game, e-commerce |
 | `references/scenarios-world-and-styles.md` | B-roll, nature, animals, vehicles, anime, 3D, clay / paper, mixed-media layers, VFX, loops |
 | `references/motion-quality.md` | Weight, momentum, materials, hands, faces, lip-sync, slow motion, identity, **movement textures, hero-move budget, negatives with positive replacements** |
 | `references/action-choreography.md` | Actions as trajectories, ordering words, one-beat fight formula, **10-element action chain, 3-layer structure, state-machine writing, motifs** |
-| `references/rhythm-and-pacing.md` | Timeline, minimum shot length, beat triggers, speed adjectives |
+| `references/rhythm-and-pacing.md` | Timeline, minimum shot length, beat triggers, speed adjectives, **beat grid and segment-local time for music-driven clips** |
 | `references/audio-and-dialogue.md` | Three audio layers, dialogue budget, speaker format, music in / out, audio rule index |
 | `references/lighting-and-color.md` | **New.** Lighting and colour wording, cross-shot colour consistency, character relighting, palette-card reference (unverified), post grading and colour QA |
 | `scripts/color_qa.py` | **New.** Measures colour difference and dominant colours between shots (stdlib + ffmpeg) |
 | `references/audio-pipeline.md` | **New.** One-pass sound + picture and voice-timbre locking, emotion in H3 vs external TTS, dubbing without lip-sync, Openverse SFX with licensing, ffmpeg mixing |
-| `references/references-and-editing.md` | Reference roles, motion / camera transfer, video editing, continuation, first / last frame |
+| `references/references-and-editing.md` | Reference roles, motion / camera transfer, video editing, continuation, first / last frame, **reference-image authority, lyrics don't authorize props** |
 | `references/prompt-formats.md` | Official 3-field / 6-part / Chinese 3-part / community block formats, **long self-contained hosted prompts vs this skill's budgets** |
 | `references/failure-triage.md` | Symptom → cause → fix table, 8-question pre-send check, 10-question motion director check |
 | `references/skin-realism-block.md` | Realistic-skin prompt block |
