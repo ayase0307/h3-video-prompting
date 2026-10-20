@@ -1,0 +1,225 @@
+{
+  "test_id": "T1",
+  "frozen": "2026-10-20",
+  "frozen_by": "Opus plan/review",
+  "status": "frozen",
+  "hypothesis": "Describing the execution of one main action with 2-3 mechanics (support/force, centre of mass/axis, inertia) instead of action name + adjectives makes H3 complete the action and settle cleanly more often, at equal word count.",
+  "single_variable": "Only the execution sentence (one sentence) differs: A = action name + adjectives; B = support/pivot, weight/axis, inertia incl. hair lag. Everything else is the same string.",
+  "held_constant": [
+    "first frame",
+    "start-state sentence",
+    "end-state sentence (both explicitly ask to settle)",
+    "single shot, no cuts",
+    "camera sentence (static)",
+    "light sentence",
+    "appearance sentence",
+    "soundscape",
+    "music N/A",
+    "seconds/aspect/mp/quality/seed"
+  ],
+  "params": {
+    "kind": "generate",
+    "task_type": "i2va",
+    "megapixels": 0.5,
+    "quality": "medium",
+    "seconds": 6,
+    "aspect": "9:16",
+    "expected_width_height": [
+      544,
+      960
+    ],
+    "expected_frames": 158,
+    "expected_effective_seconds": 6.58,
+    "seeds": [
+      1001,
+      1002,
+      1003
+    ],
+    "jobs": 6
+  },
+  "first_frame_source": {
+    "source": "user character sheet: 紫電長靴女 (purple-lightning boots woman), full-body FRONT cell only",
+    "prep": "crop the full-body front cell, pad left/right with the sheet's own grey (sample a backdrop pixel) to exactly 9:16, resize to >= 544x960, save workspace/experiments/_local/chars/t1_first_frame.png; record sha256 in jobs.json. Same file for both arms.",
+    "why_this_is_ok": "action test; prompt describes the same grey studio, so frame and text agree"
+  },
+  "freevideo": {
+    "endpoint": "http://127.0.0.1:8189/freevideo/agent/v1  (POST /plan first, then POST /jobs)",
+    "body_keys_seen_in_repo_scripts": [
+      "kind='generate'",
+      "prompt (single string = the assembled prompt below)",
+      "seconds",
+      "aspect",
+      "megapixels",
+      "quality",
+      "seed",
+      "label",
+      "ref",
+      "media.references[{file}]"
+    ],
+    "confirm_via_plan": true,
+    "confirm_note": "How FreeVideo distinguishes i2va first frame vs Ref2VA reference (and whether a 'task type' key exists) is NOT verified; inspect /plan response before /jobs. If /plan width/height or frame count differ from expected, stop and report; do not submit."
+  },
+  "blind_protocol": {
+    "submitter": "Haiku-S (submits jobs, extracts frames, runs objective scripts). Sees prompts; never rates.",
+    "rater": "Haiku-R (different agent instance). Sees only code-named media + rater_brief + rubric, in E:/MinimaxH3/_blind/<test-id>/ (outside the repo). Must not read the repo, plan.json, jobs.json or FreeVideo labels.",
+    "codes": "Main session draws a random 6-char [a-z0-9] code per (arm, seed) with secrets.token_hex, writes the key to workspace/experiments/_local/<test-id>/key.json (gitignored), and gives Haiku-S only code -> prompt-file mapping. FreeVideo ref = <test-id>-<code>-<yyyymmddHHMM>; label = test id + code, never arm letters.",
+    "order": "Main session shuffles clip order separately for the rater.",
+    "unblinding": "Only after scores.csv and metrics.csv are committed to the working tree; then main session copies key.json into summary.md.",
+    "known_leaks": []
+  },
+  "prompts": {
+    "A": {
+      "counted_field": "integrated_multimodal_description",
+      "prompt": "integrated_multimodal_description: For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced. [Shot 1] Live-action, cinematic. A full-body medium-wide shot at eye level, from the front, of the woman from <Picture 1> standing on a seamless light-grey studio floor in front of a matching grey backdrop. Preserve the same facial identity, hairstyle, costume colours and boots shown in <Picture 1> throughout. She begins standing upright with her feet together and her arms relaxed at her sides. Then she performs a powerful, graceful and dynamic full spin on the spot, an elegant, energetic and fluid turn that looks smooth, sharp, confident and stylish, beautifully controlled and impressive from start to finish, with a strong, expressive and dramatic feeling of movement and a polished, athletic quality throughout the whole spin. Finally she plants both feet shoulder-width apart, lowers her arms, and holds a balanced, still stance facing forward. The camera holds a static shot. Soft studio light from a large overhead light panel in front of her falls evenly on her face and shoulders and leaves a short soft shadow on the grey floor behind her heels.\n\noverall_soundscape: Quiet studio room tone with a faint hum of ventilation; the scuff of a boot sole on the floor during the turn, then the light double tap of both boots as she plants her feet.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 192,
+        "shot_tags": 1,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [],
+        "shot_lengths_s": [
+          6.58
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          1
+        ],
+        "then_or_as_per_shot": [
+          true
+        ],
+        "light_nouns_per_shot": [
+          2
+        ],
+        "foreground_hits_per_shot": [
+          2
+        ],
+        "angle_conflict_per_shot": [
+          false
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true,
+        "appearance_term_hits_in_counted_field": {
+          "hair": 0,
+          "hairstyle": 1,
+          "costume": 1,
+          "boots": 1
+        }
+      }
+    },
+    "B": {
+      "counted_field": "integrated_multimodal_description",
+      "prompt": "integrated_multimodal_description: For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced. [Shot 1] Live-action, cinematic. A full-body medium-wide shot at eye level, from the front, of the woman from <Picture 1> standing on a seamless light-grey studio floor in front of a matching grey backdrop. Preserve the same facial identity, hairstyle, costume colours and boots shown in <Picture 1> throughout. She begins standing upright with her feet together and her arms relaxed at her sides. Then she pushes off the ball of her right foot and pivots on the ball of her left foot through one full turn on the spot, her weight staying over the left foot, her spine upright and her hips leading her shoulders, as her momentum carries her half a step at the end and her hair swings outward, settling half a beat after her body stops. Finally she plants both feet shoulder-width apart, lowers her arms, and holds a balanced, still stance facing forward. The camera holds a static shot. Soft studio light from a large overhead light panel in front of her falls evenly on her face and shoulders and leaves a short soft shadow on the grey floor behind her heels.\n\noverall_soundscape: Quiet studio room tone with a faint hum of ventilation; the scuff of a boot sole on the floor during the turn, then the light double tap of both boots as she plants her feet.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 206,
+        "shot_tags": 1,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [],
+        "shot_lengths_s": [
+          6.58
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          1
+        ],
+        "then_or_as_per_shot": [
+          true
+        ],
+        "light_nouns_per_shot": [
+          2
+        ],
+        "foreground_hits_per_shot": [
+          2
+        ],
+        "angle_conflict_per_shot": [
+          false
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true,
+        "appearance_term_hits_in_counted_field": {
+          "hair": 1,
+          "hairstyle": 1,
+          "costume": 1,
+          "boots": 1
+        }
+      }
+    }
+  },
+  "pair_check": {
+    "words_A": 192,
+    "words_B": 206,
+    "diff_pct_B_vs_A": 7.3,
+    "within_10pct": true,
+    "shared_strings_byte_identical": {
+      "scene": true,
+      "appearance": true,
+      "start_state": true,
+      "end_state": true,
+      "camera": true,
+      "light": true,
+      "soundscape": true,
+      "music": true
+    },
+    "method": "python: len(field.split()) == wc -w; shared sentences are the same Python string objects inserted into both arms, asserted present verbatim in both"
+  },
+  "self_check_notes": [
+    "i2va: skill gives no fixed count ('shrink when a reference exists'); this plan targets 150-250 words, both arms equal.",
+    "single shot: no [Shot 2], no timestamps by design (shot structure is NOT the variable; the earlier §11 trial confounded it).",
+    "'hair' appears in B's inertia clause and the shared appearance sentence: B therefore has 2 'hair' hits; this is part of element #6/#8 (inertia), not an appearance restatement.",
+    "light/foreground: shared, so §10.8/8b pass equally ('in front of')."
+  ],
+  "rater_brief": "A woman on a grey studio floor should do one full turn on the spot and end standing still, feet apart, arms down.",
+  "metrics": {
+    "objective": {
+      "end_settle_residual_motion": "ffmpeg -sseof -1 -i <code>.mp4 -vf \"tblend=all_mode=difference,signalstats,metadata=print:key=lavfi.signalstats.YAVG\" -f null - 2>&1 | grep YAVG  -> mean YAVG over last 1 s (lower = more still)",
+      "scene_cuts": "ffmpeg -i <code>.mp4 -vf \"select='gt(scene,0.3)',showinfo\" -f null - 2>&1 | grep -o 'pts_time:[0-9.]*'  (threshold 0.3 primary; also log 0.2 and 0.4)  (expect 0; any cut = structural failure, log it)",
+      "contact_sheet": "ffmpeg -i <code>.mp4 -vf \"fps=2,scale=272:-2,tile=7x2\" -frames:v 1 thumbs/<code>.jpg"
+    }
+  },
+  "rubric": {
+    "scale_note": "0 = absent/failed, 1 = partial/ambiguous, 2 = clearly present. Score each clip independently; never compare two clips side by side before all scores are written.",
+    "artifact": {
+      "0": "severe: limb/face melt, body splits, object morphs",
+      "1": "minor transient glitch < 0.5 s",
+      "2": "none visible"
+    },
+    "completion": {
+      "0": "no recognisable full turn (partial twist, sway, or different action)",
+      "1": "turn happens but under/over-rotated (>45 deg off) or interrupted",
+      "2": "one clear full turn ending facing forward"
+    },
+    "settle": {
+      "0": "still moving or drifting in the last 1 s",
+      "1": "stops but wobbles / shifts feet in the last 1 s",
+      "2": "planted and still for the last >= 0.7 s"
+    },
+    "legibility": {
+      "0": "body mush: limbs blur/merge during the turn",
+      "1": "brief blur but body readable",
+      "2": "body and feet readable throughout"
+    },
+    "secondary_follow_through": {
+      "0": "hair/costume frozen or self-animating against motion",
+      "1": "moves but timing unrelated to the turn",
+      "2": "lags the body and settles after it"
+    },
+    "composite": "completion + settle + legibility + artifact (0-8); follow_through reported separately"
+  },
+  "decision": {
+    "promote_B": "B composite > A composite in 3/3 seeds, OR 2/3 with the third tied; AND B residual motion (last 1 s YAVG) not higher than A in >= 2/3 seeds -> mark action-choreography.md §11 '本機先導實測 (n=3, 0.5MP, i2va 6s)'.",
+    "demote": "A composite > B in >= 2/3 seeds with none reversed -> §11 back to '方法主張，先導實測未支持', log decision in memory.md.",
+    "inconclusive": "anything else -> rerun seeds 1004-1006 before deciding; do not edit references/.",
+    "resolution_limited": "if both arms score legibility 0 in the same seed, mark that seed resolution-limited and exclude it."
+  },
+  "independent_verification": {
+    "computed_by": "freeze_plans.py from the exact strings written",
+    "bash_cross_check": "2026-10-20 Git Bash wc -w on the extracted counted field, diff of overall_soundscape..non_diegetic_music block, grep -oiE music words: all matched these numbers",
+    "wc_w_A": 192,
+    "music_word_hits_A": 1,
+    "wc_w_B": 206,
+    "music_word_hits_B": 1,
+    "soundscape_and_music_block_identical": true
+  }
+}

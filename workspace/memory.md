@@ -13,7 +13,7 @@
 
 ## 進行中（動檔案前先看、收工清掉）
 
-（無）
+- 2026-10-20 Opus 計畫已凍結並 commit（T1/T2/T3/T4/T6）；下一步：校準 1 支、等使用者決定三件事。原記錄：改 `workspace/experiments/ab-master-plan.md`（內文修正＋末尾「Opus 審查意見」）；新增 `workspace/experiments/results/{T1,T2,T3,T4,T6}/plan.json`（已凍結）與產生器 `workspace/experiments/results/_tools/freeze_plans.py`。T5、T7 未凍結。本檔只動此欄。
 
 ## 待辦
 

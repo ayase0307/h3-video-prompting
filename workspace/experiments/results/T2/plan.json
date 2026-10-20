@@ -1,0 +1,237 @@
+{
+  "test_id": "T2",
+  "frozen": "2026-10-20",
+  "frozen_by": "Opus plan/review",
+  "status": "frozen",
+  "hypothesis": "Writing cuts as official '[Shot n] At MM:SS.mmm' markers makes H3 cut at the stated times; the same three shots written as prose with 'the shot cuts to' but no markers yields fewer or mistimed cuts (community claim: ~0.12 s error with timestamps; one static take without).",
+  "single_variable": "Presence of [Shot n] tags + At timestamps. Shot content, cut wording ('the shot cuts to') and order are identical; A uses 'Then/Finally' where B uses tags.",
+  "held_constant": [
+    "all shot content sentences",
+    "soundscape",
+    "music N/A",
+    "params",
+    "seeds"
+  ],
+  "params": {
+    "kind": "generate",
+    "task_type": "t2va",
+    "megapixels": 0.5,
+    "quality": "medium",
+    "seconds": 6,
+    "aspect": "16:9",
+    "expected_width_height": [
+      960,
+      544
+    ],
+    "expected_frames": 158,
+    "expected_effective_seconds": 6.58,
+    "seeds": [
+      1001,
+      1002,
+      1003
+    ],
+    "jobs": 6
+  },
+  "first_frame_source": {
+    "source": "none (t2va)"
+  },
+  "freevideo": {
+    "endpoint": "http://127.0.0.1:8189/freevideo/agent/v1  (POST /plan first, then POST /jobs)",
+    "body_keys_seen_in_repo_scripts": [
+      "kind='generate'",
+      "prompt (single string = the assembled prompt below)",
+      "seconds",
+      "aspect",
+      "megapixels",
+      "quality",
+      "seed",
+      "label",
+      "ref",
+      "media.references[{file}]"
+    ],
+    "confirm_via_plan": true,
+    "confirm_note": "How FreeVideo distinguishes i2va first frame vs Ref2VA reference (and whether a 'task type' key exists) is NOT verified; inspect /plan response before /jobs. If /plan width/height or frame count differ from expected, stop and report; do not submit."
+  },
+  "blind_protocol": {
+    "submitter": "Haiku-S (submits jobs, extracts frames, runs objective scripts). Sees prompts; never rates.",
+    "rater": "Haiku-R (different agent instance). Sees only code-named media + rater_brief + rubric, in E:/MinimaxH3/_blind/<test-id>/ (outside the repo). Must not read the repo, plan.json, jobs.json or FreeVideo labels.",
+    "codes": "Main session draws a random 6-char [a-z0-9] code per (arm, seed) with secrets.token_hex, writes the key to workspace/experiments/_local/<test-id>/key.json (gitignored), and gives Haiku-S only code -> prompt-file mapping. FreeVideo ref = <test-id>-<code>-<yyyymmddHHMM>; label = test id + code, never arm letters.",
+    "order": "Main session shuffles clip order separately for the rater.",
+    "unblinding": "Only after scores.csv and metrics.csv are committed to the working tree; then main session copies key.json into summary.md.",
+    "known_leaks": []
+  },
+  "prompts": {
+    "A": {
+      "counted_field": "integrated_multimodal_description",
+      "prompt": "integrated_multimodal_description: Live-action, cinematic, natural morning realism. A wide shot at eye level, from the side, of a small sunlit apartment kitchen: a man in his thirties in a grey t-shirt walks to the wooden counter, where a glass pour-over set waits in front of a tiled wall. The counter also holds a ceramic cup, a small grinder and a folded towel, and the rest of the kitchen stays tidy and quiet behind him. First he stops at the counter, then he lifts a steel kettle with his right hand, as steam curls from its spout. Morning sunlight from the window behind him rims his shoulders and lays a bright stripe across the counter, while a blurred potted plant sits in the foreground. The camera trucks right with small amplitude at slow speed, following him to the counter. Then the shot cuts to a high-angle close-up from above the counter of the paper filter: hot water spirals from the kettle spout onto the dark coffee grounds, then the grounds swell and bubble into a pale foam, as thin steam rises past the rim. The same window sunlight falls across the glass server and makes the dripping coffee glow amber, with the out-of-focus edge of the kettle in the foreground. The camera holds a static shot. Finally the shot cuts to a medium close-up at a low angle, from the front, of the man: he lifts the finished cup toward his face, then breathes in the steam, as his shoulders drop and he lets out a slow breath. Window sunlight from camera-left lights one side of his face and the rising steam, and the out-of-focus rim of the cup fills the lower foreground. The camera pushes in with small amplitude at slow speed toward his face and holds the final frame. Behind him the kitchen falls softly out of focus, the window bright but not blown out, and nothing else moves in the room.\n\noverall_soundscape: Quiet kitchen room tone with distant birds outside the window; the clink of the kettle lifting off its base, the soft hiss of water pouring onto the grounds and a faint bubbling as they bloom, then a ceramic tap as the cup leaves the counter and one slow exhale.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 321,
+        "shot_tags": 0,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [],
+        "shot_lengths_s": [
+          6.58
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          3
+        ],
+        "then_or_as_per_shot": [
+          true
+        ],
+        "light_nouns_per_shot": [
+          3
+        ],
+        "foreground_hits_per_shot": [
+          6
+        ],
+        "angle_conflict_per_shot": [
+          true
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true
+      }
+    },
+    "B": {
+      "counted_field": "integrated_multimodal_description",
+      "prompt": "integrated_multimodal_description: [Shot 1] Live-action, cinematic, natural morning realism. A wide shot at eye level, from the side, of a small sunlit apartment kitchen: a man in his thirties in a grey t-shirt walks to the wooden counter, where a glass pour-over set waits in front of a tiled wall. The counter also holds a ceramic cup, a small grinder and a folded towel, and the rest of the kitchen stays tidy and quiet behind him. First he stops at the counter, then he lifts a steel kettle with his right hand, as steam curls from its spout. Morning sunlight from the window behind him rims his shoulders and lays a bright stripe across the counter, while a blurred potted plant sits in the foreground. The camera trucks right with small amplitude at slow speed, following him to the counter. [Shot 2] At 00:02.200, the shot cuts to a high-angle close-up from above the counter of the paper filter: hot water spirals from the kettle spout onto the dark coffee grounds, then the grounds swell and bubble into a pale foam, as thin steam rises past the rim. The same window sunlight falls across the glass server and makes the dripping coffee glow amber, with the out-of-focus edge of the kettle in the foreground. The camera holds a static shot. [Shot 3] At 00:04.400, the shot cuts to a medium close-up at a low angle, from the front, of the man: he lifts the finished cup toward his face, then breathes in the steam, as his shoulders drop and he lets out a slow breath. Window sunlight from camera-left lights one side of his face and the rising steam, and the out-of-focus rim of the cup fills the lower foreground. The camera pushes in with small amplitude at slow speed toward his face and holds the final frame. Behind him the kitchen falls softly out of focus, the window bright but not blown out, and nothing else moves in the room.\n\noverall_soundscape: Quiet kitchen room tone with distant birds outside the window; the clink of the kettle lifting off its base, the soft hiss of water pouring onto the grounds and a faint bubbling as they bloom, then a ceramic tap as the cup leaves the counter and one slow exhale.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 329,
+        "shot_tags": 3,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [
+          2.2,
+          4.4
+        ],
+        "shot_lengths_s": [
+          2.2,
+          2.2,
+          2.18
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          1,
+          1,
+          1
+        ],
+        "then_or_as_per_shot": [
+          true,
+          true,
+          true
+        ],
+        "light_nouns_per_shot": [
+          1,
+          1,
+          1
+        ],
+        "foreground_hits_per_shot": [
+          2,
+          2,
+          2
+        ],
+        "angle_conflict_per_shot": [
+          false,
+          false,
+          false
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true
+      }
+    }
+  },
+  "pair_check": {
+    "words_A": 321,
+    "words_B": 329,
+    "diff_pct_B_vs_A": 2.5,
+    "within_10pct": true,
+    "shared_strings_byte_identical": {
+      "style": true,
+      "shot1": true,
+      "shot2": true,
+      "shot3": true,
+      "soundscape": true,
+      "music": true
+    },
+    "method": "python: len(field.split()) == wc -w; shared sentences are the same Python string objects inserted into both arms, asserted present verbatim in both"
+  },
+  "four_axis_B": [
+    {
+      "shot": 1,
+      "size": "wide",
+      "angle": "eye level, side",
+      "move": "truck",
+      "subject": "man"
+    },
+    {
+      "shot": 2,
+      "size": "close-up",
+      "angle": "high, from above",
+      "move": "static",
+      "subject": "filter/grounds"
+    },
+    {
+      "shot": 3,
+      "size": "medium close-up",
+      "angle": "low, front",
+      "move": "push",
+      "subject": "man's face"
+    }
+  ],
+  "self_check_notes": [
+    "A is the control and fails §10.1-3 and §10.9 by design (no shot tags, so all three shots' angles fall in one segment).",
+    "B: 3 shots in D=6.58 s, cuts 2.200/4.400, last shot 2.18 s (>= 2.0). 6 s is the floor for 3 shots; do not move cuts later than 4.58.",
+    "T2VA 300-700 word band met by both arms."
+  ],
+  "rater_brief": "A man makes pour-over coffee in a kitchen. Planned beats: wide shot of him lifting a kettle; close-up from above of water on coffee grounds; low-angle medium close-up of him smelling the cup.",
+  "metrics": {
+    "objective": {
+      "scene_cuts": "ffmpeg -i <code>.mp4 -vf \"select='gt(scene,0.3)',showinfo\" -f null - 2>&1 | grep -o 'pts_time:[0-9.]*'  (threshold 0.3 primary; also log 0.2 and 0.4)",
+      "target_cuts_s": [
+        2.2,
+        4.4
+      ],
+      "match_window_s": 0.25,
+      "derived": "matched = targets with a detected cut within ±0.25 s (0-2); spurious = detected cuts not matched; abs_error = mean |t_detected - t_target| over matched",
+      "verified_cut_rule": "MECHANICAL, no human step: a cut is verified only if detected at threshold 0.3 AND at 0.4 within 0.1 s of each other. matched/spurious are computed from verified cuts; raw 0.3 counts are logged too.",
+      "rater_cut_check": "secondary only: Haiku-R (blind) gets code-named 3-frame strips (t-0.1, t, t+0.1) for every raw 0.3 detection and answers yes/no 'hard cut at t?'; logged, not used for the decision",
+      "contact_sheet": "ffmpeg -i <code>.mp4 -vf \"fps=2,scale=272:-2,tile=7x2\" -frames:v 1 thumbs/<code>.jpg"
+    }
+  },
+  "rubric": {
+    "scale_note": "0 = absent/failed, 1 = partial/ambiguous, 2 = clearly present. Score each clip independently; never compare two clips side by side before all scores are written.",
+    "artifact": {
+      "0": "severe: limb/face melt, body splits, object morphs",
+      "1": "minor transient glitch < 0.5 s",
+      "2": "none visible"
+    },
+    "beat_coverage": {
+      "0": "<= 1 of the 3 planned beats visible",
+      "1": "2 beats",
+      "2": "all 3 beats"
+    },
+    "beat_order": {
+      "0": "wrong order or merged",
+      "1": "order right but one beat truncated < 1 s",
+      "2": "correct order, each beat >= ~1.5 s"
+    },
+    "composite": "beat_coverage + beat_order + artifact (0-6)"
+  },
+  "decision": {
+    "promote_B": "B verified matched = 2 in 3/3 seeds AND B matched > A matched in >= 2/3 seeds -> prompt-formats.md community claim upgraded to '本機先導實測'; record mean abs_error.",
+    "claim_refuted": "A also reaches matched = 2 in >= 2/3 seeds -> the 'no timestamps = one static take' claim is false on this setup; rewrite it.",
+    "inconclusive": "else -> seeds 1004-1006."
+  },
+  "independent_verification": {
+    "computed_by": "freeze_plans.py from the exact strings written",
+    "bash_cross_check": "2026-10-20 Git Bash wc -w on the extracted counted field, diff of overall_soundscape..non_diegetic_music block, grep -oiE music words: all matched these numbers",
+    "wc_w_A": 321,
+    "music_word_hits_A": 1,
+    "wc_w_B": 329,
+    "music_word_hits_B": 1,
+    "soundscape_and_music_block_identical": true
+  }
+}

@@ -1,0 +1,249 @@
+{
+  "test_id": "T6",
+  "frozen": "2026-10-20",
+  "frozen_by": "Opus plan/review",
+  "status": "frozen",
+  "hypothesis": "For identity held through motion and a cut, a Ref2VA character reference (subject_definitions + references) keeps face/hair/tails/costume closer to the sheet at mid and end of the clip than i2va with the sheet cell as first frame.",
+  "single_variable": "Reference route (i2va first frame vs Ref2VA references). This is a ROUTE comparison, not a wording rule: Ref2VA necessarily adds subject_definitions/summary/retention_analysis; the counted description body is identical except the reference token (<Picture 1> vs <Subject 1>), the style-sentence position each format requires (start of [Shot 1] vs before [Shot 1]), and A's mandatory i2va alignment sentence.",
+  "held_constant": [
+    "description body",
+    "appearance sentence",
+    "two shots with cut at 3.000",
+    "camera sentences",
+    "soundscape",
+    "music N/A",
+    "params",
+    "seeds"
+  ],
+  "params": {
+    "kind": "generate",
+    "task_type": "A: i2va / B: ref2va",
+    "megapixels": 0.5,
+    "quality": "medium",
+    "seconds": 6,
+    "aspect": "9:16",
+    "expected_width_height": [
+      544,
+      960
+    ],
+    "expected_frames": 158,
+    "expected_effective_seconds": 6.58,
+    "seeds": [
+      1001,
+      1002,
+      1003
+    ],
+    "jobs": 6
+  },
+  "first_frame_source": {
+    "A": "full-body FRONT cell of 白髮九尾狐 sheet, padded with the sheet's own grey to 9:16, >= 544x960 -> _local/chars/t6_first_frame.png (first frame)",
+    "B": "two references, no first frame: <Picture 1> = face close-up cell, <Picture 2> = same full-body FRONT cell as A (unpadded crop is fine). Optional FreeVideo character card only if the user approves (persistent side effect); otherwise media.references only.",
+    "same_source_sheet": true
+  },
+  "freevideo": {
+    "endpoint": "http://127.0.0.1:8189/freevideo/agent/v1  (POST /plan first, then POST /jobs)",
+    "body_keys_seen_in_repo_scripts": [
+      "kind='generate'",
+      "prompt (single string = the assembled prompt below)",
+      "seconds",
+      "aspect",
+      "megapixels",
+      "quality",
+      "seed",
+      "label",
+      "ref",
+      "media.references[{file}]"
+    ],
+    "confirm_via_plan": true,
+    "confirm_note": "How FreeVideo distinguishes i2va first frame vs Ref2VA reference (and whether a 'task type' key exists) is NOT verified; inspect /plan response before /jobs. If /plan width/height or frame count differ from expected, stop and report; do not submit."
+  },
+  "blind_protocol": {
+    "submitter": "Haiku-S (submits jobs, extracts frames, runs objective scripts). Sees prompts; never rates.",
+    "rater": "Haiku-R (different agent instance). Sees only code-named media + rater_brief + rubric, in E:/MinimaxH3/_blind/<test-id>/ (outside the repo). Must not read the repo, plan.json, jobs.json or FreeVideo labels.",
+    "codes": "Main session draws a random 6-char [a-z0-9] code per (arm, seed) with secrets.token_hex, writes the key to workspace/experiments/_local/<test-id>/key.json (gitignored), and gives Haiku-S only code -> prompt-file mapping. FreeVideo ref = <test-id>-<code>-<yyyymmddHHMM>; label = test id + code, never arm letters.",
+    "order": "Main session shuffles clip order separately for the rater.",
+    "unblinding": "Only after scores.csv and metrics.csv are committed to the working tree; then main session copies key.json into summary.md.",
+    "known_leaks": []
+  },
+  "prompts": {
+    "A": {
+      "counted_field": "integrated_multimodal_description",
+      "prompt": "integrated_multimodal_description: For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced. [Shot 1] Live-action, cinematic. A medium-wide shot at eye level, from the front, of the fox woman from <Picture 1> on a seamless light-grey studio floor in front of a matching grey backdrop. Preserve the same facial identity, white hair, nine fox tails and costume colours shown in <Picture 1> throughout. First she stands with her weight on her left foot and her hands loosely clasped in front of her waist, then she walks three unhurried steps toward the camera, as her tails sway behind her a moment after each step and settle again when she stops. Her steps are light and even, heel then toe, and her shoulders stay level while she walks. Her arms stay relaxed, her clasped hands loosen slightly as she walks, and the hem of her clothing swings lightly with each step. Soft neutral studio light from a large overhead light panel in front of her falls evenly across her face and shoulders and leaves a short soft shadow on the floor behind her heels. The camera pulls out with small amplitude at slow speed, keeping her whole body in frame as she approaches. [Shot 2] At 00:03.000, the shot cuts to a close-up from her front-left at a slightly low angle, framing her face and shoulders: she begins with her eyes lowered toward the floor on her left, then she slowly raises her chin and turns her head to look straight ahead past the right edge of the frame, as a loose strand of hair slides across her cheek and comes to rest. Her expression stays calm and composed; she blinks once after the turn and holds the gaze. Her face stays fully visible and sharp, with no hair covering her eyes, and her breathing remains slow and even through the whole close-up. The same overhead light panel lights her forehead, cheekbones and the bridge of her nose, and the out-of-focus tip of one tail curls through the lower foreground. The camera holds a static shot. The background stays the same plain grey, with no props, no text and no other people, and the framing stays steady until the end of the clip. The pacing is calm and unhurried from the first step to the final held gaze.\n\noverall_soundscape: Quiet studio room tone with a faint hum of ventilation; soft footsteps on the floor for each of her three steps, the light swish of fur as her tails sway, then near silence in the close-up with one soft breath.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 393,
+        "shot_tags": 2,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [
+          3.0
+        ],
+        "shot_lengths_s": [
+          3.0,
+          3.58
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          1,
+          1
+        ],
+        "then_or_as_per_shot": [
+          true,
+          true
+        ],
+        "light_nouns_per_shot": [
+          2,
+          1
+        ],
+        "foreground_hits_per_shot": [
+          3,
+          2
+        ],
+        "angle_conflict_per_shot": [
+          false,
+          false
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true,
+        "appearance_term_hits_in_counted_field": {
+          "hair": 3,
+          "tails": 2,
+          "costume": 1
+        }
+      }
+    },
+    "B": {
+      "counted_field": "detailed_description",
+      "prompt": "subject_definitions: <Subject 1> is the same fox woman established by <Picture 1> (face close-up) and <Picture 2> (full-body front view).\n\nsummary: [reference generation] <Subject 1> walks toward the camera in a grey studio, then a close-up shows her raising her head and turning her gaze.\n\nretention_analysis: <Subject 1>: fully_preserved - facial identity, hair, tails and costume colours from <Picture 1> and <Picture 2>; the grey sheet background and the four-view layout are not reproduced.\n\ndetailed_description: Live-action, cinematic. [Shot 1] A medium-wide shot at eye level, from the front, of the fox woman from <Subject 1> on a seamless light-grey studio floor in front of a matching grey backdrop. Preserve the same facial identity, white hair, nine fox tails and costume colours shown in <Subject 1> throughout. First she stands with her weight on her left foot and her hands loosely clasped in front of her waist, then she walks three unhurried steps toward the camera, as her tails sway behind her a moment after each step and settle again when she stops. Her steps are light and even, heel then toe, and her shoulders stay level while she walks. Her arms stay relaxed, her clasped hands loosen slightly as she walks, and the hem of her clothing swings lightly with each step. Soft neutral studio light from a large overhead light panel in front of her falls evenly across her face and shoulders and leaves a short soft shadow on the floor behind her heels. The camera pulls out with small amplitude at slow speed, keeping her whole body in frame as she approaches. [Shot 2] At 00:03.000, the shot cuts to a close-up from her front-left at a slightly low angle, framing her face and shoulders: she begins with her eyes lowered toward the floor on her left, then she slowly raises her chin and turns her head to look straight ahead past the right edge of the frame, as a loose strand of hair slides across her cheek and comes to rest. Her expression stays calm and composed; she blinks once after the turn and holds the gaze. Her face stays fully visible and sharp, with no hair covering her eyes, and her breathing remains slow and even through the whole close-up. The same overhead light panel lights her forehead, cheekbones and the bridge of her nose, and the out-of-focus tip of one tail curls through the lower foreground. The camera holds a static shot. The background stays the same plain grey, with no props, no text and no other people, and the framing stays steady until the end of the clip. The pacing is calm and unhurried from the first step to the final held gaze.\n\noverall_soundscape: Quiet studio room tone with a faint hum of ventilation; soft footsteps on the floor for each of her three steps, the light swish of fur as her tails sway, then near silence in the close-up with one soft breath.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 374,
+        "shot_tags": 2,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [
+          3.0
+        ],
+        "shot_lengths_s": [
+          3.0,
+          3.58
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          1,
+          1
+        ],
+        "then_or_as_per_shot": [
+          true,
+          true
+        ],
+        "light_nouns_per_shot": [
+          2,
+          1
+        ],
+        "foreground_hits_per_shot": [
+          3,
+          2
+        ],
+        "angle_conflict_per_shot": [
+          false,
+          false
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true,
+        "appearance_term_hits_in_counted_field": {
+          "hair": 3,
+          "tails": 2,
+          "costume": 1
+        }
+      }
+    }
+  },
+  "pair_check": {
+    "words_A": 393,
+    "words_B": 374,
+    "diff_pct_B_vs_A": -4.8,
+    "within_10pct": true,
+    "shared_strings_byte_identical": {
+      "description_body_modulo_ref_token": true,
+      "soundscape": true,
+      "music": true
+    },
+    "difference_explained": "A = B body + i2va alignment sentence (official requirement for i2va)."
+  },
+  "four_axis": [
+    {
+      "shot": 1,
+      "size": "medium-wide",
+      "angle": "eye level, front",
+      "move": "pull",
+      "subject": "full body"
+    },
+    {
+      "shot": 2,
+      "size": "close-up",
+      "angle": "slightly low, front-left",
+      "move": "static",
+      "subject": "face"
+    }
+  ],
+  "self_check_notes": [
+    "Ref2VA body targets the official 350-500 detailed_description band; A uses the identical body (i2va has no fixed count).",
+    "Appearance terms: 'hair' 3x (appearance sentence + strand-of-hair motion + 'no hair covering her eyes'), 'tails' 2x (appearance + sway) - motion/visibility mentions, not appearance restatements; flagged for review against §10.12.",
+    "Shot 2 uses 'slightly low angle' with no 'eye level' in the same shot - §10.9 passes.",
+    "Character facts beyond 'white hair, nine fox tails' are NOT asserted because the plan author has not seen the sheet; main session must confirm these two words match the image before submit (change both arms identically if not)."
+  ],
+  "rater_brief": "Reference sheet image is provided. A fox woman walks toward camera, then a close-up of her face turning. Compare identity to the sheet only.",
+  "metrics": {
+    "objective": {
+      "identity_frames": "extract frames at t = 1.5 s (mid shot 1) and t = 6.0 s (end of shot 2): ffmpeg -ss <t> -i <code>.mp4 -frames:v 1 frames/<code>_<t>.png",
+      "costume_palette_drift": "python -I scripts/color_qa.py frames/<code>_1.5.png _local/chars/t6_fullbody_cell.png -> palette dE76 (lower = closer). Coarse; descriptive.",
+      "face_embedding": "NOT available in repo. Only if insightface/facenet is already installed locally may Haiku-S add cosine similarity vs the face cell; otherwise omit. Do not install for this test.",
+      "scene_cuts": "ffmpeg -i <code>.mp4 -vf \"select='gt(scene,0.3)',showinfo\" -f null - 2>&1 | grep -o 'pts_time:[0-9.]*'  (threshold 0.3 primary; also log 0.2 and 0.4)  (expect 1 cut near 3.0 s)"
+    }
+  },
+  "rubric": {
+    "scale_note": "0 = absent/failed, 1 = partial/ambiguous, 2 = clearly present. Score each clip independently; never compare two clips side by side before all scores are written.",
+    "artifact": {
+      "0": "severe: limb/face melt, body splits, object morphs",
+      "1": "minor transient glitch < 0.5 s",
+      "2": "none visible"
+    },
+    "face_match_mid": {
+      "0": "different person",
+      "1": "similar but key features changed (eye shape, face shape, age)",
+      "2": "same person as sheet"
+    },
+    "face_match_end": {
+      "0": "different person",
+      "1": "similar but key features changed",
+      "2": "same person as sheet"
+    },
+    "hair_tails_match": {
+      "0": "colour/length/tail count clearly wrong",
+      "1": "minor drift (shade, style, fewer tails)",
+      "2": "matches sheet"
+    },
+    "costume_match": {
+      "0": "different outfit or colours",
+      "1": "same outfit with detail/colour drift",
+      "2": "matches sheet"
+    },
+    "composite": "face_match_mid + face_match_end + hair_tails_match + costume_match + artifact (0-10). Frame 0 is NOT scored (trivially perfect for i2va)."
+  },
+  "decision": {
+    "prefer_ref2va": "B composite > A in 3/3 seeds (or 2/3 + tie) -> long-form/consistency guidance recommends Ref2VA references for identity through motion+cut ('本機先導實測').",
+    "prefer_i2va": "A > B in >= 2/3 seeds -> recommend sheet-cell first frame when the scene can match the sheet; note grey-sheet scene limitation.",
+    "inconclusive": "else -> seeds 1004-1006.",
+    "resolution_limited": "if face_match scores are 1 in both arms for all seeds, mark 'resolution-limited at 0.5MP' and rerun one seed at 0.98MP."
+  },
+  "independent_verification": {
+    "computed_by": "freeze_plans.py from the exact strings written",
+    "bash_cross_check": "2026-10-20 Git Bash wc -w on the extracted counted field, diff of overall_soundscape..non_diegetic_music block, grep -oiE music words: all matched these numbers",
+    "wc_w_A": 393,
+    "music_word_hits_A": 1,
+    "wc_w_B": 374,
+    "music_word_hits_B": 1,
+    "soundscape_and_music_block_identical": true
+  }
+}

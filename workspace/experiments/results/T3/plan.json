@@ -1,0 +1,205 @@
+{
+  "test_id": "T3",
+  "frozen": "2026-10-20",
+  "frozen_by": "Opus plan/review",
+  "status": "frozen",
+  "hypothesis": "One light-path sentence (source -> medium -> lit surface) gives a readable, stable key direction better than 'cinematic lighting' + mood adjectives, at equal word count.",
+  "single_variable": "The single lighting sentence: A = 'cinematic lighting' + adjectives; B = path sentence. All light-emitting objects exist in both arms as scene content.",
+  "held_constant": [
+    "scene objects incl. neon sign / window glass / street lamp",
+    "action",
+    "rain",
+    "single shot",
+    "camera",
+    "soundscape",
+    "music N/A",
+    "params",
+    "seeds"
+  ],
+  "params": {
+    "kind": "generate",
+    "task_type": "t2va",
+    "megapixels": 0.5,
+    "quality": "medium",
+    "seconds": 6,
+    "aspect": "16:9",
+    "expected_width_height": [
+      960,
+      544
+    ],
+    "expected_frames": 158,
+    "expected_effective_seconds": 6.58,
+    "seeds": [
+      1001,
+      1002,
+      1003
+    ],
+    "jobs": 6
+  },
+  "first_frame_source": {
+    "source": "none (t2va); both arms share every scene object (neon sign, wet window glass, street lamp)"
+  },
+  "freevideo": {
+    "endpoint": "http://127.0.0.1:8189/freevideo/agent/v1  (POST /plan first, then POST /jobs)",
+    "body_keys_seen_in_repo_scripts": [
+      "kind='generate'",
+      "prompt (single string = the assembled prompt below)",
+      "seconds",
+      "aspect",
+      "megapixels",
+      "quality",
+      "seed",
+      "label",
+      "ref",
+      "media.references[{file}]"
+    ],
+    "confirm_via_plan": true,
+    "confirm_note": "How FreeVideo distinguishes i2va first frame vs Ref2VA reference (and whether a 'task type' key exists) is NOT verified; inspect /plan response before /jobs. If /plan width/height or frame count differ from expected, stop and report; do not submit."
+  },
+  "blind_protocol": {
+    "submitter": "Haiku-S (submits jobs, extracts frames, runs objective scripts). Sees prompts; never rates.",
+    "rater": "Haiku-R (different agent instance). Sees only code-named media + rater_brief + rubric, in E:/MinimaxH3/_blind/<test-id>/ (outside the repo). Must not read the repo, plan.json, jobs.json or FreeVideo labels.",
+    "codes": "Main session draws a random 6-char [a-z0-9] code per (arm, seed) with secrets.token_hex, writes the key to workspace/experiments/_local/<test-id>/key.json (gitignored), and gives Haiku-S only code -> prompt-file mapping. FreeVideo ref = <test-id>-<code>-<yyyymmddHHMM>; label = test id + code, never arm letters.",
+    "order": "Main session shuffles clip order separately for the rater.",
+    "unblinding": "Only after scores.csv and metrics.csv are committed to the working tree; then main session copies key.json into summary.md.",
+    "known_leaks": []
+  },
+  "prompts": {
+    "A": {
+      "counted_field": "integrated_multimodal_description",
+      "prompt": "integrated_multimodal_description: [Shot 1] Live-action, cinematic, night-time city realism. A medium close-up at eye level, from the front-left, of a young woman in a dark rain jacket standing under the narrow awning of a small corner café at night. A red neon sign hangs above the café window behind her, the window glass is streaked with rain, and a street lamp glows further down the wet street, its reflection broken by puddles on the pavement. Inside the café, empty tables and upturned chairs sit behind the glass, and a closed umbrella leans against the doorframe beside her. The pavement under her feet is dark and glossy with water. Out-of-focus raindrops on a glass panel sit in the foreground between her and the camera. First she stands still with her hood up and her hands in her pockets, watching the street. Then she lowers the hood with her right hand, as a few raindrops slide off the fabric and drip from its edge onto her shoulder. Finally she turns her head slowly toward the far end of the street and holds still, her breath faintly visible in the cold air. Her expression stays calm and tired, her lips closed, and her shoulders rise and fall slowly with her breathing. The scene has cinematic lighting with a moody, atmospheric, dramatic and beautiful look, rich high-quality night lighting, deep contrast and a stylish, film-like glow over the whole frame. Steady light rain falls in thin vertical lines past the awning, splashes in the puddles, and runs along the gutter beside the kerb, while a single passing car far behind her leaves a soft smear of headlights on the wet road. Small drips fall from the awning edge in a steady row just in front of her, each one catching a brief glint as it drops. The camera pushes in with small amplitude at slow speed toward her face and holds the final frame.\n\noverall_soundscape: Steady rain drumming on the canvas awning and pattering into puddles, a gutter trickling beside the kerb, the rustle of the hood fabric as she lowers it, and one car passing far away on wet asphalt, its tyre hiss fading.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 318,
+        "shot_tags": 1,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [],
+        "shot_lengths_s": [
+          6.58
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          1
+        ],
+        "then_or_as_per_shot": [
+          true
+        ],
+        "light_nouns_per_shot": [
+          2
+        ],
+        "foreground_hits_per_shot": [
+          3
+        ],
+        "angle_conflict_per_shot": [
+          false
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true
+      }
+    },
+    "B": {
+      "counted_field": "integrated_multimodal_description",
+      "prompt": "integrated_multimodal_description: [Shot 1] Live-action, cinematic, night-time city realism. A medium close-up at eye level, from the front-left, of a young woman in a dark rain jacket standing under the narrow awning of a small corner café at night. A red neon sign hangs above the café window behind her, the window glass is streaked with rain, and a street lamp glows further down the wet street, its reflection broken by puddles on the pavement. Inside the café, empty tables and upturned chairs sit behind the glass, and a closed umbrella leans against the doorframe beside her. The pavement under her feet is dark and glossy with water. Out-of-focus raindrops on a glass panel sit in the foreground between her and the camera. First she stands still with her hood up and her hands in her pockets, watching the street. Then she lowers the hood with her right hand, as a few raindrops slide off the fabric and drip from its edge onto her shoulder. Finally she turns her head slowly toward the far end of the street and holds still, her breath faintly visible in the cold air. Her expression stays calm and tired, her lips closed, and her shoulders rise and fall slowly with her breathing. Red neon light from the sign above the café passes through the wet window glass and falls only on the left side of her face, while her right side stays in soft shadow. Steady light rain falls in thin vertical lines past the awning, splashes in the puddles, and runs along the gutter beside the kerb, while a single passing car far behind her leaves a soft smear of headlights on the wet road. Small drips fall from the awning edge in a steady row just in front of her, each one catching a brief glint as it drops. The camera pushes in with small amplitude at slow speed toward her face and holds the final frame.\n\noverall_soundscape: Steady rain drumming on the canvas awning and pattering into puddles, a gutter trickling beside the kerb, the rustle of the hood fabric as she lowers it, and one car passing far away on wet asphalt, its tyre hiss fading.\n\nnon_diegetic_music: N/A",
+      "self_check": {
+        "word_count_counted_field": 323,
+        "shot_tags": 1,
+        "shot1_has_timestamp": 0,
+        "cut_times_s": [],
+        "shot_lengths_s": [
+          6.58
+        ],
+        "all_shots_ge_2s": true,
+        "orbit_words": 0,
+        "camera_sentences_per_shot": [
+          1
+        ],
+        "then_or_as_per_shot": [
+          true
+        ],
+        "light_nouns_per_shot": [
+          3
+        ],
+        "foreground_hits_per_shot": [
+          3
+        ],
+        "angle_conflict_per_shot": [
+          false
+        ],
+        "music_word_hits_whole_prompt": 1,
+        "has_soundscape_field": true,
+        "has_music_field": true
+      }
+    }
+  },
+  "pair_check": {
+    "words_A": 318,
+    "words_B": 323,
+    "diff_pct_B_vs_A": 1.6,
+    "within_10pct": true,
+    "shared_strings_byte_identical": {
+      "style": true,
+      "scene_objects": true,
+      "action": true,
+      "rain": true,
+      "camera": true,
+      "soundscape": true,
+      "music": true
+    },
+    "method": "python: len(field.split()) == wc -w; shared sentences are the same Python string objects inserted into both arms, asserted present verbatim in both"
+  },
+  "self_check_notes": [
+    "A intentionally contains 'cinematic lighting'/'high-quality' (red-flag words) - it is the control.",
+    "light_nouns counts are equal-ish in both arms because the neon sign and street lamp are scene objects in both; the variable is the path sentence, not the presence of sources."
+  ],
+  "rater_brief": "Night, rain, a woman under a café awning lowers her hood and turns her head. Judge the lighting only.",
+  "metrics": {
+    "objective": {
+      "per_frame_L": "ffmpeg -i <code>.mp4 -vf fps=2 frames/<code>_%02d.png ; python -I scripts/color_qa.py frames/<code>_*.png  -> take meanLab L* per frame; report mean and std (ignore the pairwise lines)  -> report std(L*) as flicker proxy",
+      "palette_L_range": "python -I scripts/color_qa.py <code>.mp4 -> palette L* list; report max-min (contrast proxy, descriptive only)",
+      "face_side_ratio": "optional, manual: rater-independent Haiku-S crops left/right half of the face on the last frame and runs color_qa on both crops; report L*(left)-L*(right). Descriptive only.",
+      "note": "color_qa.py has NO luminance-zone feature; draft's '亮度分區' metric removed.",
+      "scene_cuts": "ffmpeg -i <code>.mp4 -vf \"select='gt(scene,0.3)',showinfo\" -f null - 2>&1 | grep -o 'pts_time:[0-9.]*'  (threshold 0.3 primary; also log 0.2 and 0.4)  (expect 0; single-shot prompt)"
+    }
+  },
+  "rubric": {
+    "scale_note": "0 = absent/failed, 1 = partial/ambiguous, 2 = clearly present. Score each clip independently; never compare two clips side by side before all scores are written.",
+    "artifact": {
+      "0": "severe: limb/face melt, body splits, object morphs",
+      "1": "minor transient glitch < 0.5 s",
+      "2": "none visible"
+    },
+    "key_direction": {
+      "0": "no identifiable main light direction on the face",
+      "1": "direction guessable but inconsistent across the clip",
+      "2": "one clear key side, stable through the clip"
+    },
+    "motivated": {
+      "0": "light on her has no visible source in frame",
+      "1": "plausible source but colour/direction mismatch",
+      "2": "light on her clearly comes from a visible source (sign/lamp/window)"
+    },
+    "exposure": {
+      "0": "face crushed or blown out",
+      "1": "parts clipped",
+      "2": "face readable with texture in shadow side"
+    },
+    "appeal_1_5": "1 = flat/muddy, 3 = acceptable, 5 = would use as-is",
+    "composite": "key_direction + motivated + exposure + artifact (0-8); appeal reported separately"
+  },
+  "decision": {
+    "promote_B": "B composite > A in 3/3 seeds (or 2/3 + tie) AND std(L*) of B not > A + 1.0 in >= 2/3 seeds -> shot-variety §6 / lighting §A path rule marked '本機先導實測'.",
+    "demote": "A >= B in >= 2/3 seeds -> path rule downgraded to style guidance; record in memory.md.",
+    "inconclusive": "else -> seeds 1004-1006.",
+    "structural_fail": "a clip with a verified cut (detected at 0.3 AND 0.4) is scored structural-fail; that seed pair is excluded from the objective comparison and reported separately. If >= 2 seed pairs are excluded, the test is inconclusive."
+  },
+  "independent_verification": {
+    "computed_by": "freeze_plans.py from the exact strings written",
+    "bash_cross_check": "2026-10-20 Git Bash wc -w on the extracted counted field, diff of overall_soundscape..non_diegetic_music block, grep -oiE music words: all matched these numbers",
+    "wc_w_A": 318,
+    "music_word_hits_A": 1,
+    "wc_w_B": 323,
+    "music_word_hits_B": 1,
+    "soundscape_and_music_block_identical": true
+  }
+}
