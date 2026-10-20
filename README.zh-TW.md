@@ -118,7 +118,7 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 
 ## 誠實的限制
 
-預算（每片 shot 數、每鏡一個運鏡、字數）來自官方指南與社群實測。**跨 shot 變化規則、spec 卡、光線路徑、焦點轉移、混合媒介分層屬於方法主張**，改寫自其他模型的教學與提示詞庫，沒有一條在 H3 上驗證過。[`shot-variety-and-staging.md`](references/shot-variety-and-staging.md) §11 列了可在你自己機器上跑的 A/B 測試。第三方提示詞與文章的版權屬原作者；本 repo 只整理規則與重寫，不收原文。
+預算（每片 shot 數、每鏡一個運鏡、字數）來自官方指南與社群實測。**跨 shot 變化規則、spec 卡、光線路徑、焦點轉移、混合媒介分層屬於方法主張**，改寫自其他模型的教學與提示詞庫，大多沒在 H3 上驗證過。本機小規模先導實測（n=3, 0.5MP, 模型盲評；細節在 `workspace/experiments/`）的結果：`[Shot n] At` 時間戳能把切點放準；色名不比 HEX 差；給臉部特寫參考有助鎖臉；光線路徑句沒量到好處，已降為風格建議。先導結果不是官方說法。[`shot-variety-and-staging.md`](references/shot-variety-and-staging.md) §11 列了可在你自己機器上跑的 A/B 測試。第三方提示詞與文章的版權屬原作者；本 repo 只整理規則與重寫，不收原文。
 
 ## 來源
 
