@@ -139,4 +139,41 @@ The camera holds still at first, then pushes in with small amplitude toward …
 - 起點和終點都要是畫面裡能指認的物件：then the focus shifts from her hand to the distant towers, as her hand softens into a blur。
 - 用途：取代反應切鏡，在同一鏡裡完成「看見 → 反應」。
 - 失敗時退回 static，改用切鏡交代。
+
+## 11. 攝影機幾何：寫實際位置，不只寫角度標籤
+
+來源：LoveUolanda 方法論第 10–12 點（有成片、無 A/B）。**方法主張，H3 未對照實測。**
+
+「low angle」「close-up」本身不保證拿到正確視角。想控制時，寫攝影機相對於人物的真實空間關係：
+
+- 機位在人物哪裡（左前方、肩後、貼近腳邊）
+- 鏡頭中心高度，光軸對準身體哪個部位
+- 與人物的距離
+- 地面與身體的關係
+- 運動路徑（沿什麼方向、跟隨多久）
+
+```text
+❌ low-angle close-up of the legs
+✅ The camera sits near ground level just ahead of her left foot, aimed at the supporting
+   ankle, and trucks left a short distance with small amplitude to follow the step.
 ```
+
+- 不用數字角度（「30 度」）代替機位。
+- 景別決定觀眾讀到哪一部分動作：看承重與轉向就讓腳成為主體；看軀幹扭轉與手臂軌跡，鏡頭不能一直只盯著臉。
+- 每個 shot 一個主運動（§1），再讓攝影機反應主體/動作的路徑。每次運動或切鏡都要帶新資訊（揭示支撐點、新輪廓、方向改變、強調衝擊或重拍），不為了「顯得高級」而變化。
+
+## 12. 連續運鏡 vs 離散硬鎖：先選模式，不要混寫
+
+來源：journal 多個案例交叉比對。**同一個 repo 裡的案例互相矛盾，這是目標不同，不是誰對誰錯。**
+
+| 模式 | 何時用 | 寫法 | 來源案例 |
+|---|---|---|---|
+| 連續物理鏡頭 | 要主體之間的連結、單一長鏡 | 一個連續路徑；轉場用遮擋或前景掠過；全文不出現多個 `[Shot N]` | orbital long take（成片在作者 X 頁，未隨 repo 發布；無 A/B） |
+| 獨立蒙太奇 | 音樂驅動的剪輯感 | 每段開在不同局部特寫，硬切落在樂句邊界，每個切點帶新資訊 | wuxia 13 段 |
+| 兩態相機（硬鎖 / 瞬間 burst） | 編輯式揭示、節拍重擊 | 只有 HARD LOCK（零運動）與 INSTANT BURST（極短、無緩動）兩態，明寫不混合；衝擊要可數（三下） | snap-lock、song-style（同上）；原文三種模式為獨立蒙太奇／連續物理鏡頭／分組一鏡到底，兩態相機出自 snap-lock |
+
+規則：同一段 prompt 只選一種；跨段要換模式須明寫。同一份 prompt 不能同時寫「一鏡到底」又寫硬切，也不能同時寫連續環繞又寫硬鎖（這是 Red flag）。環繞要照本檔 §9 寫成 `truck + pan`，不要用 orbit 類詞。
+
+兩態相機的 burst 只有 0.12–0.2 秒，和 H3 cut 誤差（約 0.12 秒）同量級，不可控，也違反「shot ≥ 2 秒」；屬音樂剪輯例外，未實測。
+
+判讀參考影片是連續運鏡還是離散快切時，稀疏抽幀（4 fps）會跨過 0.12–0.2 秒的 burst，要用 8 fps 以上，再用音訊 onset 對帳；切點都掛在節拍上就是剪輯式。
