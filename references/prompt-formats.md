@@ -7,7 +7,7 @@
 | C. 官方中文三段 | 海螺 App / MiniMax Design / 開放平台自然語言（有 Context-IR 改寫） | 【參考素材說明】【核心創意】【畫面過程描述】 |
 | D. 社群區塊式 | hosted API / 第三方平台自然語言 | `SCENE / SHOT BREAKDOWN / CAMERA / LIGHTING & PALETTE / AUDIO / AVOID`，開頭一行 `Duration | Aspect ratio | Style` |
 
-規則：**本地沒有 Context-IR 改寫器，A/B 是硬需求。** hosted 端點會把 C/D 改寫成 A/B，但要精確控制 cut 時間、speaker、字幕、配樂時，直接寫 A/B 更穩（社群實測：寫了時間戳的 cut 誤差約 0.12 s；沒寫就一鏡靜止到底）。
+規則：**本地沒有 Context-IR 改寫器，A/B 是硬需求。** hosted 端點會把 C/D 改寫成 A/B，但要精確控制 cut 時間、speaker、字幕、配樂時，直接寫 A/B 更穩（社群實測：寫了時間戳的 cut 誤差約 0.12 s；沒寫就一鏡靜止到底）。**本機先導實測（n=3, 0.5MP, t2va 6 s）**：`[Shot n] At` 時間戳 6/6 切點落在 ±0.25 s 內（平均誤差 0.045 s、無多餘切點）；同樣三個 shot 寫成含 `the shot cuts to` 的散文、不加時間戳，H3 每支仍切 2 次，但只有 2/6 落在目標附近——所以「沒寫就一鏡靜止到底」在有切鏡字眼時不成立，完全不寫切鏡字眼的情況沒測。見 `workspace/experiments/results/T2/summary.md`。
 
 A/B 的完整規則在官方 skill `h3-prompt-writing` 的 `references/base-en.txt` 與 `ref-en.txt`；本檔只列決策與差異。
 

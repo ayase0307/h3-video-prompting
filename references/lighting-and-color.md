@@ -5,14 +5,15 @@
 等級：**[官方]**、**[官方，經鏡像]**（出處為 MiniMax 作者的第三方頁面）、**[實測]**、**[社群單源]**、**[自創]**（來源方法，無外部依據）、**[推測]**。[自創] 與 [推測] 不得當保證。A/B 清單見 `workspace/experiments/lighting-ab-tests.md`。
 
 先記住：
-- 官方 repo 的 skills 全部查不到 HEX、Kelvin、palette 表 [官方]。H3 文字端是 Qwen3-VL，「HEX 能鎖色」在 H3 上沒有任何證據。
+- 官方 repo 的 skills 全部查不到 HEX、Kelvin、palette 表 [官方]。H3 文字端是 Qwen3-VL，「HEX 能鎖色」在 H3 上沒有任何證據。**本機先導實測（n=3, 0.5MP）**：HEX vs 色名綁同五個物體，對色卡 ΔE76 兩平一 B（色名）略近，沒有任何 seed 是 HEX 較好，也沒有色塊/文字被畫進畫面；但兩臂離色卡都很遠（ΔE 約 19），只能說「HEX 沒帶來好處」，不能說「色名能精準控色」。見 `workspace/experiments/results/T4/summary.md`。
 - 官方只要求：每個 shot 交代 environment and lighting（ref-en §1）、I2VA 的顏色要保持一致、FL2VA 要描述光線變化 [官方]。
 
 ## A. 光色寫法
 
 | 規則 | 為什麼 / 壞掉長怎樣 |
 |---|---|
-| 每個 shot 一句光線路徑：**光源 → 介質 → 受光面**；顏色用「色名＋實際物體」，不用 HEX 表 | 官方要求每鏡交代光線；只寫 `cinematic lighting` 沒有路徑，曝光由模型亂決定 [官方＋方法] |
+| 顏色用「色名＋實際物體」，不用 HEX 表 | HEX 在本機先導實測沒帶來更接近色卡的結果 [本機先導實測（n=3, 0.5MP），見 T4] |
+| 每個 shot 交代光線；想指定光向時寫一句光線路徑：**光源 → 介質 → 受光面**（風格建議） | 官方要求每鏡交代光線 [官方]；路徑句 vs `cinematic lighting` 在本機先導實測沒量到差別（n=6, 0.5MP，評分員看不清臉），所以路徑句是風格選項，不是必要規則 [見 `workspace/experiments/results/T3/summary.md`] |
 | 風格與色板在片頭一到兩句英文定下：三欄格式在 `[Shot 1]` 開頭；Ref2VA 六段式的風格句寫在 `[Shot 1]` **之前** | [官方 ref-en §5.2] |
 | 避開 `bright`、`well-lit`、`high quality`、`flat lighting`；`Rembrandt`、`chiaroscuro` 也要謹慎 | Hailuo Field Notes 列為避免或謹慎；該頁自稱內部經驗，非實驗 [社群單源] |
 | 可用詞：45° / 90° side light、rim / back light、soft box、hard light、diffuse、golden rim light | 同上 [社群單源] |
@@ -120,7 +121,7 @@ python -I scripts/color_qa.py shotA.mp4 shotB.mp4 --ref 0B1118,1E2A38,3B5068,6B8
 ## 不採用
 
 - 卡片的**聲畫協同**（冷鋼夜黑 → 壓抑憤怒配音）：沒有依據，且和官方規則衝突（配樂只寫樂器、速度、力度，不寫情緒詞；speaker 要寫 pitch、timbre、rate）。
-- HEX 色表進主規則：沒有 H3 證據，只放 A/B 測試。
+- HEX 色表進主規則：本機先導實測（T4，n=3, 0.5MP）沒測到 HEX 的好處，維持不採用。
 
 ## 出處待核
 

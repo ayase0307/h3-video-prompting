@@ -118,7 +118,7 @@ Or copy the folder to `~/.claude/skills/h3-video-prompting/` (Claude Code) or yo
 
 ## Honest limits
 
-Budgets (shots per clip, one move per shot, word counts) come from official guides and community testing. The **cross-shot variety rules, spec card, light path, rack focus and mixed-media layering are method claims** adapted from other models' tutorials and prompt libraries. None has been verified on H3 itself. [`shot-variety-and-staging.md`](references/shot-variety-and-staging.md) §11 lists A/B tests to run on your own rig. Third-party prompts and articles remain the property of their authors; this repo records rules and rewrites, not copies.
+Budgets (shots per clip, one move per shot, word counts) come from official guides and community testing. The **cross-shot variety rules, spec card, light path, rack focus and mixed-media layering are method claims** adapted from other models' tutorials and prompt libraries. Most are unverified on H3. A small local pilot (n=3, 0.5MP, model rater; details in `workspace/experiments/`) found: `[Shot n] At` timestamps place cuts on target; colour names do no worse than HEX; a face close-up reference helps keep identity; the light-path sentence showed no measurable benefit and is now style guidance only. Pilot results are not official claims. [`shot-variety-and-staging.md`](references/shot-variety-and-staging.md) §11 lists A/B tests to run on your own rig. Third-party prompts and articles remain the property of their authors; this repo records rules and rewrites, not copies.
 
 ## Sources
 
