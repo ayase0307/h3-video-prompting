@@ -21,7 +21,7 @@ def upload(p):
     p = pathlib.Path(p)
     return call('POST', '/media', {'name': p.name, 'data_base64': base64.b64encode(p.read_bytes()).decode()})
 
-def main(test, media_by_arm):
+def main(test, media_by_arm, extra_seeds=()):
     plan = json.load(open(ROOT / 'results' / test / 'plan.json', encoding='utf-8'))
     P = plan['params']; out = ROOT / '_local' / test; (out / 'videos').mkdir(parents=True, exist_ok=True)
     keyf = out / 'key.json'
@@ -29,6 +29,10 @@ def main(test, media_by_arm):
     else:
         key = {f'{a}{s}': {'arm': a, 'seed': s, 'code': secrets.token_hex(3)} for a in 'AB' for s in P['seeds']}
         json.dump(key, open(keyf, 'w'), indent=1)
+    for a in 'AB':
+        for sd in extra_seeds:
+            key.setdefault(f'{a}{sd}', {'arm': a, 'seed': sd, 'code': secrets.token_hex(3)})
+    json.dump(key, open(keyf, 'w'), indent=1)
     jobsf = out / 'jobs.json'
     jobs = json.load(open(jobsf)) if jobsf.exists() else {}
     order = sorted(key, key=lambda k: key[k]['code'])        # randomised submission order
