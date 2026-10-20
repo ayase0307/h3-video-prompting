@@ -37,7 +37,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - **長片規劃（30–60 秒以上多段生成、路線選擇、接點載體、分鏡表模板）**：`references/long-form-planning.md`
 - **長自含式 hosted prompt 與本 skill 規則的衝突對照（字數、時間窗、字幕句、格式）**：`references/prompt-formats.md`「附：長自含式…」
 - **不單調：跨 shot 變化四軸規則、spec 卡壓縮優先序、能量曲線、送出前自檢**：`references/shot-variety-and-staging.md`（寫完 prompt 必跑 §10）
-- 完整改寫範例：`references/example-fight-10s.md`（打鬥）、`references/example-spec-to-prompt-10s.md`（spec 卡→三欄 prompt）、`references/example-seedance-to-h3.md`（Seedance 時間碼→H3 Ref2VA）
+- 完整改寫範例：`references/example-fight-10s.md`（打鬥）、`references/example-basketball-crossover-10s.md`（非舞蹈人體動作，未送 H3 驗證）、`references/example-spec-to-prompt-10s.md`（spec 卡→三欄 prompt）、`references/example-seedance-to-h3.md`（Seedance 時間碼→H3 Ref2VA）
 
 ## 預算表（社群實測上限）
 

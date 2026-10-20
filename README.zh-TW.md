@@ -113,6 +113,7 @@ npx skills add https://github.com/MiniMax-AI/MiniMax-H3 --skill h3-prompt-writin
 | `references/failure-triage.md` | 症狀 → 原因 → 修法、送出前 8 問、動作導演級 10 問 |
 | `references/skin-realism-block.md` | 真實皮膚質感段落 |
 | `references/example-fight-10s.md` | 完整 10 秒打鬥改寫範例 |
+| `references/example-basketball-crossover-10s.md` | **新增** 非舞蹈人體動作（籃球過人上籃）用動作鏈要素寫成的範例，未送 H3 驗證 |
 | `references/community-sources.md` | 所有來源、授權與可信度 |
 
 ## 誠實的限制

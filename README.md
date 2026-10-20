@@ -113,6 +113,7 @@ Or copy the folder to `~/.claude/skills/h3-video-prompting/` (Claude Code) or yo
 | `references/failure-triage.md` | Symptom → cause → fix table, 8-question pre-send check, 10-question motion director check |
 | `references/skin-realism-block.md` | Realistic-skin prompt block |
 | `references/example-fight-10s.md` | A full 10 s fight rewrite |
+| `references/example-basketball-crossover-10s.md` | **New.** Non-dance human action (basketball crossover → layup) written with a few action-chain elements; untested on H3 |
 | `references/community-sources.md` | Every source, licence and credibility level |
 
 ## Honest limits

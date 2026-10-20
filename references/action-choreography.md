@@ -34,6 +34,7 @@ window light, as she pauses and looks out at the street.
 
 - 一個 6 秒 shot 要角色「進門、坐下、拆包裹、說話、喝水、看窗外、離開」，模型只能壓縮或省略。挑這個 shot 要講的那一個動作，其餘丟到下一個 shot 或下一次生成。
 - 「一個主動作」包含它的完整弧線：起手（anticipation）→ 執行 → 接觸/衝擊 → 反應/收勢（settle）。品牌片 skill 的 motion intent 用詞：`setup, anticipation, commitment, impact, brake, settle`。
+- 「一個主動作」= 一條完整弧線，可含連貫的子動作：蹬地 → 騰空 → 出手算一個上籃，不是三個動作。子動作之間若各自有獨立的落點（先完成一次交叉換手並站穩，再突破），就拆成兩個 shot。
 - 副層動作（頭髮、衣料、背景人物）可以有，但寫成「環境對主動作的反應」，不是另一個動作。
 
 ## 4. 環境要「回應」動作
@@ -112,7 +113,7 @@ camera trucks right with small amplitude at fast speed to keep both bodies cente
 
 ## 11. 動作鏈十要素（舞蹈、打鬥、運動、特技通用）
 
-本節是 §1 弧線（起手→執行→接觸→收勢）和 `motion-quality.md` §1 的展開版：要檢查哪裡會出錯時用十要素，日常寫 prompt 仍用四段弧線。十要素以「有支撐點與重心的身體」為前提，適合人、動物、生物；產品或物件 hero 鏡頭改用 `motion-quality.md` §1 弧線加本檔 §13 的道具軌跡清單。
+本節是 §1 弧線（起手→執行→接觸→收勢）和 `motion-quality.md` §1 的展開版：要檢查哪裡會出錯時用十要素，日常寫 prompt 仍用四段弧線。**預算：每個主動作只挑 2–3 項最容易出錯的要素寫進 prompt（通常是受力/支撐、重心、慣性），不要十項全寫**，否則字數會超過 300–700 的預算。十要素以「有支撐點與重心的身體」為前提，適合人、動物、生物；產品或物件 hero 鏡頭改用 `motion-quality.md` §1 弧線加本檔 §13 的道具軌跡清單。
 
 來源：LoveUolanda〈H3 古風舞蹈創作方法論〉（2026-10-19，MIT 案例庫 LoveRain1997/h3-prompt-journal，有成片但無 A/B）。原文講舞蹈，但「模型要知道人怎麼做出這個動作，而不只是動作叫什麼」套用到任何動作都成立。**方法主張，H3 未做對照實測。**
 
