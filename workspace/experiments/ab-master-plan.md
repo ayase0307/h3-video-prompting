@@ -136,3 +136,17 @@ mp4、原圖、角色切圖不入庫（`_local/`，加進 `.gitignore`）；以 
 - FreeVideo 怎麼區分 i2va 首幀與 Ref2VA 參考（`media.references` 是否帶角色欄位）、是否有任務類型欄位：本計畫沒有查到原始碼，`plan.json` 一律標 `confirm_via_plan: true`。
 - 設定圖實際外觀未看過：T6 只寫「white hair, nine fox tails」，T1 只寫「boots」，提交前主 session 要對圖確認，改就兩臂一起改。
 - 16:9 → 960x544 是推算值。
+
+## 結果（2026-10-20，Opus 審查）
+
+條件：0.5MP / medium / 6 s，seed 1001–1003（T3 另加 1004–1006），每臂 3 支；盲評 Haiku 看 2fps 接觸表（每幀寬 272px）。判準依各 `plan.json` 的 `decision`。
+
+| ID | 主指標結果 | 結論 | 證據等級 | 發布區落點 |
+|---|---|---|---|---|
+| T1 動作鏈 | 盲評 composite 3/3 平手（全滿分，天花板）；尾 1 s 殘留 B 3/3 較低（3.55→2.41） | 未定論，維持方法主張 | 無（天花板） | `shot-variety-and-staging.md` §11 表（只記結果，規則不改） |
+| T2 時間戳切點 | B 6/6 命中、誤切 0、平均誤差 0.045 s；A 2/6、誤切 4 | 晉升 | 本機先導實測（n=3, 0.5MP） | `prompt-formats.md` 開頭規則 |
+| T3 光線路徑 | B 勝 1、平 5、A 勝 0（n=6）；L* std 無退化 | 降級為風格建議 | 本機先導實測（n=6, 0.5MP），評分員看不清臉 | `shot-variety-and-staging.md` §6、§10 #8、§11；`lighting-and-color.md` §A |
+| T4 HEX vs 色名 | ΔE76 兩平、一色名略近（2.01）；無色塊瑕疵 | 維持「色名＋物體，不寫 HEX」 | 本機先導實測（n=3, 0.5MP）；兩臂離色卡都約 ΔE 19 | `lighting-and-color.md` 開頭與「不採用」 |
+| T6 參考路線 | 臉部 composite B 10/10/10 vs A 8/8/7；服裝 ΔE 反向（A 較近） | 晉升為「要鎖臉時給臉部特寫參考」 | 本機先導實測（n=3, 0.5MP），有混淆 | `action-choreography.md` §10 |
+
+審查更正：T1 summary 原判晉升（誤讀判準）、T3 原寫「A ≥ B 6/6」與「n=3 未定論」、T4 原寫三個全平手，已在各 `summary.md` 改正。
