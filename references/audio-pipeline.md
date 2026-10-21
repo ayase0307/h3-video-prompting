@@ -129,4 +129,4 @@ ffmpeg -i video.mp4 -i sfx.mp3 -filter_complex \
 
 ## 仍未驗證（需要在自己機器上做 A/B）
 
-見 `workspace/experiments/audio-ab-tests.md`。飛書手冊需要登入，未取得，不能排除其中有其他說法。
+見 （私有實驗紀錄）。飛書手冊需要登入，未取得，不能排除其中有其他說法。

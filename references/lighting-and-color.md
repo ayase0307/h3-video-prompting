@@ -2,10 +2,10 @@
 
 來源：官方 MiniMax-H3 repo（`skills/h3-prompt-writing/references/{base-en,ref-en}.txt`、README）、MiniMax 平台 API 文件、Runware editing-video 指南（頁面標作者 MiniMax）、Hailuo Field Notes、Higgsfield H3 指南、IC-Light / Qwen-Image-Edit / FLUX Kontext 社群做法、Zone System、`lighting-color-palette-card`（Seedance 教學影片蒸餾，方法為創作者自創）。2026-10-16 由 Haiku 調研、Opus 審查並補查。
 
-等級：**[官方]**、**[官方，經鏡像]**（出處為 MiniMax 作者的第三方頁面）、**[實測]**、**[社群單源]**、**[自創]**（來源方法，無外部依據）、**[推測]**。[自創] 與 [推測] 不得當保證。A/B 清單見 `workspace/experiments/lighting-ab-tests.md`。
+等級：**[官方]**、**[官方，經鏡像]**（出處為 MiniMax 作者的第三方頁面）、**[實測]**、**[社群單源]**、**[自創]**（來源方法，無外部依據）、**[推測]**。[自創] 與 [推測] 不得當保證。A/B 清單見 （私有實驗紀錄）。
 
 先記住：
-- 官方 repo 的 skills 全部查不到 HEX、Kelvin、palette 表 [官方]。H3 文字端是 Qwen3-VL，「HEX 能鎖色」在 H3 上沒有任何證據。**本機先導實測（n=3, 0.5MP）**：HEX vs 色名綁同五個物體，對色卡 ΔE76 兩平一 B（色名）略近，沒有任何 seed 是 HEX 較好，也沒有色塊/文字被畫進畫面；但兩臂離色卡都很遠（ΔE 約 19），只能說「HEX 沒帶來好處」，不能說「色名能精準控色」。見 `workspace/experiments/results/T4/summary.md`。
+- 官方 repo 的 skills 全部查不到 HEX、Kelvin、palette 表 [官方]。H3 文字端是 Qwen3-VL，「HEX 能鎖色」在 H3 上沒有任何證據。**本機先導實測（n=3, 0.5MP）**：HEX vs 色名綁同五個物體，對色卡 ΔE76 兩平一 B（色名）略近，沒有任何 seed 是 HEX 較好，也沒有色塊/文字被畫進畫面；但兩臂離色卡都很遠（ΔE 約 19），只能說「HEX 沒帶來好處」，不能說「色名能精準控色」。見 （私有實驗紀錄）。
 - 官方只要求：每個 shot 交代 environment and lighting（ref-en §1）、I2VA 的顏色要保持一致、FL2VA 要描述光線變化 [官方]。
 
 ## A. 光色寫法
@@ -13,7 +13,7 @@
 | 規則 | 為什麼 / 壞掉長怎樣 |
 |---|---|
 | 顏色用「色名＋實際物體」，不用 HEX 表 | HEX 在本機先導實測沒帶來更接近色卡的結果 [本機先導實測（n=3, 0.5MP），見 T4] |
-| 每個 shot 交代光線；想指定光向時寫一句光線路徑：**光源 → 介質 → 受光面**（風格建議） | 官方要求每鏡交代光線 [官方]；路徑句 vs `cinematic lighting` 在本機先導實測沒量到差別（n=6, 0.5MP，評分員看不清臉），所以路徑句是風格選項，不是必要規則 [見 `workspace/experiments/results/T3/summary.md`] |
+| 每個 shot 交代光線；想指定光向時寫一句光線路徑：**光源 → 介質 → 受光面**（風格建議） | 官方要求每鏡交代光線 [官方]；路徑句 vs `cinematic lighting` 在本機先導實測沒量到差別（n=6, 0.5MP，評分員看不清臉），所以路徑句是風格選項，不是必要規則 [見 （私有實驗紀錄）] |
 | 風格與色板在片頭一到兩句英文定下：三欄格式在 `[Shot 1]` 開頭；Ref2VA 六段式的風格句寫在 `[Shot 1]` **之前** | [官方 ref-en §5.2] |
 | 避開 `bright`、`well-lit`、`high quality`、`flat lighting`；`Rembrandt`、`chiaroscuro` 也要謹慎 | Hailuo Field Notes 列為避免或謹慎；該頁自稱內部經驗，非實驗 [社群單源] |
 | 可用詞：45° / 90° side light、rim / back light、soft box、hard light、diffuse、golden rim light | 同上 [社群單源] |
