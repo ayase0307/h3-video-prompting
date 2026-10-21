@@ -13,7 +13,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 
 1. **選格式**：本地 ComfyUI / 導演台 → 官方三欄或六段式；海螺 / Design / hosted 自然語言 → 中文三段或社群區塊式。決策表：`references/prompt-formats.md`。
 2. **選情境**：從下表找最接近的一到兩個，讀那一節的「優先順序 / 必寫 / 坑」。
-3. **先寫動作鏈，再寫鏡頭，再寫聲音，最後排版**（AI-KSK 口訣）。素材有的話先分工。
+3. **先寫動作鏈，再寫鏡頭，再寫聲音，最後排版**（AI-KSK 口訣）。素材有的話先分工。15 秒、≤5 shot 時可條件採用每 shot 五小節（Camera／Motion／Performance／Light／Sound，`references/shot-five-part.md`）；否則用散文並把五項當檢查表，光線與連戲必寫（T8 先導，未定論）。
 4. **預算檢查**（下表）＋跨 shot 變化自檢（`references/shot-variety-and-staging.md` §10），超標就砍動作或拆成多次生成。
 5. 送出前對照 `references/failure-triage.md` 的症狀表、8 問，以及動作類的「導演級 10 問」（拿掉鏡頭文字動作還成立嗎）。
 
@@ -38,6 +38,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - **長自含式 hosted prompt 與本 skill 規則的衝突對照（字數、時間窗、字幕句、格式）**：`references/prompt-formats.md`「附：長自含式…」
 - **通用「15 秒電影腳本」system prompt 對照（哪些採用、哪些和 H3 衝突）**：`references/prompt-formats.md`「附：寫實 15 秒…」
 - **大動作因果五步、尺度參照、不瞬移、知名角色招牌技能**：`references/action-choreography.md` §16
+- **每 shot 五小節（Camera／Motion／Performance／Light／Sound）、字數放寬與超限壓縮順序**：`references/shot-five-part.md`
 - **不單調：跨 shot 變化四軸規則、spec 卡壓縮優先序、能量曲線、送出前自檢**：`references/shot-variety-and-staging.md`（寫完 prompt 必跑 §10）
 - 完整改寫範例：`references/example-fight-10s.md`（打鬥）、`references/example-basketball-crossover-10s.md`（非舞蹈人體動作，未送 H3 驗證）、`references/example-spec-to-prompt-10s.md`（spec 卡→三欄 prompt）、`references/example-seedance-to-h3.md`（Seedance 時間碼→H3 Ref2VA）
 
@@ -53,7 +54,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 | 重要角色 | ≤ 3 | 身份漂移、錯人說話 |
 | 慢動作 | 獨立 shot，背景動態元素減到最少 | 抖動、閃爍 |
 | 純文字 prompt | 300–700 英文字（社群經驗值，官方無此數字；hosted API 上限 7000 字元） | 太短 = 沒東西可參考 |
-| 有參考素材時 | 字數要縮，只寫新變化；Ref2VA 的 `detailed_description` 為 350–500 英文字 | 文字跟圖片互搶，臉會變 |
+| 有參考素材時 | 只寫新變化、不重述參考圖外觀；Ref2VA 的 `detailed_description` 建議 350–500 英文字；採用每 shot 五小節時字數會變長（T8 實測 519–636；EP01 實測 430–940），建議 ≤700，仍守送件端字元上限，見 `references/shot-five-part.md` | 文字跟圖片互搶，臉會變 |
 | 參考檔 | ≤9 圖 / ≤3 影片 / ≤3 音檔 / 總 ≤12；影片音檔各 2–15 s、總 ≤15 s；音檔不能單獨 | 被拒或被忽略 |
 
 ## 十條速查
