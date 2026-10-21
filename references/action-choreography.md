@@ -110,7 +110,7 @@ camera trucks right with small amplitude at fast speed to keep both bodies cente
 - 臉在畫面裡越小越難保持。用廣角建立空間，關鍵情緒拍轉中景/特寫。
 - 有參考圖時不要在每個 shot 重述外觀，文字和圖片會互相競爭。全局宣告一次不變量，分鏡內只寫新變化。
 - 要鎖的東西逐項點名：`Preserve the same facial identity, half-up dark hair, gold hoop earrings, and cream blazer throughout.`
-- 要鎖臉時給一張**臉部特寫參考**（Ref2VA：特寫＋全身各一張，寫進同一個 `<Subject>`），不要只靠全身圖當 i2va 首幀：全身圖裡的臉只有幾十像素，中後段眼色等細節會走樣。本機先導實測（n=3, 0.5MP, 6 s）：盲評臉部一致 3/3 勝；混淆是 Ref2VA 臂多了一張特寫，「i2va 首幀＝臉部特寫」沒測，服裝色距離反而 i2va 較近。見 （私有實驗紀錄）。
+- 要鎖臉時給一張**臉部特寫參考**（Ref2VA：特寫＋全身各一張，寫進同一個 `<Subject>`），不要只靠全身圖當 i2va 首幀：全身圖裡的臉只有幾十像素，中後段眼色等細節會走樣。本機先導實測（n=3, 0.5MP, 6 s）：盲評臉部一致 3/3 勝；混淆是 Ref2VA 臂多了一張特寫，「i2va 首幀＝臉部特寫」沒測，服裝色距離反而 i2va 較近。原始紀錄在私有 repo，未公開。
 
 ## 11. 動作鏈十要素（舞蹈、打鬥、運動、特技通用）
 

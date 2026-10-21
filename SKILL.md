@@ -13,7 +13,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 
 1. **選格式**：本地 ComfyUI / 導演台 → 官方三欄或六段式；海螺 / Design / hosted 自然語言 → 中文三段或社群區塊式。決策表：`references/prompt-formats.md`。
 2. **選情境**：從下表找最接近的一到兩個，讀那一節的「優先順序 / 必寫 / 坑」。
-3. **先寫動作鏈，再寫鏡頭，再寫聲音，最後排版**（AI-KSK 口訣）。素材有的話先分工。15 秒、≤5 shot 時可條件採用每 shot 五小節（Camera／Motion／Performance／Light／Sound，`references/shot-five-part.md`）；否則用散文並把五項當檢查表，光線與連戲必寫（T8 先導，未定論）。
+3. **先寫動作鏈，再寫鏡頭，再寫聲音，最後排版**（AI-KSK 口訣）。素材有的話先分工。每 shot 可寫五小節（Camera／Motion／Performance／Light／Sound）：先自由寫完整，超過建議字數時由使用者決定放行或壓縮，流程見 `references/shot-five-part.md`（T8 先導，未定論）。
 4. **預算檢查**（下表）＋跨 shot 變化自檢（`references/shot-variety-and-staging.md` §10），超標就砍動作或拆成多次生成。
 5. 送出前對照 `references/failure-triage.md` 的症狀表、8 問，以及動作類的「導演級 10 問」（拿掉鏡頭文字動作還成立嗎）。
 
@@ -54,7 +54,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 | 重要角色 | ≤ 3 | 身份漂移、錯人說話 |
 | 慢動作 | 獨立 shot，背景動態元素減到最少 | 抖動、閃爍 |
 | 純文字 prompt | 300–700 英文字（社群經驗值，官方無此數字；hosted API 上限 7000 字元） | 太短 = 沒東西可參考 |
-| 有參考素材時 | 只寫新變化、不重述參考圖外觀；Ref2VA 的 `detailed_description` 建議 350–500 英文字；採用每 shot 五小節時字數會變長（T8 實測 519–636；EP01 實測 430–940），建議 ≤700，仍守送件端字元上限，見 `references/shot-five-part.md` | 文字跟圖片互搶，臉會變 |
+| 有參考素材時 | 只寫新變化、不重述參考圖外觀；Ref2VA 的 `detailed_description` 建議 350–500 英文字；寫五小節時字數會變長（T8 實測 519–636；EP01 實測 430–940）；≤700 是未實測的建議值，超過時由使用者決定放行或壓縮，送件端字元上限不可超，見 `references/shot-five-part.md` | 文字跟圖片互搶，臉會變 |
 | 參考檔 | ≤9 圖 / ≤3 影片 / ≤3 音檔 / 總 ≤12；影片音檔各 2–15 s、總 ≤15 s；音檔不能單獨 | 被拒或被忽略 |
 
 ## 十條速查

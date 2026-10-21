@@ -7,7 +7,7 @@
 | C. 官方中文三段 | 海螺 App / MiniMax Design / 開放平台自然語言（有 Context-IR 改寫） | 【參考素材說明】【核心創意】【畫面過程描述】 |
 | D. 社群區塊式 | hosted API / 第三方平台自然語言 | `SCENE / SHOT BREAKDOWN / CAMERA / LIGHTING & PALETTE / AUDIO / AVOID`，開頭一行 `Duration | Aspect ratio | Style` |
 
-規則：**本地沒有 Context-IR 改寫器，A/B 是硬需求。** hosted 端點會把 C/D 改寫成 A/B，但要精確控制 cut 時間、speaker、字幕、配樂時，直接寫 A/B 更穩（社群實測：寫了時間戳的 cut 誤差約 0.12 s；沒寫就一鏡靜止到底）。**本機先導實測（n=3, 0.5MP, t2va 6 s）**：`[Shot n] At` 時間戳 6/6 切點落在 ±0.25 s 內（平均誤差 0.045 s、無多餘切點）；同樣三個 shot 寫成含 `the shot cuts to` 的散文、不加時間戳，H3 每支仍切 2 次，但只有 2/6 落在目標附近——所以「沒寫就一鏡靜止到底」在有切鏡字眼時不成立，完全不寫切鏡字眼的情況沒測。見 （私有實驗紀錄）。
+規則：**本地沒有 Context-IR 改寫器，A/B 是硬需求。** hosted 端點會把 C/D 改寫成 A/B，但要精確控制 cut 時間、speaker、字幕、配樂時，直接寫 A/B 更穩（社群實測：寫了時間戳的 cut 誤差約 0.12 s；沒寫就一鏡靜止到底）。**本機先導實測（n=3, 0.5MP, t2va 6 s）**：`[Shot n] At` 時間戳 6/6 切點落在 ±0.25 s 內（平均誤差 0.045 s、無多餘切點）；同樣三個 shot 寫成含 `the shot cuts to` 的散文、不加時間戳，H3 每支仍切 2 次，但只有 2/6 落在目標附近——所以「沒寫就一鏡靜止到底」在有切鏡字眼時不成立，完全不寫切鏡字眼的情況沒測。原始紀錄在私有 repo，未公開。
 
 A/B 的完整規則在官方 skill `h3-prompt-writing` 的 `references/base-en.txt` 與 `ref-en.txt`；本檔只列決策與差異。
 
@@ -25,7 +25,7 @@ A/B 的完整規則在官方 skill `h3-prompt-writing` 的 `references/base-en.t
 - Subject 不只人：會跨 shot 重複出現、需要保持一致的道具或場景也可以給一個 Subject（例：`<Subject 2> is the rain-soaked night market alley …`），寫空間配置、材質、天氣、它會怎麼回應動作。簡單場景不要硬湊 Subject。〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕
 - `summary` 開頭方括號任務型：`keyframe completion / reference generation / video editing / video continuation / audio reuse / audio reference`，可用 ` + ` 組合。
 - `retention_analysis` 標記：視覺 `fully_preserved / partially_preserved / attribute_transfer / weak_reference`；音訊 `fully_copy / partially_copy / reference / weak_reference`。
-- `detailed_description` 在 `[Shot 1]` 之前先用一兩句英文定風格；生成任務 350–500 英文字。每個 `[Shot N]` 寫五小節時會變長（實測 430–940 字；T8 為 519–636），建議 ≤700，仍守送件端字元上限，見 `shot-five-part.md`。
+- `detailed_description` 在 `[Shot 1]` 之前先用一兩句英文定風格；生成任務 350–500 英文字。每個 `[Shot N]` 寫五小節時會變長（實測 430–940 字；T8 為 519–636）；≤700 是未實測的建議值，超過時由使用者決定放行或壓縮，送件端字元上限不可超，見 `shot-five-part.md`。
 - 本地 ComfyUI Ref2VA 節點：`ref_image_0` → `<Picture 1>`，`ref_image_1` → `<Picture 2>`，保留英文與尖括號，不寫欄位全名。
 
 ## C. 官方中文三段（海螺 / Design / API 自然語言）
@@ -108,7 +108,7 @@ AVOID
 | `[Shot 1] — Title (00:00–00:02)` 標題＋區間 | `[Shot 1]` 不帶時間戳、之後 `[Shot N] At MM:SS.mmm`（本機實測切點 6/6 命中） | 不採用。標題字可能被當成畫面文字；區間格式未測 |
 | `retention_analysis` 寫 `appears in [Shot 1] through [Shot N]: fully_preserved — …` | 官方標記同為 `fully_preserved / partially_preserved / attribute_transfer / weak_reference` | 標記一致，已涵蓋；「出現在哪幾個 shot」可當補充說明，不改官方句型 |
 | `<Subject 3>` = 視覺風格 | 風格寫在 `detailed_description` 開頭一兩句與 `[Shot 1]` | 不採用把風格當 Subject（Subject 是「誰／什麼」的身份） |
-| 每 shot 固定五小節（Camera / Visual Action / Environmental Interaction / Lighting / Transition） | Ref2VA `detailed_description` 350–500 英文字、純文字 300–700 | **條件採用**（本機先導 T8，n=1×3 場景，非盲評）：15 s、≤5 shot、t2va 時可直接寫五個標籤小節（實測 519–636 字，標籤字沒被畫進畫面，切點與劇情拍和散文平手）；B 勝在它逼你寫的光線/時段與連戲句（散文版沒寫光 → 夜景變白天、花瓣末鏡消失）。>5 shot 或有參考要縮字時仍用散文，但五項當檢查表且**光線與連戲兩項必寫**。見 （私有實驗紀錄） |
+| 每 shot 固定五小節（Camera / Visual Action / Environmental Interaction / Lighting / Transition） | Ref2VA `detailed_description` 350–500 英文字、純文字 300–700 | **可用，不設硬條件**（本機先導 T8，n=1×3 場景，非盲評）：agent 先自由寫，超過建議字數再請使用者決定；T8 在 15 s、≤5 shot、t2va 下可直接寫五個標籤小節；Ref2VA 短段（EP01，8–9 s）有實戰案例、待 A/B（實測 519–636 字，標籤字沒被畫進畫面，切點與劇情拍和散文平手）；B 勝在它逼你寫的光線/時段與連戲句（散文版沒寫光 → 夜景變白天、花瓣末鏡消失）。使用者選擇壓縮時（>5 shot 或有參考要縮字），改用散文但五項當檢查表且**光線與連戲兩項必寫**。原始紀錄在私有 repo，未公開 |
 | 預設 15 秒 | 部分端點 T2V/I2V 只到 10 s；15 s ＝ 362 幀；15 s 內 4–6 shot | 保留「使用者沒說就 15 s」，但先確認端點與幀網格 |
 | 長串渲染詞（global illumination、PBR、subsurface、anamorphic…） | 守富皮膚段；H3 由 Qwen3-VL 解析，形容詞不等於物理描述 | 他自己也說「選擇性使用」；只留跟畫面有關的（光的方向、鏡頭焦段），不堆 |
 | 負向限制寫進各段、含「無字幕、無浮水印」 | 負向配正向；官方說不要寫「不要字幕」 | 「只列相關的」已涵蓋（格式 D `AVOID`、`motion-quality.md` §13）；字幕仍照 `audio-and-dialogue.md` §7 |
