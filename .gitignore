@@ -6,3 +6,4 @@ workspace/experiments/_local/
 
 __pycache__/
 *.pyc
+workspace/

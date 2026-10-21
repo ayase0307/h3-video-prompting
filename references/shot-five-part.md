@@ -1,6 +1,6 @@
 # 每個 [Shot N] 寫滿五小節（Camera／Motion／Performance／Light／Sound）
 
-> 適用範圍：條件採用（15 秒、≤5 shot、t2va；>5 shot 或有參考要縮字時用散文，光線與連戲必寫），與 `prompt-formats.md` 附錄對照表一致，見 `workspace/experiments/results/T8/summary.md`。
+> 適用範圍：條件採用（15 秒、≤5 shot、t2va；>5 shot 或有參考要縮字時用散文，光線與連戲必寫），與 `prompt-formats.md` 附錄對照表一致，見 （私有實驗紀錄）。
 >
 > 可信度：**[實戰]** 守富 2026-10-21《我修的是遺忘課》EP01（12 段、35 鏡、Ref2VA 六段式、本地 FreeVideo）主觀評估效果不錯；**尚未做 A/B 對照**，字數放寬對臉部一致性的影響待驗證（見文末「待驗證」）。
 
