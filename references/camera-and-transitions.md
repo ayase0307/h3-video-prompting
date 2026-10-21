@@ -75,6 +75,7 @@ The camera holds a static shot as the runner exits the frame.
 - 新資訊 = 主體、空間、狀態、視角、時間。只是換距離或微調角度 → 用運鏡不用切。
 - 切到什麼景別、哪個角色，寫清楚：`the shot cuts to a close-up of the woman in the navy blazer from Shot 1`。
 - **Match on action**：前一個 shot 收在動作中段，下一個 shot 從同一動作的後半開始，例如 `… ending as the sword reaches shoulder height.` → `[Shot 3] At 00:05.000, the shot cuts to a close-up as the blade completes its downward stroke …`
+- **畫面方向一致（180 度線）**：主體在 Shot 1 由左往右跑，切鏡後仍寫 `moving from frame left to frame right`；兩人對峙時誰在左、誰在右全片不換。要反轉方向就先給一個看得到的轉折（主體轉身、攝影機在畫內越線），不要靠切鏡跳軸。壞掉長怎樣：追逐像在往回跑、兩人好像換了位置。〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕
 - 相鄰 shot 怎麼差才不單調：見 `shot-variety-and-staging.md` §3。
 - 切鏡風格（官方手冊）：普通切、疊化、隨節奏卡點切、快切。預設會切鏡；要一鏡到底必須明說並全文不出現 `[Shot 2]`。
 

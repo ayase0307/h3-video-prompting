@@ -142,3 +142,7 @@ journal 內部互相矛盾處（連續環繞 vs 離散硬鎖、有無時間碼�
 MiniMax-AI/MiniMax-H3 自 2026-10-16 起沒有新 commit、release 或 tag（最後一次 push 為 2026-08-15）；平台文件的素材與字元上限與既有規則一致。issue #95（獨立參考音訊會多出對白、重複句）、#17（Ref2VA/FL2VA 多角色 voice 互相滲漏）是使用者回報，官方未回應，不當規則。官方頁另提文字生影片可在關鍵描述後加 `[pan]`、`[zoom]`、`[static]` 相機指令，效果未驗證，未收錄。
 
 規則：無授權來源只轉寫概念；MIT 來源附授權聲明。本批沒有一條新規則通過 H3 對照實測。
+
+### 使用者提供（2026-10-21）
+
+- 「Photorealistic 15-Second Cinematic Video Script Generator」通用 system prompt（守富提供，作者不明，非 H3 專用）。吸收的概念：180 度線/畫面方向、因果五步、尺度參照、不瞬移、招牌技能保留、soundscape 遠近與三段衰減、配樂人聲與曲風、品牌不捏造、交付規則。皆為方法主張，未經 H3 A/B。衝突對照見 `prompt-formats.md` 附錄。

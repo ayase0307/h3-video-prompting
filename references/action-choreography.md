@@ -164,3 +164,19 @@ camera trucks right with small amplitude at fast speed to keep both bodies cente
 ## 15. 自檢：把鏡頭文字拿掉，動作還成立嗎？
 
 寫完把所有鏡頭詞（push in、tracking、cut）刪掉再讀一次。如果剩下的只是「站著擺姿勢」「一直走路」「原地轉圈」，問題在動作設計，不是鏡頭；先補 §11 的十要素，不要加形容詞或加運鏡來掩蓋。
+
+## 16. 因果五步、尺度參照、不瞬移、招牌技能 〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕
+
+大動作（攻擊、爆發、超能力、機械裝置啟動）一個 shot 內照這個順序寫，每一步都是看得到的事件：
+
+1. **建立**：主體位置、朝向、與目標的距離（`ten meters from the stone gate, facing it`）
+2. **起手**：哪個肢體或裝置開始動（`she drops into a low stance and draws her right fist back`）
+3. **效果**：能量、武器、機構本身的樣子與方向（`a narrow arc of white flame leaves her fist and travels straight forward`）
+4. **環境回應**：撞到什麼、什麼材質怎麼反應（`the gate's surface blackens and cracks outward from the impact point`）
+5. **後果**：穩定下來的新狀態（`dust settles; a scorched hole remains; she straightens, breathing hard`）
+
+- 五步不必都塞進同一個 shot，但跨 shot 不能跳步；預算仍是一個 shot 一個主動作（§3）。
+- **尺度參照**：巨大或微小的東西要放一個已知大小的參照物在同一畫面（人、門、車、樹），否則 H3 會自己決定大小，切鏡後尺寸跳動。
+- **不瞬移**：角色換位置要寫路徑（跑過去、跳下來、被擊飛到哪），切鏡後的位置要跟前一個 shot 的結束位置接得上；需要真的瞬移時把它寫成一個有起點、殘影、落點的效果事件。
+- **知名角色 / 既有招式**：保留招牌外觀、服裝、道具、招式的形狀與顏色（不要把招牌招式換成泛用的「能量球」）；轉成真人或其他媒材時只換材質與光，不換設計。原創角色照使用者給的設定，不自行加衝突的特徵。注意：版權角色在 hosted 端點可能被審核擋下，這不是 prompt 問題。
+- 和 §11 動作鏈十要素的關係：§11 管身體怎麼動，本節管「動作 → 世界」的因果鏈；兩者一起用。
