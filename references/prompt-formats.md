@@ -22,6 +22,7 @@ A/B 的完整規則在官方 skill `h3-prompt-writing` 的 `references/base-en.t
 
 - `<Subject N>` 是語義身份（誰），`<Picture N>` 是檔案（哪張圖）；同一角色多張圖合併成一個 Subject：`<Subject 1> is the same woman established by <Picture 1>, <Picture 2>, and <Picture 3>.`
 - 圖只有當首幀/尾幀/關鍵幀/構圖錨/storyboard 時才獨立追蹤 Picture；只提供長相的圖寫進 Subject 定義即可。
+- Subject 不只人：會跨 shot 重複出現、需要保持一致的道具或場景也可以給一個 Subject（例：`<Subject 2> is the rain-soaked night market alley …`），寫空間配置、材質、天氣、它會怎麼回應動作。簡單場景不要硬湊 Subject。〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕
 - `summary` 開頭方括號任務型：`keyframe completion / reference generation / video editing / video continuation / audio reuse / audio reference`，可用 ` + ` 組合。
 - `retention_analysis` 標記：視覺 `fully_preserved / partially_preserved / attribute_transfer / weak_reference`；音訊 `fully_copy / partially_copy / reference / weak_reference`。
 - `detailed_description` 在 `[Shot 1]` 之前先用一兩句英文定風格；生成任務 350–500 英文字。
@@ -96,3 +97,19 @@ AVOID
 - 參考：≤9 圖、≤3 影片（各 2–15 s、總 ≤15 s）、≤3 音檔（同上）、總 ≤12 檔；音檔不能單獨。
 - prompt ≤7000 字元。
 - 中文台詞本地不出聲：用 repo tokenizer，`<d>[Chinese] …</d>`，注意 shell 編碼。
+
+## 附：「寫實 15 秒電影腳本產生器」system prompt 與本 skill 的對照（2026-10-21）
+
+來源：守富提供的通用 system prompt（六段輸出、每 shot 五小節、攝影/動作/聲音/負向/輸出規則共 12 節）。作者與成片不明，沒有 H3 A/B；被吸收的部分標 〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕。**不採用的部分與原因**：
+
+| 他的做法 | 本 skill 規則 | 取捨 |
+|---|---|---|
+| 一律輸出六段（含 `retention_analysis`） | 六段是 Ref2VA 格式；T2VA/I2VA/FL2VA 用官方三欄 | 不採用「一律六段」。沒參考素材時 `retention_analysis` 沒有東西可保留，照 §A 三欄 |
+| `[Shot 1] — Title (00:00–00:02)` 標題＋區間 | `[Shot 1]` 不帶時間戳、之後 `[Shot N] At MM:SS.mmm`（本機實測切點 6/6 命中） | 不採用。標題字可能被當成畫面文字；區間格式未測 |
+| `retention_analysis` 寫 `appears in [Shot 1] through [Shot N]: fully_preserved — …` | 官方標記同為 `fully_preserved / partially_preserved / attribute_transfer / weak_reference` | 標記一致，已涵蓋；「出現在哪幾個 shot」可當補充說明，不改官方句型 |
+| `<Subject 3>` = 視覺風格 | 風格寫在 `detailed_description` 開頭一兩句與 `[Shot 1]` | 不採用把風格當 Subject（Subject 是「誰／什麼」的身份） |
+| 每 shot 固定五小節（Camera / Visual Action / Environmental Interaction / Lighting / Transition） | Ref2VA `detailed_description` 350–500 英文字、純文字 300–700 | **條件採用**（本機先導 T8，n=1×3 場景，非盲評）：15 s、≤5 shot、t2va 時可直接寫五個標籤小節（實測 519–636 字，標籤字沒被畫進畫面，切點與劇情拍和散文平手）；B 勝在它逼你寫的光線/時段與連戲句（散文版沒寫光 → 夜景變白天、花瓣末鏡消失）。>5 shot 或有參考要縮字時仍用散文，但五項當檢查表且**光線與連戲兩項必寫**。見 `workspace/experiments/results/T8/summary.md` |
+| 預設 15 秒 | 部分端點 T2V/I2V 只到 10 s；15 s ＝ 362 幀；15 s 內 4–6 shot | 保留「使用者沒說就 15 s」，但先確認端點與幀網格 |
+| 長串渲染詞（global illumination、PBR、subsurface、anamorphic…） | 守富皮膚段；H3 由 Qwen3-VL 解析，形容詞不等於物理描述 | 他自己也說「選擇性使用」；只留跟畫面有關的（光的方向、鏡頭焦段），不堆 |
+| 負向限制寫進各段、含「無字幕、無浮水印」 | 負向配正向；官方說不要寫「不要字幕」 | 「只列相關的」已涵蓋（格式 D `AVOID`、`motion-quality.md` §13）；字幕仍照 `audio-and-dialogue.md` §7 |
+| 動作以 15 秒填滿多段 escalation | 10 s 3–4 shot、15 s 4–6 shot，每 shot 一個主動作 | escalation 結構採用（能量曲線，`shot-variety-and-staging.md` §8），數量照預算表 |
