@@ -25,7 +25,7 @@ A/B 的完整規則在官方 skill `h3-prompt-writing` 的 `references/base-en.t
 - Subject 不只人：會跨 shot 重複出現、需要保持一致的道具或場景也可以給一個 Subject（例：`<Subject 2> is the rain-soaked night market alley …`），寫空間配置、材質、天氣、它會怎麼回應動作。簡單場景不要硬湊 Subject。〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕
 - `summary` 開頭方括號任務型：`keyframe completion / reference generation / video editing / video continuation / audio reuse / audio reference`，可用 ` + ` 組合。
 - `retention_analysis` 標記：視覺 `fully_preserved / partially_preserved / attribute_transfer / weak_reference`；音訊 `fully_copy / partially_copy / reference / weak_reference`。
-- `detailed_description` 在 `[Shot 1]` 之前先用一兩句英文定風格；生成任務 350–500 英文字。
+- `detailed_description` 在 `[Shot 1]` 之前先用一兩句英文定風格；生成任務 350–500 英文字。每個 `[Shot N]` 寫五小節時會變長（實測 430–940 字；T8 為 519–636），建議 ≤700，仍守送件端字元上限，見 `shot-five-part.md`。
 - 本地 ComfyUI Ref2VA 節點：`ref_image_0` → `<Picture 1>`，`ref_image_1` → `<Picture 2>`，保留英文與尖括號，不寫欄位全名。
 
 ## C. 官方中文三段（海螺 / Design / API 自然語言）
