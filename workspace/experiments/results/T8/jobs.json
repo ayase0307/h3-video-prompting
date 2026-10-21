@@ -1,0 +1,50 @@
+{
+ "S1A-2001": {
+  "job": "j4368bb23738f",
+  "status": "succeeded",
+  "request_seconds": 1622,
+  "words": 330,
+  "seed": 2001,
+  "params": "t2va 960x544 (0.5MP) medium 12 steps, 15s=362 frames, 16:9"
+ },
+ "S1B-2001": {
+  "job": "j74ad9a6ab9c1",
+  "status": "succeeded",
+  "request_seconds": 1405,
+  "words": 636,
+  "seed": 2001,
+  "params": "t2va 960x544 (0.5MP) medium 12 steps, 15s=362 frames, 16:9"
+ },
+ "S2A-2001": {
+  "job": "jc0cb848977ba",
+  "status": "succeeded",
+  "request_seconds": 1375,
+  "words": 268,
+  "seed": 2001,
+  "params": "t2va 960x544 (0.5MP) medium 12 steps, 15s=362 frames, 16:9"
+ },
+ "S2B-2001": {
+  "job": "jff14bdfde701",
+  "status": "succeeded",
+  "request_seconds": 1437,
+  "words": 550,
+  "seed": 2001,
+  "params": "t2va 960x544 (0.5MP) medium 12 steps, 15s=362 frames, 16:9"
+ },
+ "S3A-2001": {
+  "job": "j593ff2484642",
+  "status": "succeeded",
+  "request_seconds": 1390,
+  "words": 278,
+  "seed": 2001,
+  "params": "t2va 960x544 (0.5MP) medium 12 steps, 15s=362 frames, 16:9"
+ },
+ "S3B-2001": {
+  "job": "je196f5d3e1ed",
+  "status": "succeeded",
+  "request_seconds": 1520,
+  "words": 519,
+  "seed": 2001,
+  "params": "t2va 960x544 (0.5MP) medium 12 steps, 15s=362 frames, 16:9"
+ }
+}

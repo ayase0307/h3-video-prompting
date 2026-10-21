@@ -36,6 +36,8 @@
 
 ## 決策紀錄
 
+- 2026-10-21：吸收守富提供的「寫實 15 秒電影腳本」system prompt：新增 180 度線、因果五步/尺度/不瞬移/招牌技能（action-choreography §16）、soundscape 遠近與三段衰減、配樂人聲與曲風、品牌不捏造、SKILL 交付規則；全標方法主張。不採用：一律六段、`[Shot N] — Title (區間)`、風格當 Subject、每 shot 五小節段落、渲染詞堆疊（對照表在 prompt-formats.md 附錄）。待測：180 度線與因果五步可排 A/B
+
 - 2026-10-20：T1 動作鏈（action-choreography §11）：盲評兩臂全滿分（天花板），composite 3/3 平手 → 未定論，規則維持方法主張；殘留動作 B 3/3 較低僅描述。原 summary 誤判為晉升，已更正
 - 2026-10-20：T2 時間戳切點（prompt-formats.md）：B 6/6 命中、平均誤差 0.045 s、A 2/6 → 晉升「本機先導實測」；「不寫時間戳就一鏡到底」在含 `the shot cuts to` 時不成立。證據不適用 shot-variety §3 四軸
 - 2026-10-20：T3 光線路徑（shot-variety §6、lighting-and-color §A）：6 seed B 勝 1 平 5，A ≥ B 5/6 → 降級為風格建議；§10 自檢 #8 改選用。原 summary「6/6」「n=3 未定論」已更正
@@ -59,3 +61,5 @@
 
 - claude-mem 觀察器憑證失效（2026-10-14 起），不能靠它存記憶；交接只靠本檔
 - 這個資料夾沒有 CLAUDE.md；規範以 `workspace/agent.md` 為準
+
+- 2026-10-21 T8（五小節 vs 散文，15 s×3 場景，seed 2001）完成，結果在 `results/T8/`；待辦：盲評＋≥3 seed＋「散文補光線/連戲句」對照臂，才能決定是否預設五小節。15 s/0.5MP/medium 每支約 23–27 分鐘。

@@ -99,7 +99,14 @@ sustained 808 note, then the full kit returns on the windmill and ends on one fi
 - 樂器 + 速度 + 進入/高潮/停止時間點；官方片頭範例：`first 2 s low frequencies and hi-hat; low drums at 3 s; jazz-bass at 6 s; sax riff at 10 s; freeze the last 2 s on a tense chord`。
 - 不模仿現有旋律：`do not imitate an existing melody`。
 - UGC / 對白戲預設無音樂；一有配樂就像廣告。
+- 補充 〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕：寫明**有沒有人聲**（`instrumental only, no vocals` 或 `wordless female vocal pad`），不寫的話可能長出歌詞和對白搶；有台詞時寫 `kept well under the dialogue`，動作段才讓配樂主導；曲風跟題材走，不要每支都預設管弦（街頭打鬥用 trap / breakbeat、懸疑用低頻 drone、品牌片用 minimal electronic）；15 秒內寫完整的 進入 → 堆疊 → 高潮 → 收尾。
 
 ## 補：soundscape 要隨時序變化
 
 `overall_soundscape` 依時序寫出聲音的變化，例如「雨打玻璃 → 門開雨聲變大 → 門關回到悶雨」，不要只寫一層固定的環境音。
+
+〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕
+- **遠近與音量跟著鏡頭走**：切到特寫，動作音近而乾；切到遠景，同一個聲音變小、帶空間殘響（`the impact sounds distant and echoing in the wide shot`）。
+- **大效果三段**：出現（低鳴、預兆）→ 峰值（撞擊、爆裂）→ 衰減（碎片落地、迴音、回到底噪），每段對應畫面上的事件時間。
+- **靜默是設計**：要安靜的段落寫出剩下什麼（`only her breathing and a faint wind remain`），不要只寫「silence」，否則模型會補別的聲音。
+- 這一欄只放 diegetic 聲音；配樂一律去 `non_diegetic_music`。
