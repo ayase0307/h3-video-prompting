@@ -148,5 +148,6 @@ mp4、原圖、角色切圖不入庫（`_local/`，加進 `.gitignore`）；以 
 | T3 光線路徑 | B 勝 1、平 5、A 勝 0（n=6）；L* std 無退化 | 降級為風格建議 | 本機先導實測（n=6, 0.5MP），評分員看不清臉 | `shot-variety-and-staging.md` §6、§10 #8、§11；`lighting-and-color.md` §A |
 | T4 HEX vs 色名 | ΔE76 兩平、一色名略近（2.01）；無色塊瑕疵 | 維持「色名＋物體，不寫 HEX」 | 本機先導實測（n=3, 0.5MP）；兩臂離色卡都約 ΔE 19 | `lighting-and-color.md` 開頭與「不採用」 |
 | T6 參考路線 | 臉部 composite B 10/10/10 vs A 8/8/7；服裝 ΔE 反向（A 較近） | 晉升為「要鎖臉時給臉部特寫參考」 | 本機先導實測（n=3, 0.5MP），有混淆 | `action-choreography.md` §10 |
+| T8 五小節 vs 散文（15 s, n=1×3 場景） | 切點 A 8/12、B 9/12；劇情拍全平；B 勝在光線/連戲細節；標籤字未入畫；非盲評 | 條件採用 | 本機先導實測（非盲、n=1/場景） | `prompt-formats.md` 附表「每 shot 固定五小節」列 |
 
 審查更正：T1 summary 原判晉升（誤讀判準）、T3 原寫「A ≥ B 6/6」與「n=3 未定論」、T4 原寫三個全平手，已在各 `summary.md` 改正。
