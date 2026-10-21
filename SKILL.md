@@ -36,6 +36,8 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 素材分工、動作/運鏡/表演遷移、影片編輯、續接、首尾幀與循環：`references/references-and-editing.md`
 - **長片規劃（30–60 秒以上多段生成、路線選擇、接點載體、分鏡表模板）**：`references/long-form-planning.md`
 - **長自含式 hosted prompt 與本 skill 規則的衝突對照（字數、時間窗、字幕句、格式）**：`references/prompt-formats.md`「附：長自含式…」
+- **通用「15 秒電影腳本」system prompt 對照（哪些採用、哪些和 H3 衝突）**：`references/prompt-formats.md`「附：寫實 15 秒…」
+- **大動作因果五步、尺度參照、不瞬移、知名角色招牌技能**：`references/action-choreography.md` §16
 - **不單調：跨 shot 變化四軸規則、spec 卡壓縮優先序、能量曲線、送出前自檢**：`references/shot-variety-and-staging.md`（寫完 prompt 必跑 §10）
 - 完整改寫範例：`references/example-fight-10s.md`（打鬥）、`references/example-basketball-crossover-10s.md`（非舞蹈人體動作，未送 H3 驗證）、`references/example-spec-to-prompt-10s.md`（spec 卡→三欄 prompt）、`references/example-seedance-to-h3.md`（Seedance 時間碼→H3 Ref2VA）
 
@@ -84,6 +86,15 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 皮膚段搭配 fal `MiniMax-H3-Realism-People-LoRA` 時，`r34l1sm` 仍放 prompt 最開頭。
 - 15 秒＝362 幀、8 秒＝192 幀（只有 8 秒落在整秒），長度需符合 17k+5 幀網格。
 
+## 交付規則（寫給使用者的 prompt）
+
+〔方法主張：守富提供的 15 秒腳本 system prompt，H3 未 A/B〕
+- 只交付可直接貼上的 prompt 本體，不加開場白、設計說明、結語，也不重述本 skill 的規則。
+- 各欄位講的是同一支片：`subject_definitions`／`summary`／分鏡／`overall_soundscape`／`non_diegetic_music` 的角色、服裝、道具、時間點互相對得上（交付前逐欄對一次）。
+- 使用者明講的要求優先於本 skill 的慣例；資訊不夠時做合理決定並保留使用者意圖，不回頭追問小細節。
+- 不捏造歷史事實、官方標語、引言、產品規格；使用者要準確時沒給的就不寫。
+- 時長沒指定就用 15 s（先確認端點支援與幀網格）；prompt 用英文，除非使用者指定其他語言（台詞語言照劇情）。
+
 ## Red flags：看到就停下重寫
 
 - 兩個 shot 差不到 2 秒；一個 shot 三個以上動作
@@ -98,6 +109,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 把「俯拍」當運鏡（寫成 tilts down），角度和運鏡不分
 - 「HUD elements」「some labels」沒逐字打出
 - 只寫動作名稱（旋轉、揮劍、跳躍）沒有支撐/重心/慣性；每段高光都用同一種大動作
+- 大效果只有「效果」沒有環境回應和後果；角色切鏡後換了位置卻沒寫路徑；追逐方向切鏡後反了
 - 質地詞（spiral、wave、counter-rotation）堆成段落大綱
 - 把歌詞/台詞意象直接寫成畫面實體（換裝、加道具、加人）
 
