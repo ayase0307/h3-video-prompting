@@ -3,3 +3,6 @@ Thumbs.db
 
 workspace/experiments/_local/
 .serena/
+
+__pycache__/
+*.pyc
