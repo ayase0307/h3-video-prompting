@@ -1,5 +1,7 @@
 # 鏡頭語言與轉場
 
+> 17 式運鏡骨架、實測狀態與「場景意圖→運鏡」選用指南見 [camera-moves-handbook.md](camera-moves-handbook.md)。
+
 來源：官方 base-en.txt 4.2–4.3；minimax3.com 20 種官方運鏡整理；videoai.me 鏡頭語言；官方飛書手冊（環繞寫法、切鏡風格）；fal.ai 44 例；Kapwing；reAPI。
 
 ## 1. 每個 shot 一個運鏡，寫成動作，帶落點
@@ -134,7 +136,7 @@ The camera trucks right with small amplitude at slow speed; the foreground leave
 The camera holds still at first, then pushes in with small amplitude toward …
 這仍然是一個運鏡。
 
-## 10. 焦點轉移（rack focus，H3 未實測）
+## 10. 焦點轉移（rack focus，Colab 已實測通過，見 camera-moves-handbook.md）
 
 - 焦點轉移算該 shot 唯一的鏡頭事件，鏡身寫 holds a static shot，同一 shot 不能再加別的運鏡。
 - 起點和終點都要是畫面裡能指認的物件：then the focus shifts from her hand to the distant towers, as her hand softens into a blur。
