@@ -12,6 +12,7 @@
 
 - AI-KSK 導演台 prompt compiler（含 camera-action-recipes、failure-repair-matrix、DIRECTOR_PROMPT_LOGIC_ZH）：https://github.com/AI-KSK/aiksk-minimax-h3-local-prompt
 - penposs 泛化框架（六層控制、節奏、素材職責）：https://github.com/penposs/minimax-h3-video-prompt
+- Loop Forge h3-camera-shots（14 個具名鏡頭配方＋build_prompt.py，MIT）：https://github.com/loopforge0/minimaxh3-shots-skills 。2026-10-25 Colab 第 3 輪用其句型實測 8 支全過（dolly zoom 正反向、snorricam、eyes-in、aerial pullback、super dolly in、yo-yo zoom、三格分割），收錄於 `camera-moves-handbook.md`。MIT 授權，英文骨架改寫自其 shot line。
 
 ## 社群整理文（含引用 Reddit / X 實測）
 
