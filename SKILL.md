@@ -1,11 +1,13 @@
 ---
 name: h3-video-prompting
-description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3, Hailuo 03, H3 Max) video prompt in any mode (T2VA, I2VA, FL2VA, L2VA, Ref2VA, video editing, ComfyUI local, hosted API), for any scenario - dialogue and short drama, UGC talking head, singing and MV, dance, fight, parkour, chase and vehicles, product and e-commerce, brand film, logo sting, UI and game, animals, nature B-roll, anime, 3D cartoon, clay and paper, hand-drawn fusion, motion graphics, VFX transformation, loops, motion transfer, relighting - or when a generated clip came back static, flat, monotonous or repetitive (every shot looks alike), mushy, over-choreographed, speaking gibberish, with unwanted music or subtitles, garbled text, or drifting identity - or when planning a shot list / storyboard / 分鏡 / camera moves for H3, or converting a Seedance / Kling / Jimeng prompt into H3 format.
+description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3, Hailuo 03, H3 Max) video prompt in any mode (T2VA, I2VA, FL2VA, L2VA, Ref2VA, video editing, ComfyUI local, hosted API), for any scenario - dialogue and short drama, UGC talking head, singing and MV, dance, fight, parkour, chase and vehicles, product and e-commerce, brand film, logo sting, UI and game, animals, nature B-roll, anime, 3D cartoon, clay and paper, hand-drawn fusion, motion graphics, VFX transformation, loops, motion transfer, relighting - or when a generated clip came back static, flat, monotonous or repetitive (every shot looks alike), mushy, over-choreographed, speaking gibberish, with unwanted music or subtitles, garbled text, or drifting identity - or when planning a shot list / storyboard / 分鏡 / camera moves for H3, or converting a Seedance / Kling / Jimeng prompt into H3 format. When the prompt involves fighting, moves, VFX or impact frames, also load h3-combat-impact (combat pacing, impact frames and shot-length exceptions follow that skill).
 ---
 
 # H3 Video Prompting（動作 × 節奏 × 情境 × 社群實戰）
 
 **REQUIRED SUB-SKILL:** `h3-prompt-writing`（官方）負責最終排版：欄位名、`[Shot N] At MM:SS.mmm`、`<d>` 標籤、`<Picture N>` 對齊句、Ref2VA 六段式。本 skill 負責「寫什麼」與「怎麼不踩坑」。先用本 skill 決定內容，再用官方 skill 排版。
+
+**COMPANION SKILL：** 涉及打鬥／對打／招式／必殺技／大招／特效／衝擊幀／震屏時，**同時載入 `h3-combat-impact`**（ayase0307/h3-combat-impact）。兩者並用：格式與通用規則照本 skill 與官方排版；打鬥節奏、招式設計、特效分層、衝擊幀路徑、組裝變速與鏡長例外以 h3-combat-impact 為準。
 
 核心原則：**H3 prompt 是隨時間變化的規格，不是畫面描述。** 每句話對應看得到或聽得到的事件，並說清楚在第幾秒。
 
@@ -21,7 +23,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 
 | 你要做的 | 讀 |
 |---|---|
-| 兩人對白、短劇、UGC 口播、唱歌 rap、舞蹈、打鬥、跑酷追逐、喜劇、情感特寫、懸疑偽紀實、vlog、POV/FPS、旁白數位人、真人照片動起來 | `references/scenarios-people.md` |
+| 兩人對白、短劇、UGC 口播、唱歌 rap、舞蹈、打鬥、跑酷追逐、喜劇、情感特寫、懸疑偽紀實、vlog、POV/FPS、旁白數位人、真人照片動起來 | `references/scenarios-people.md`（打鬥、招式、特效、衝擊幀另載 `h3-combat-impact`） |
 | 產品 hero、開箱示範、液體食物、品牌片、時尚美妝、logo 片頭字卡、UI/網頁/遊戲選單、電商在手、工業機器人、建築旅遊 | `references/scenarios-commercial.md` |
 | 空鏡 B-roll、自然天氣、動物、車輛追逐空拍、手機偽紀實、2D anime、3D 卡通、黏土紙藝、手繪實拍融合、動態圖形、變身 VFX、無縫循環、角色設定板、綠幕重打光、多素材混剪 | `references/scenarios-world-and-styles.md` |
 
@@ -48,8 +50,8 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 | 項目 | 上限 | 超過會怎樣 |
 |---|---|---|
 | 每個 shot 主動作 | 1 個（含起手→接觸→收勢） | 動作被壓縮、糊成一團 |
-| 每個 shot 長度 | ≥ 2 s；對白 shot = 台詞朗讀秒數 + 反應 | timestamp 太密是最常見結構失敗 |
-| 10 s 內 shot 數 | 3–4；15 s 內 4–6 | 幻燈片感、動作沒做完 |
+| 每個 shot 長度 | ≥ 2 s；對白 shot = 台詞朗讀秒數 + 反應。**例外**：衝擊幀串段、打擊短鏡、ULTRA_SPEED 鏡例外（可短於 2 s，鏡長以 h3-combat-impact 為準） | timestamp 太密是最常見結構失敗 |
+| 10 s 內 shot 數 | 3–4；15 s 內 4–6（打鬥的連續對轟／ULTRA_SPEED 模式照 h3-combat-impact 的鏡頭密度表） | 幻燈片感、動作沒做完 |
 | 每個 shot 運鏡 | 1 個（motion type + amplitude + speed + 落點） | 鏡頭亂飄或幾乎不動 |
 | 對白 | 15 s 約 20 英文字；每句約 10 字；一個 `<d>` 一句 | 語速趕、口型壞、亂語 |
 | 重要角色 | ≤ 3 | 身份漂移、錯人說話 |
@@ -99,7 +101,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 
 ## Red flags：看到就停下重寫
 
-- 兩個 shot 差不到 2 秒；一個 shot 三個以上動作
+- 兩個 shot 差不到 2 秒（衝擊幀串段、打擊短鏡、ULTRA_SPEED 鏡例外（可短於 2 s，鏡長以 h3-combat-impact 為準））；一個 shot 三個以上動作
 - `cinematic / epic / dynamic / high quality` 沒有物理描述
 - 慢動作 shot 裡有大雨、飛葉、群眾
 - 寫了 orbit / 環繞；一個 shot 兩個運鏡
