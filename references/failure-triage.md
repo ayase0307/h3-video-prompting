@@ -15,6 +15,7 @@
 | 皮膚蠟感／塑膠感（近景最明顯） | 高頻細節在低解析訓練 bucket 就丟了；商業打光詞與磨皮詞加成 | 加固定皮膚描述句（見 `skin-realism-block.md`）＋ medium/close shot 給模型更多臉部資訊 | 疊 fal `MiniMax-H3-Realism-People-LoRA`（prompt 以 `r34l1sm` 開頭，strength 0.65），或後期用 H3 Skin Finish 類節點（只動 mask 內膚色/油光） | 上 beauty filter 或無腦 upscaler（會把紋理一起磨掉） |
 | 加了音樂（寫了 N/A 仍有） | 約 20% 漏；文中有「氛圍音樂」字眼 | 全文移除任何音樂情緒詞 | 重抽 | |
 | 亂語 / 隨機台詞 | 沒安排動作、看鏡頭 | 正向寫「全程安靜、嘴閉合」+ 持續動作 | 改側臉/中遠景 | 用引號或台詞格式 |
+| 畫外句／旁白念成亂語或不發聲 | 寫了「X speaks off-screen」卻沒給 `<d>` 逐字台詞；聲線描述塞進 `<d>` | 改官方 O.S.／V.O. 句式＋逐字 `<d>`、聲線放 `<d>` 外（`audio-and-dialogue.md` §3） | 句子拆短（約 ≤15 字）、一鏡一句、鏡長留夠 | 只寫「someone speaks」不給字 |
 | 錯的人說話 | speaker 沒綁到畫面內角色 | 明寫 (S1) 是畫面內哪個角色 | 音頻參考與 speaker 分開標 | 把 S ID 給 Audio 資產 |
 | 畫內台詞變畫外音 | 缺 lip-sync 關聯 | 寫「visible on screen and says」 | 真畫外音才加「lips remain closed」 | |
 | `<d>` 產生多餘人聲 | tag 路徑不穩 | 同句改純引號重試 | | 重寫整段 |
