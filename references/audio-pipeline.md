@@ -71,7 +71,7 @@ slowly, pauses one second before the last word, says: <d>[English] Get out.</d>
 
 1. 先定配音時長，再反推 shot 長度（H3 單段 5–15 秒；12 個英文字約 5 秒）。「先出畫面再配」查無可靠流程。
 2. 適合外部配音的鏡頭：
-   - **畫外旁白**：`says in an off-screen voiceover while lips remain completely closed`。
+   - **畫外旁白（長句或需跨段統一聲線時）**：H3 這鏡不提誰在說話、只寫露臉者嘴閉合與環境音；短旁白直接讓 H3 念（`says in an off-screen voiceover, <聲線>: <d>…</d> while … lips remain completely closed`，見 `audio-and-dialogue.md` §3）。
    - **內心戲 / 系統音 / 電話另一端**：畫面給持續動作（低頭讀信、轉身走），不給正臉說話。
    - **背影、遠景、遮擋嘴部、cutaway 反應鏡頭**：對白期間畫面切去聽者或物件。
    - 不說話寫法見 audio-and-dialogue §6；「站著看鏡頭」最容易自行補說話。
