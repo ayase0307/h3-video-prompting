@@ -24,7 +24,7 @@
 | **② Motion** | 起始狀態 → 施力點／方向／速度 → 支撐、重心、慣性 → 結束狀態；每鏡仍只 1 個主動作。 | `First …, then …, as …, finally …` |
 | **③ Performance** | 眉、眼、嘴、肩、呼吸的微變化與情緒轉折；寫可見的變化，不寫情緒清單；聽者也要演。無臉鏡改寫手、背、姿態的表演。 | `Red-rimmed eyes that stay dry; a short breath through the nose between the two sentences; …` |
 | **④ Light** | 光源方向＋色溫；材質對光；水面、紙、布、灰塵、濕石板等環境回應；跨鏡光源一致。 | `Cool top light slides down his face as he rises, catching the wet strands at his temple; …` |
-| **⑤ Sound** | 鏡內音效的秒數（`at about 0.8 s`）、環境音；有台詞寫起口時間；外部 TTS 鏡寫明說話者嘴不入畫（`her mouth out of frame behind her head`），但不要寫 speaks／says 這類說話動詞（沒有 `<d>` 時 H3 會自編亂語，E41）。 | `The clay base grates on stone at about 0.8 s; he speaks about 0.3 s after the bowl stops.` |
+| **⑤ Sound** | 鏡內音效的秒數（`at about 0.8 s`）、環境音；有台詞寫起口時間；外部 TTS 鏡寫明說話者嘴不入畫（`her mouth out of frame behind her head`），但不要寫 speaks／says 這類說話動詞（沒有 `<d>` 時 H3 會自編亂語）。 | `The clay base grates on stone at about 0.8 s; he speaks about 0.3 s after the bowl stops.` |
 
 ## 硬規則（五小節內也要守）
 

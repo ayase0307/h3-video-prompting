@@ -47,7 +47,7 @@
   - O.S.（在場未入鏡／不具形）：`the line is heard from <說話者> (Sn) off-screen[, 位置], <聲線描述>: <d>[Chinese] 逐字台詞</d> while <Subject k>'s lips remain completely closed.`
   - V.O.（旁白／內心獨白）：`<說話者> (Sn) says in an off-screen voiceover, <聲線>: <d>[Chinese] …</d> while no face is on screen, so all lips remain completely closed.`
   - 聲線描述放 `<d>` 外；只對露臉者寫閉嘴，無臉寫 `no face is on screen`；同鏡 Expression 不寫 mouth open／gasping，改 `lips pressed tightly shut`；一鏡一句、約 ≤15 字、鏡長留夠。
-  - **不要寫「X speaks off-screen」卻不給 `<d>`**：H3 會自編亂語。外部 TTS 的鏡就完全不提誰在說話（ai-comic-drama 門禁 E41）。
+  - **不要寫「X speaks off-screen」卻不給 `<d>`**：H3 會自編亂語。外部 TTS 的鏡就完全不提誰在說話（ai-comic-drama 的畫外句聲音 lint 會擋）。
   - 限制：同說話者跨段聲線可能不一致（未量測）；改稿要整段重跑。長旁白或需跨段統一聲線才外部 TTS（ai-comic-drama 的 `--narration-policy short-offscreen-h3` 就是這條規則）。
 - 跨切點：兩側加 `<scenetrans>` 並寫 `continues seamlessly across the cut`；被結尾截斷用 `<cutoff>`。
 - 對白跨 shot 的官方例：`一個畫外音響起說：Wake up Wake up。之後切鏡到一個中年婦女的近景，她是畫外音的主人，她繼續說道：It's time to go to school!`
