@@ -97,6 +97,7 @@ Or copy the folder to `~/.claude/skills/h3-video-prompting/` (Claude Code) or yo
 | `references/example-spec-to-prompt-10s.md` | **New.** Spec card → 4-shot T2VA prompt, with the variety check worked out |
 | `references/example-seedance-to-h3.md` | **New.** Seedance prompt → H3 Ref2VA, every conversion explained |
 | `references/camera-and-transitions.md` | 20 official camera moves, shot size / lens / angle, camera motive, rack focus, transitions as events, **camera geometry, continuous vs montage vs two-state camera** |
+| `references/camera-moves-handbook.md` | 17 camera-move skeletons with Colab-verified status, bullet time, intent-to-move selection guide |
 | `references/long-form-planning.md` | 30–60 s multi-clip planning, seam carriers, spec card, storyboard template, **self-contained segment prompts, hand-off state, mechanism rotation** |
 | `references/scenarios-people.md` | Dialogue, UGC, MV, dance, fight, parkour, comedy, suspense, vlog, POV, digital human |
 | `references/scenarios-commercial.md` | Product, unboxing, food, brand film, fashion, logo sting, UI / game, e-commerce |

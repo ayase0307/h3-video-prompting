@@ -30,6 +30,7 @@ description: Use when writing, reviewing, or fixing a MiniMax H3 / Hailuo 3 (H3,
 - 動作拆解、打鬥一拍公式、動作鏈十要素（含自檢：拿掉鏡頭詞動作還成立嗎）：`references/action-choreography.md`
 - 節奏、卡點、時間軸、速度形容詞：`references/rhythm-and-pacing.md`
 - 鏡頭 20 種官方詞、景別鏡頭角度、轉場寫成事件：`references/camera-and-transitions.md`
+- 運鏡手冊 17 式＋仙俠子彈時間＋場景意圖→運鏡選用指南（分鏡階段依 beat 情緒選運鏡）：`references/camera-moves-handbook.md`
 - 對白預算、speaker、聲音參考、配樂進出、不說話寫法、字幕（含音訊規則索引）：`references/audio-and-dialogue.md`
 - **光影配色、跨鏡頭色彩一致、角色重打光防貼紙、色卡參考圖（未驗證）、後期統一與色彩 QA（`scripts/color_qa.py`）**：`references/lighting-and-color.md`
 - **聲音一次到位、跨片段鎖音色、情緒表演 vs 外部 TTS、必須配音時避開口型、Openverse 後製音效與 ffmpeg 混音**：`references/audio-pipeline.md`
